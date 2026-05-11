@@ -10,7 +10,7 @@ import { CopyBlock } from "@/components/copy-block";
 import { SITE } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Contribute — add your component to VibeKit",
+  title: "Contribute  add your component to VibeKit",
   description:
     "Add a production-ready component to VibeKit. Open a pull request with the install command, env vars, files it creates, and when to use it. We review and merge contributions weekly.",
   alternates: { canonical: "/contribute" },
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
 const componentTemplate = `{
   slug: "my-component",
   name: "My Component",
-  tagline: "One sentence — what it does, who it's for.",
+  tagline: "One sentence  what it does, who it's for.",
   category: "data", // auth | marketing | data | commerce | files | content | api | forms
   categoryLabel: "Data",
   install: "pnpm dlx shadcn@latest add https://your-registry.com/r/my-component.json",
@@ -38,7 +38,7 @@ const componentTemplate = `{
   ],
 
   features: [
-    "Bullet point — what it does (a feature, not marketing fluff)",
+    "Bullet point  what it does (a feature, not marketing fluff)",
     "Another bullet",
     "3–6 bullets total is the sweet spot",
   ],
@@ -59,7 +59,7 @@ const checklistItems = [
   "Component is production-ready and documented (not a half-built prototype).",
   "Install command works end-to-end on a fresh Next.js 16 project.",
   "Schema entry includes every required field (see template below).",
-  "Files-added list is accurate — every route, API, component, schema change.",
+  "Files-added list is accurate  every route, API, component, schema change.",
   "Env vars are enumerated with where to obtain them.",
   "Component category fits one of the existing categories OR you propose a new one in the PR.",
   "Component does not duplicate an existing JB component (check /components first).",
@@ -70,10 +70,11 @@ const steps = [
     title: "Build & host the component",
     body: (
       <>
-        Build a working component and publish it to a shadcn-compatible registry (your own
-        domain works — e.g. <code>https://yourdomain.com/r/your-component.json</code>).
-        Verify <code>pnpm dlx shadcn@latest add &lt;url&gt;</code> works on a fresh Next.js 16
-        project.
+        Build a working component and publish it to a shadcn-compatible registry
+        (your own domain works e.g.{" "}
+        <code>https://yourdomain.com/r/your-component.json</code>). Verify{" "}
+        <code>pnpm dlx shadcn@latest add &lt;url&gt;</code> works on a fresh
+        Next.js 16 project.
       </>
     ),
   },
@@ -81,10 +82,11 @@ const steps = [
     title: "Write a doc page",
     body: (
       <>
-        Document what the component does. A blog post on your own site or a markdown file
-        in the PR description both work — but it has to exist. Link it via the
-        <code>blogUrl</code> field. This becomes the "Read full guide" button on the
-        component's detail page.
+        Document what the component does. A blog post on your own site or a
+        markdown file in the PR description both work but it has to exist. Link
+        it via the
+        <code>blogUrl</code> field. This becomes the "Read full guide" button on
+        the component's detail page.
       </>
     ),
   },
@@ -92,9 +94,9 @@ const steps = [
     title: "Open a PR",
     body: (
       <>
-        Fork the repo, edit{" "}
-        <code>web/src/lib/components-data.ts</code>, add your entry using the schema below,
-        and open a pull request. The PR template walks you through the checklist.
+        Fork the repo, edit <code>web/src/lib/components-data.ts</code>, add
+        your entry using the schema below, and open a pull request. The PR
+        template walks you through the checklist.
       </>
     ),
   },
@@ -102,9 +104,10 @@ const steps = [
     title: "Review & merge",
     body: (
       <>
-        We review weekly. Most PRs need one or two iterations on copy or schema. Once
-        merged, your component appears at <code>/components/&lt;your-slug&gt;</code> and is
-        loaded by every Claude Code agent reading the registry.
+        We review weekly. Most PRs need one or two iterations on copy or schema.
+        Once merged, your component appears at{" "}
+        <code>/components/&lt;your-slug&gt;</code> and is loaded by every Claude
+        Code agent reading the registry.
       </>
     ),
   },
@@ -119,10 +122,13 @@ export default function ContributePage() {
           eyebrow="OPEN SOURCE · MIT"
           title={
             <>
-              Got a component? <em className="not-italic gradient-text">Add it to the registry.</em>
+              Got a component?{" "}
+              <em className="not-italic gradient-text">
+                Add it to the registry.
+              </em>
             </>
           }
-          description="VibeKit is community-driven. If you've built a production-grade component for auth, payments, file uploads, search, dashboards — anything reusable across projects — open a PR. We merge weekly."
+          description="VibeKit is community-driven. If you've built a production-grade component for auth, payments, file uploads, search, dashboards  anything reusable across projects  open a PR. We merge weekly."
           containerClassName="max-w-4xl"
         >
           {/* CTA buttons */}
@@ -151,7 +157,7 @@ export default function ContributePage() {
         <Section
           eyebrow="WHY CONTRIBUTE"
           title="Build once. Ship in every project."
-          description="A merged component is loaded by every developer using VibeKit — not just yours."
+          description="A merged component is loaded by every developer using VibeKit  not just yours."
           containerClassName="max-w-4xl"
         >
           <div className="grid gap-4 sm:grid-cols-3">
@@ -162,7 +168,7 @@ export default function ContributePage() {
               },
               {
                 title: "Credibility",
-                body: "VibeKit is opinionated — making the cut signals your component is production-ready, not a weekend hack.",
+                body: "VibeKit is opinionated  making the cut signals your component is production-ready, not a weekend hack.",
               },
               {
                 title: "Compounds",
@@ -193,7 +199,10 @@ export default function ContributePage() {
         >
           <ol className="space-y-8">
             {steps.map((s, i) => (
-              <li key={s.title} className="reveal grid gap-5 sm:grid-cols-[auto_1fr]">
+              <li
+                key={s.title}
+                className="reveal grid gap-5 sm:grid-cols-[auto_1fr]"
+              >
                 <div className="font-mono text-[36px] font-light leading-none text-[color:var(--accent)] tabular-nums">
                   {String(i + 1).padStart(2, "0")}
                 </div>
@@ -216,8 +225,9 @@ export default function ContributePage() {
           title="One file. One entry. Done."
           description={
             <>
-              All component metadata lives in <code>web/src/lib/components-data.ts</code>.
-              Copy this template, fill it in, and push to a new branch.
+              All component metadata lives in{" "}
+              <code>web/src/lib/components-data.ts</code>. Copy this template,
+              fill it in, and push to a new branch.
             </>
           }
           containerClassName="max-w-3xl"
@@ -237,22 +247,62 @@ export default function ContributePage() {
             </h3>
             <dl className="mt-4 divide-y divide-[color:var(--border)] rounded-md border border-[color:var(--border)] bg-[color:var(--bg-elevated)]">
               {[
-                ["slug", "URL-safe identifier. Becomes /components/<slug>. Lowercase, hyphens, no spaces."],
-                ["name", "Display name. Title case. Brief — 'JB Better Auth UI' beats 'The JB Better Auth UI Component System'."],
-                ["tagline", "One sentence under 100 characters. What it does + who it's for."],
-                ["category", "One of: auth | marketing | data | commerce | files | content | api | forms. Propose a new one in the PR if none fit."],
+                [
+                  "slug",
+                  "URL-safe identifier. Becomes /components/<slug>. Lowercase, hyphens, no spaces.",
+                ],
+                [
+                  "name",
+                  "Display name. Title case. Brief  'JB Better Auth UI' beats 'The JB Better Auth UI Component System'.",
+                ],
+                [
+                  "tagline",
+                  "One sentence under 100 characters. What it does + who it's for.",
+                ],
+                [
+                  "category",
+                  "One of: auth | marketing | data | commerce | files | content | api | forms. Propose a new one in the PR if none fit.",
+                ],
                 ["categoryLabel", "Display label for the category tag."],
-                ["install", "The exact command users run. Must be tested on a fresh Next.js 16 project."],
-                ["blogUrl", "URL to a doc page explaining the component (your own blog, GitHub README, anywhere accessible)."],
-                ["prerequisites", "Things that must exist before installing (database, other components, accounts). Optional."],
-                ["envVars", "Each env var with name + description of where to obtain it. Omit field if none."],
-                ["features", "3–6 bullet points describing capabilities. No marketing fluff."],
-                ["whenToUse / whenNotToUse", "One sentence each. Honest about tradeoffs — readers respect that."],
-                ["filesAdded", "Every route, API endpoint, component, and schema change the install creates. This is the most-checked field — be exhaustive."],
+                [
+                  "install",
+                  "The exact command users run. Must be tested on a fresh Next.js 16 project.",
+                ],
+                [
+                  "blogUrl",
+                  "URL to a doc page explaining the component (your own blog, GitHub README, anywhere accessible).",
+                ],
+                [
+                  "prerequisites",
+                  "Things that must exist before installing (database, other components, accounts). Optional.",
+                ],
+                [
+                  "envVars",
+                  "Each env var with name + description of where to obtain it. Omit field if none.",
+                ],
+                [
+                  "features",
+                  "3–6 bullet points describing capabilities. No marketing fluff.",
+                ],
+                [
+                  "whenToUse / whenNotToUse",
+                  "One sentence each. Honest about tradeoffs  readers respect that.",
+                ],
+                [
+                  "filesAdded",
+                  "Every route, API endpoint, component, and schema change the install creates. This is the most-checked field  be exhaustive.",
+                ],
               ].map(([key, desc]) => (
-                <div key={key} className="grid grid-cols-1 gap-2 px-5 py-4 sm:grid-cols-[180px_1fr]">
-                  <code className="font-mono text-[13px] text-[color:var(--accent)]">{key}</code>
-                  <span className="text-[14px] leading-relaxed text-[color:var(--text-secondary)]">{desc}</span>
+                <div
+                  key={key}
+                  className="grid grid-cols-1 gap-2 px-5 py-4 sm:grid-cols-[180px_1fr]"
+                >
+                  <code className="font-mono text-[13px] text-[color:var(--accent)]">
+                    {key}
+                  </code>
+                  <span className="text-[14px] leading-relaxed text-[color:var(--text-secondary)]">
+                    {desc}
+                  </span>
                 </div>
               ))}
             </dl>
@@ -286,11 +336,7 @@ export default function ContributePage() {
           containerClassName="max-w-3xl"
         >
           <div className="flex flex-wrap items-center justify-center gap-3">
-            <Button
-              href={`${SITE.github}/fork`}
-              variant="accent"
-              size="lg"
-            >
+            <Button href={`${SITE.github}/fork`} variant="accent" size="lg">
               <Github className="h-4 w-4" />
               Fork on GitHub
               <ArrowUpRight className="h-4 w-4" />
@@ -354,7 +400,10 @@ export default function ContributePage() {
               "@type": "HowToStep",
               position: i + 1,
               name: s.title,
-              text: typeof s.body === "string" ? s.body : `Step ${i + 1}: ${s.title}`,
+              text:
+                typeof s.body === "string"
+                  ? s.body
+                  : `Step ${i + 1}: ${s.title}`,
             })),
           }),
         }}

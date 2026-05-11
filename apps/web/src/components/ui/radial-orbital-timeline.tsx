@@ -7,7 +7,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
 
 // SSR-safe layout effect
-const useIsoLayoutEffect = typeof window !== "undefined" ? useLayoutEffect : useEffect;
+const useIsoLayoutEffect =
+  typeof window !== "undefined" ? useLayoutEffect : useEffect;
 
 export interface TimelineItem {
   id: number;
@@ -30,7 +31,9 @@ export default function RadialOrbitalTimeline({
   timelineData,
   className,
 }: RadialOrbitalTimelineProps) {
-  const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>({});
+  const [expandedItems, setExpandedItems] = useState<Record<number, boolean>>(
+    {},
+  );
   const [rotationAngle, setRotationAngle] = useState<number>(0);
   const [autoRotate, setAutoRotate] = useState<boolean>(true);
   const [pulseEffect, setPulseEffect] = useState<Record<number, boolean>>({});
@@ -117,7 +120,10 @@ export default function RadialOrbitalTimeline({
     const x = radius * Math.cos(radian);
     const y = radius * Math.sin(radian);
     const zIndex = Math.round(100 + 50 * Math.cos(radian));
-    const opacity = Math.max(0.4, Math.min(1, 0.45 + 0.55 * ((1 + Math.sin(radian)) / 2)));
+    const opacity = Math.max(
+      0.4,
+      Math.min(1, 0.45 + 0.55 * ((1 + Math.sin(radian)) / 2)),
+    );
     return { x, y, angle, zIndex, opacity };
   };
 
@@ -151,12 +157,15 @@ export default function RadialOrbitalTimeline({
       className={cn(
         "relative w-full flex items-center justify-center overflow-hidden rounded-md border border-[color:var(--border)] bg-[color:var(--bg)]",
         "min-h-[520px] sm:min-h-[600px] lg:min-h-[680px]",
-        className
+        className,
       )}
     >
       {/* Subtle grid backdrop */}
-      <div className="pointer-events-none absolute inset-0 grid-pattern opacity-60" aria-hidden />
-      {/* Center radial glow — pulls eye to the core */}
+      <div
+        className="pointer-events-none absolute inset-0 grid-pattern opacity-60"
+        aria-hidden
+      />
+      {/* Center radial glow  pulls eye to the core */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden
@@ -171,12 +180,13 @@ export default function RadialOrbitalTimeline({
         className="relative h-full w-full flex items-center justify-center"
         style={{ perspective: "1000px" }}
       >
-        {/* Central core — vibrant SVG monogram */}
-        <div className="absolute z-10 flex h-24 w-24 items-center justify-center" aria-hidden>
+        {/* Central core  vibrant SVG monogram */}
+        <div
+          className="absolute z-10 flex h-24 w-24 items-center justify-center"
+          aria-hidden
+        >
           {/* Outer ping rings */}
-          <span
-            className="absolute h-28 w-28 rounded-full border border-[color:var(--accent)]/40 animate-ping opacity-60"
-          />
+          <span className="absolute h-28 w-28 rounded-full border border-[color:var(--accent)]/40 animate-ping opacity-60" />
           <span
             className="absolute h-32 w-32 rounded-full border border-[color:var(--accent)]/20 animate-ping opacity-40"
             style={{ animationDelay: "0.5s" }}
@@ -202,11 +212,23 @@ export default function RadialOrbitalTimeline({
                 <stop offset="75%" stopColor="#5B5BD6" />
                 <stop offset="100%" stopColor="#312E81" />
               </radialGradient>
-              <linearGradient id="orbital-core-shine" x1="0" y1="0" x2="0.5" y2="1">
+              <linearGradient
+                id="orbital-core-shine"
+                x1="0"
+                y1="0"
+                x2="0.5"
+                y2="1"
+              >
                 <stop offset="0%" stopColor="white" stopOpacity="0.45" />
                 <stop offset="60%" stopColor="white" stopOpacity="0" />
               </linearGradient>
-              <filter id="orbital-core-inner" x="-20%" y="-20%" width="140%" height="140%">
+              <filter
+                id="orbital-core-inner"
+                x="-20%"
+                y="-20%"
+                width="140%"
+                height="140%"
+              >
                 <feGaussianBlur stdDeviation="1.5" />
               </filter>
             </defs>
@@ -214,7 +236,13 @@ export default function RadialOrbitalTimeline({
             {/* Sphere */}
             <circle cx="50" cy="50" r="44" fill="url(#orbital-core-bg)" />
             {/* Top highlight */}
-            <ellipse cx="40" cy="34" rx="22" ry="14" fill="url(#orbital-core-shine)" />
+            <ellipse
+              cx="40"
+              cy="34"
+              rx="22"
+              ry="14"
+              fill="url(#orbital-core-shine)"
+            />
             {/* Equator ring */}
             <ellipse
               cx="50"
@@ -235,18 +263,32 @@ export default function RadialOrbitalTimeline({
               textAnchor="middle"
               style={{ letterSpacing: "-0.02em" }}
             >
-              <text x="50" y="58" filter="url(#orbital-core-inner)" opacity="0.5">
+              <text
+                x="50"
+                y="58"
+                filter="url(#orbital-core-inner)"
+                opacity="0.5"
+              >
                 VK
               </text>
-              <text x="50" y="58">VK</text>
+              <text x="50" y="58">
+                VK
+              </text>
             </g>
             {/* Bottom shadow / depth */}
-            <ellipse cx="50" cy="78" rx="30" ry="6" fill="black" opacity="0.18" />
+            <ellipse
+              cx="50"
+              cy="78"
+              rx="30"
+              ry="6"
+              fill="black"
+              opacity="0.18"
+            />
           </svg>
         </div>
 
         {/* Orbital ring */}
-        {/* Visual ring — sized off the dynamic radius */}
+        {/* Visual ring  sized off the dynamic radius */}
         <div
           className="absolute rounded-full border border-[color:var(--border-strong)]/40"
           style={{ width: radius * 2, height: radius * 2 }}
@@ -284,7 +326,7 @@ export default function RadialOrbitalTimeline({
               <div
                 className={cn(
                   "absolute -inset-2 rounded-full",
-                  isPulsing && "animate-pulse"
+                  isPulsing && "animate-pulse",
                 )}
                 style={{
                   background: `radial-gradient(circle, color-mix(in srgb, var(--accent) 40%, transparent) 0%, transparent 70%)`,
@@ -304,7 +346,7 @@ export default function RadialOrbitalTimeline({
                     ? "scale-150 border-[color:var(--text-primary)] bg-[color:var(--text-primary)] text-[color:var(--text-inverse)] shadow-lg"
                     : isRelated
                       ? "border-[color:var(--accent)] bg-[color:var(--accent)]/20 text-[color:var(--accent)] animate-pulse"
-                      : "border-[color:var(--border-strong)] bg-[color:var(--bg-elevated)] text-[color:var(--text-secondary)]"
+                      : "border-[color:var(--border-strong)] bg-[color:var(--bg-elevated)] text-[color:var(--text-secondary)]",
                 )}
               >
                 <Icon size={16} />
@@ -316,7 +358,7 @@ export default function RadialOrbitalTimeline({
                   "absolute top-12 left-1/2 -translate-x-1/2 whitespace-nowrap font-mono text-[11px] uppercase tracking-wider transition-all duration-300",
                   isExpanded
                     ? "scale-110 text-[color:var(--text-primary)]"
-                    : "text-[color:var(--text-secondary)]"
+                    : "text-[color:var(--text-secondary)]",
                 )}
               >
                 {item.title}
@@ -342,7 +384,9 @@ export default function RadialOrbitalTimeline({
                         {item.date}
                       </span>
                     </div>
-                    <CardTitle className="mt-2 text-[14px]">{item.title}</CardTitle>
+                    <CardTitle className="mt-2 text-[14px]">
+                      {item.title}
+                    </CardTitle>
                   </CardHeader>
                   <CardContent className="text-[12.5px] leading-relaxed text-[color:var(--text-secondary)]">
                     <p>{item.content}</p>
@@ -373,7 +417,9 @@ export default function RadialOrbitalTimeline({
                         </div>
                         <div className="flex flex-wrap gap-1.5">
                           {item.relatedIds.map((relatedId) => {
-                            const relatedItem = timelineData.find((i) => i.id === relatedId);
+                            const relatedItem = timelineData.find(
+                              (i) => i.id === relatedId,
+                            );
                             return (
                               <button
                                 key={relatedId}

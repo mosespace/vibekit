@@ -1,4 +1,4 @@
-# VIBEKIT — CLAUDE PLANNING PROMPT
+# VIBEKIT CLAUDE PLANNING PROMPT
 
 > Paste everything below this line into Claude (claude.ai) alongside your app idea.
 
@@ -15,6 +15,7 @@ Read these files in full before responding:
 3. **JB Component Registry reference:** https://raw.githubusercontent.com/MUKE-coder/vibekit/main/jb-components.md
 
 The framework contains:
+
 - The standard tech stack (Next.js 16 + Neon + Prisma v7 + Better Auth + React Query + Zod + API Routes + Resend + Stripe + @react-pdf/renderer + xlsx + Vercel + Cloudflare)
 - The master prompt that Claude Code will follow when building
 - The phase-based build structure
@@ -32,7 +33,7 @@ After interviewing me, generate **exactly 4 files** in separate code blocks. The
 A comprehensive project description document. This is the single source of truth for what the app is.
 
 ```
-# [App Name] — Project Description
+# [App Name]  Project Description
 
 ## What This App Does
 [2-4 sentences. Plain English. What problem it solves and for whom.]
@@ -48,9 +49,9 @@ A comprehensive project description document. This is the single source of truth
 - **[Role 1]:** [what they can do]
 - **[Role 2]:** [what they can do]
 
-## Features — Complete List
-1. [Feature name] — [specific description, not vague]
-2. [Feature name] — [specific description]
+## Features  Complete List
+1. [Feature name]  [specific description, not vague]
+2. [Feature name]  [specific description]
 3. [Continue for ALL features]
 
 ## Data Model
@@ -59,10 +60,10 @@ A comprehensive project description document. This is the single source of truth
 - **Relationships:** [e.g. "A Project belongs to a User. A Task belongs to a Project."]
 
 ## Pages / Screens
-1. `/` — [Landing page description]
-2. `/login` — [Auth pages]
-3. `/dashboard` — [Main dashboard]
-4. `/dashboard/[feature]` — [Feature pages]
+1. `/`  [Landing page description]
+2. `/login`  [Auth pages]
+3. `/dashboard`  [Main dashboard]
+4. `/dashboard/[feature]`  [Feature pages]
 [Continue for ALL pages]
 
 ## Integrations
@@ -71,7 +72,7 @@ A comprehensive project description document. This is the single source of truth
 - **Payments:** [Stripe / DGateway / None]
 - **File uploads:** [Cloudflare R2 / AWS S3 / UploadThing / None]
 - **AI features:** [Vercel AI SDK / None]
-- **Dark mode:** [Yes / No] — if No, skip ThemeProvider and next-themes entirely
+- **Dark mode:** [Yes / No]  if No, skip ThemeProvider and next-themes entirely
 
 ## JB Components to Install
 [List only the JB components relevant to this project, in install order:]
@@ -90,14 +91,14 @@ A comprehensive project description document. This is the single source of truth
 A detailed build blueprint with phases, tasks, and dependencies. Claude Code will follow this file phase by phase.
 
 ```
-# [App Name] — Build Phases
+# [App Name]  Build Phases
 
-## Phase 1 — Foundation
+## Phase 1  Foundation
 **Goal:** Project scaffolded, design system applied, env files created, database connected, auth working.
 
 ### Tasks
 - [ ] Initialize Next.js 16 project with TypeScript, Tailwind v4, shadcn/ui
-- [ ] Create `.env.example` (committed) and `.env.local` (gitignored) with EVERY env var this project needs (Database, Better Auth, OAuth, Resend, Stripe, file storage — whichever apply). Each var commented with what it is and where to get it.
+- [ ] Create `.env.example` (committed) and `.env.local` (gitignored) with EVERY env var this project needs (Database, Better Auth, OAuth, Resend, Stripe, file storage  whichever apply). Each var commented with what it is and where to get it.
 - [ ] Add `.env.local` to `.gitignore`
 - [ ] Set up Prisma v7 with Neon PostgreSQL (schema, config, db client)
 - [ ] Apply design-style-guide.md tokens to globals.css
@@ -105,7 +106,7 @@ A detailed build blueprint with phases, tasks, and dependencies. Claude Code wil
 - [ ] Build sidebar layout (collapsible, nav items, user section[, dark mode toggle if enabled])
 - [ ] Build page header component (breadcrumb + title + actions)
 - [ ] Install JB Better Auth UI: `pnpm dlx shadcn@latest add https://better-auth-ui.desishub.com/r/auth-components.json`
-- [ ] **Integrate installed auth files into existing routes — do NOT overwrite existing `page.tsx` or `layout.tsx`. Edit and merge.**
+- [ ] **Integrate installed auth files into existing routes  do NOT overwrite existing `page.tsx` or `layout.tsx`. Edit and merge.**
 - [ ] Configure Better Auth env vars (BETTER_AUTH_SECRET, BETTER_AUTH_URL, OAuth keys if in scope)
 - [ ] Create protected route middleware
 - [ ] Build custom 404, error, and loading pages
@@ -117,7 +118,7 @@ A detailed build blueprint with phases, tasks, and dependencies. Claude Code wil
 
 ---
 
-## Phase 2 — Core Features
+## Phase 2  Core Features
 **Goal:** All primary screens built and connected to real data.
 
 ### Tasks
@@ -137,7 +138,7 @@ A detailed build blueprint with phases, tasks, and dependencies. Claude Code wil
 
 ---
 
-## Phase 3 — [Payments & Billing / Skip if no monetization]
+## Phase 3  [Payments & Billing / Skip if no monetization]
 **Goal:** Users can pay, subscriptions tracked, features gated.
 
 ### Tasks
@@ -156,7 +157,7 @@ A detailed build blueprint with phases, tasks, and dependencies. Claude Code wil
 
 ---
 
-## Phase 4 — [File Uploads / Skip if no files]
+## Phase 4  [File Uploads / Skip if no files]
 **Goal:** Users can upload and manage files.
 
 ### Tasks
@@ -170,7 +171,7 @@ A detailed build blueprint with phases, tasks, and dependencies. Claude Code wil
 
 ---
 
-## Phase 5 — [Email & Notifications / Skip if no emails]
+## Phase 5  [Email & Notifications / Skip if no emails]
 **Goal:** App communicates with users via email.
 
 ### Tasks
@@ -185,7 +186,7 @@ A detailed build blueprint with phases, tasks, and dependencies. Claude Code wil
 
 ---
 
-## Phase 6 — Polish & Deploy
+## Phase 6  Polish & Deploy
 **Goal:** App is production-ready and live.
 
 ### Tasks
@@ -237,14 +238,14 @@ Output the **full customized file** as File 3. Keep sections 1–16 intact, but 
 The prompt the user will paste into Claude Code to start building.
 
 ```
-# Claude Code — Build Prompt
+# Claude Code  Build Prompt
 
 Read the following files in order before doing anything:
-1. `master_prompt.md` — Your tech stack rules, Prisma v7 patterns, and coding standards. Follow EXACTLY.
-2. `design-style-guide.md` — The visual design system for this project. Apply to every component you build.
-3. `jb-components.md` — The JB component reference. Use these components before writing from scratch.
-4. `project-description.md` — What we are building. Every decision must align with this.
-5. `project-phases.md` — The build plan. Work through phases in order.
+1. `master_prompt.md`  Your tech stack rules, Prisma v7 patterns, and coding standards. Follow EXACTLY.
+2. `design-style-guide.md`  The visual design system for this project. Apply to every component you build.
+3. `jb-components.md`  The JB component reference. Use these components before writing from scratch.
+4. `project-description.md`  What we are building. Every decision must align with this.
+5. `project-phases.md`  The build plan. Work through phases in order.
 
 ## Rules
 - Work through ONE phase at a time. Complete all tasks in a phase before moving to the next.
@@ -256,46 +257,49 @@ Read the following files in order before doing anything:
 - Use API Routes (Route Handlers) for all server-side logic.
 - Use @react-pdf/renderer for PDF generation. Never jsPDF.
 - Use xlsx for Excel export.
-- **Before building auth, file uploads, checkout, data tables, or blogs from scratch — check jb-components.md and install the relevant component first.**
+- **Before building auth, file uploads, checkout, data tables, or blogs from scratch  check jb-components.md and install the relevant component first.**
 
 ## Start
-Begin with **Phase 1 — Foundation** from project-phases.md. Read the phase tasks and execute them in order.
+Begin with **Phase 1  Foundation** from project-phases.md. Read the phase tasks and execute them in order.
 ```
 
 ---
 
 ## Your Interview Process
 
-### Step 1 — Acknowledge
+### Step 1 Acknowledge
+
 Confirm you understand the framework. List the tech stack and the 4 files you will generate.
 
-### Step 2 — Decide if an interview is needed (CRITICAL)
+### Step 2 Decide if an interview is needed (CRITICAL)
 
 Read my app idea carefully. Then determine:
 
-**A) "Brief is detailed enough"** — if my idea already covers most of: core users, key features, data model hints, monetization, file uploads, email, design direction (color/feel/inspiration), and dark mode preference, then SKIP the interview entirely. Tell me explicitly:
+**A) "Brief is detailed enough"** if my idea already covers most of: core users, key features, data model hints, monetization, file uploads, email, design direction (color/feel/inspiration), and dark mode preference, then SKIP the interview entirely. Tell me explicitly:
 
-> *"Your brief is detailed enough — no interview needed. Here's everything I understood."*
+> _"Your brief is detailed enough no interview needed. Here's everything I understood."_
 
 …then jump to Step 3.
 
-**B) "Some gaps to fill"** — if 1–4 important details are missing, ask only those questions. Don't pad the interview to hit a quota.
+**B) "Some gaps to fill"** if 1–4 important details are missing, ask only those questions. Don't pad the interview to hit a quota.
 
-**C) "Brief is too thin"** — if the idea is vague (e.g. "build me a SaaS"), do a full 7–10 question interview covering:
-  - Core understanding (problem, users, value)
-  - Features & scope (specific features, user roles)
-  - Data model (entities, relationships)
-  - Monetization (payments? Stripe or DGateway? Subscriptions or one-time?)
-  - File uploads (R2/S3 / UploadThing / None?)
-  - Email (which triggers?)
-  - **Visual design (always ask):** brand color, typography, aesthetic feel, inspiration, what to avoid, **dark mode Yes/No**
-  - Timeline / scope v1
+**C) "Brief is too thin"** if the idea is vague (e.g. "build me a SaaS"), do a full 7–10 question interview covering:
+
+- Core understanding (problem, users, value)
+- Features & scope (specific features, user roles)
+- Data model (entities, relationships)
+- Monetization (payments? Stripe or DGateway? Subscriptions or one-time?)
+- File uploads (R2/S3 / UploadThing / None?)
+- Email (which triggers?)
+- **Visual design (always ask):** brand color, typography, aesthetic feel, inspiration, what to avoid, **dark mode Yes/No**
+- Timeline / scope v1
 
 Rules for interview mode:
-- Ask **one question at a time** (max 2-3 if tightly related)
-- Be smart — skip obvious questions (e.g. don't ask "does an e-commerce app need a cart?")
 
-### Step 3 — Confirm understanding & ask for consent (MANDATORY — never skip)
+- Ask **one question at a time** (max 2-3 if tightly related)
+- Be smart skip obvious questions (e.g. don't ask "does an e-commerce app need a cart?")
+
+### Step 3 Confirm understanding & ask for consent (MANDATORY never skip)
 
 Before generating ANY file, you MUST do this exact sequence:
 
@@ -317,51 +321,53 @@ Before generating ANY file, you MUST do this exact sequence:
 
 3. Then ask exactly this:
 
-   > *"Does this match your intent? Reply **'Yes, generate the files'** to proceed, or tell me what to adjust."*
+   > _"Does this match your intent? Reply **'Yes, generate the files'** to proceed, or tell me what to adjust."_
 
-**Do NOT generate any file in this turn.** Wait for explicit user confirmation. Even if the brief is detailed and obviously complete, this confirmation step is non-negotiable — it gives the user a final chance to redirect before file generation.
+**Do NOT generate any file in this turn.** Wait for explicit user confirmation. Even if the brief is detailed and obviously complete, this confirmation step is non-negotiable it gives the user a final chance to redirect before file generation.
 
-### Step 4 — Generate the 4 Files (only after explicit confirmation)
+### Step 4 Generate the 4 Files (only after explicit confirmation)
 
 When the user confirms (some variation of "yes" / "go" / "generate"), produce all 4 files using **Claude Artifacts** so they're individually downloadable.
 
 **Output requirements:**
+
 - Create 4 separate Artifacts, one per file. Use markdown artifact type. Each must be downloadable from the Artifact panel.
 - Artifact identifiers / titles must be the exact filenames: `project-description.md`, `project-phases.md`, `design-style-guide.md`, `prompt.md`.
-- Every field must be filled in — no placeholders, no `[BRACKET]` values remaining.
-- For `design-style-guide.md`: write the full customized style guide — all sections 1 through 16 with project-specific content. Don't link to the template; write the entire file.
+- Every field must be filled in no placeholders, no `[BRACKET]` values remaining.
+- For `design-style-guide.md`: write the full customized style guide all sections 1 through 16 with project-specific content. Don't link to the template; write the entire file.
 
 **At the end of the message**, also provide ONE-CLICK file creation as a fallback:
 
-   ```bash
-   # Run from your project root to create all 4 files at once
-   mkdir -p ./
-   cat > project-description.md << 'EOF'
-   ...full project-description.md content...
-   EOF
+```bash
+# Run from your project root to create all 4 files at once
+mkdir -p ./
+cat > project-description.md << 'EOF'
+...full project-description.md content...
+EOF
 
-   cat > project-phases.md << 'EOF'
-   ...full project-phases.md content...
-   EOF
+cat > project-phases.md << 'EOF'
+...full project-phases.md content...
+EOF
 
-   cat > design-style-guide.md << 'EOF'
-   ...full design-style-guide.md content...
-   EOF
+cat > design-style-guide.md << 'EOF'
+...full design-style-guide.md content...
+EOF
 
-   cat > prompt.md << 'EOF'
-   ...full prompt.md content...
-   EOF
+cat > prompt.md << 'EOF'
+...full prompt.md content...
+EOF
 
-   echo "✓ Created 4 VibeKit project files"
-   ```
+echo "✓ Created 4 VibeKit project files"
+```
 
 This way the user has TWO ways to get the files into their project:
-1. **Download** each artifact individually (preferred — one click each from the artifact panel)
-2. **Copy-paste** the single bash heredoc block into their terminal — creates all 4 at once
+
+1. **Download** each artifact individually (preferred one click each from the artifact panel)
+2. **Copy-paste** the single bash heredoc block into their terminal creates all 4 at once
 
 Tell the user explicitly which method to use:
 
-> *"Each file is a downloadable Artifact in the panel on the right. Click the download icon on each one. If you'd rather create all 4 from your terminal in one go, copy the bash block at the bottom of this message and run it in your project folder."*
+> _"Each file is a downloadable Artifact in the panel on the right. Click the download icon on each one. If you'd rather create all 4 from your terminal in one go, copy the bash block at the bottom of this message and run it in your project folder."_
 
 ---
 
@@ -373,4 +379,4 @@ Example: "I want to build a school management system where teachers can manage s
 
 ---
 
-*Powered by the VibeKit Framework — github.com/MUKE-coder/vibekit*
+_Powered by the VibeKit Framework github.com/MUKE-coder/vibekit_

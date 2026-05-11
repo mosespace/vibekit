@@ -7,7 +7,7 @@ import { Section } from "@/components/section";
 import { SITE } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "FAQ — VibeKit Framework",
+  title: "FAQ  VibeKit Framework",
   description:
     "Frequently asked questions about VibeKit: which coding agents it supports, what's in the 4 generated files, how it differs from create-next-app, and more.",
   alternates: { canonical: "/faq" },
@@ -21,7 +21,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Which AI coding agents does VibeKit work with?",
-    a: "VibeKit works with any coding agent that reads project files. This includes Claude Code, Cursor, Kiro Code, Antigravity, Windsurf, Cline, Aider, Continue, Cody, v0, Lovable, and Bolt. The four generated files are agent-agnostic markdown — drop them into any project and the agent will read them as part of its context.",
+    a: "VibeKit works with any coding agent that reads project files. This includes Claude Code, Cursor, Kiro Code, Antigravity, Windsurf, Cline, Aider, Continue, Cody, v0, Lovable, and Bolt. The four generated files are agent-agnostic markdown  drop them into any project and the agent will read them as part of its context.",
   },
   {
     q: "How is VibeKit different from create-next-app?",
@@ -37,7 +37,7 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Why lock the stack instead of letting the AI choose?",
-    a: "Because AI agents are inconsistent. Without a locked stack, you'll get jsPDF in one project, react-pdf in the next; Drizzle here, Prisma there; useEffect for data fetching when React Query is right. The locked stack means every project is debuggable in the same way, every component is reusable across projects, and the agent never has to invent — it just builds.",
+    a: "Because AI agents are inconsistent. Without a locked stack, you'll get jsPDF in one project, react-pdf in the next; Drizzle here, Prisma there; useEffect for data fetching when React Query is right. The locked stack means every project is debuggable in the same way, every component is reusable across projects, and the agent never has to invent  it just builds.",
   },
   {
     q: "What does the pre-deploy review do?",
@@ -45,15 +45,15 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "What's the JB Component Registry?",
-    a: "A collection of production-ready shadcn components for the most common app primitives: authentication (Better Auth UI), file uploads (S3/R2), Stripe checkout, data tables, MDX blogs, marketing sites, e-commerce carts, searchable selects, API documentation, and Mobile Money payments. Your coding agent installs them with one command instead of writing auth or file uploads from scratch — saving 60–80% of tokens per feature.",
+    a: "A collection of production-ready shadcn components for the most common app primitives: authentication (Better Auth UI), file uploads (S3/R2), Stripe checkout, data tables, MDX blogs, marketing sites, e-commerce carts, searchable selects, API documentation, and Mobile Money payments. Your coding agent installs them with one command instead of writing auth or file uploads from scratch  saving 60–80% of tokens per feature.",
   },
   {
     q: "Do I need to be a developer to use VibeKit?",
-    a: "You need basic comfort with the command line, git, and reading code — but you don't need to write much code yourself. The agent does the writing. You'll review, confirm, and occasionally redirect. If you've successfully shipped anything with Cursor or Claude Code before, you can use VibeKit.",
+    a: "You need basic comfort with the command line, git, and reading code  but you don't need to write much code yourself. The agent does the writing. You'll review, confirm, and occasionally redirect. If you've successfully shipped anything with Cursor or Claude Code before, you can use VibeKit.",
   },
   {
     q: "How long does it take to build an app with VibeKit?",
-    a: "A typical SaaS MVP — auth, dashboard, CRUD, payments, email, deploy — takes 8–20 hours of agent time spread across 3–7 days. Phase 1 (foundation: auth + layout + design system) is usually 1–2 hours. Each subsequent phase is 1–4 hours depending on feature complexity. The pre-deploy review and deployment take another 2–3 hours combined.",
+    a: "A typical SaaS MVP  auth, dashboard, CRUD, payments, email, deploy  takes 8–20 hours of agent time spread across 3–7 days. Phase 1 (foundation: auth + layout + design system) is usually 1–2 hours. Each subsequent phase is 1–4 hours depending on feature complexity. The pre-deploy review and deployment take another 2–3 hours combined.",
   },
   {
     q: "Can I use VibeKit for something other than SaaS?",
@@ -65,11 +65,11 @@ const faqs: { q: string; a: string }[] = [
   },
   {
     q: "Does VibeKit support dark mode?",
-    a: "Yes — but only if you opt in. The planning interview asks if you want dark mode. If you say yes, the design-style-guide.md includes a dark palette, the master prompt enforces ThemeProvider + next-themes, and a toggle is added to the sidebar. If you say no, dark mode is skipped entirely — no extra code, no .dark classes, no toggle.",
+    a: "Yes  but only if you opt in. The planning interview asks if you want dark mode. If you say yes, the design-style-guide.md includes a dark palette, the master prompt enforces ThemeProvider + next-themes, and a toggle is added to the sidebar. If you say no, dark mode is skipped entirely  no extra code, no .dark classes, no toggle.",
   },
   {
     q: "Can I customize the design beyond the style guide?",
-    a: "Absolutely. The design-style-guide.md is a starting point — once it's in your project, you and the agent can iterate on it. Change the primary color, swap fonts, adjust spacing. The master prompt enforces consistency across the app, but the tokens themselves are entirely yours to edit.",
+    a: "Absolutely. The design-style-guide.md is a starting point  once it's in your project, you and the agent can iterate on it. Change the primary color, swap fonts, adjust spacing. The master prompt enforces consistency across the app, but the tokens themselves are entirely yours to edit.",
   },
   {
     q: "Where do I get help if something breaks?",
@@ -84,7 +84,12 @@ export default function FAQ() {
       <main className="pt-28">
         <Section
           eyebrow="FREQUENTLY ASKED"
-          title={<>Common questions, <em className="not-italic gradient-text">direct answers</em>.</>}
+          title={
+            <>
+              Common questions,{" "}
+              <em className="not-italic gradient-text">direct answers</em>.
+            </>
+          }
           description="Everything you might want to know about VibeKit, the agents it supports, and how it compares to building from scratch."
           containerClassName="max-w-3xl"
         >
@@ -123,7 +128,10 @@ export default function FAQ() {
                 GitHub
               </a>{" "}
               or read the{" "}
-              <Link href="/docs" className="text-[color:var(--accent)] underline underline-offset-4">
+              <Link
+                href="/docs"
+                className="text-[color:var(--accent)] underline underline-offset-4"
+              >
                 docs
               </Link>
               .
@@ -133,7 +141,7 @@ export default function FAQ() {
       </main>
       <Footer />
 
-      {/* FAQPage schema for AEO — direct lift in answer engines */}
+      {/* FAQPage schema for AEO  direct lift in answer engines */}
       <Script
         id="ld-faq"
         type="application/ld+json"

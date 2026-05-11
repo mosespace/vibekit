@@ -30,10 +30,10 @@ export function CTA() {
             start: "top 80%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     },
-    { scope: root }
+    { scope: root },
   );
 
   return (
@@ -51,7 +51,10 @@ export function CTA() {
           />
 
           {/* Warm grid */}
-          <div className="pointer-events-none absolute inset-0 grid-pattern opacity-30" aria-hidden />
+          <div
+            className="pointer-events-none absolute inset-0 grid-pattern opacity-30"
+            aria-hidden
+          />
 
           <div className="relative">
             <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--bg)] px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-secondary)]">
@@ -60,19 +63,24 @@ export function CTA() {
             </div>
 
             <h2 className="font-display mt-8 text-[clamp(2.25rem,5vw,4rem)] leading-[1.05] tracking-tight text-[color:var(--text-primary)]">
-              Stop fighting AI.<br />
+              Stop fighting AI.
+              <br />
               <em className="not-italic gradient-text">Start shipping.</em>
             </h2>
 
             <p className="mx-auto mt-6 max-w-xl text-[16px] leading-relaxed text-[color:var(--text-secondary)]">
-              Run one command, describe your idea, and let your AI provider plan and build it phase by phase — with a locked stack, pre-deploy audit, and production patterns baked in.
+              Run one command, describe your idea, and let your AI provider plan
+              and build it phase by phase with a locked stack, pre-deploy audit,
+              and production patterns baked in.
             </p>
 
             {/* Terminal command */}
             <div className="mx-auto mt-10 max-w-sm">
               <div className="flex items-center gap-3 rounded-md border border-[color:var(--accent)]/30 bg-[#0E0C09] px-5 py-3.5 font-mono text-[14px]">
                 <span className="text-[#D97757]">$</span>
-                <code className="flex-1 text-left text-[#F5EFE6]">npx create-vibekit-app my-app</code>
+                <code className="flex-1 text-left text-[#F5EFE6]">
+                  npx create-vibekit-app my-app
+                </code>
               </div>
             </div>
 
@@ -89,11 +97,21 @@ export function CTA() {
 
             <p className="mt-8 font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-tertiary)]">
               Fork by{" "}
-              <a href={SITE.authorUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[color:var(--accent)] transition-colors">
+              <a
+                href={SITE.authorUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[color:var(--accent)] transition-colors"
+              >
                 Moses Kisakye
-              </a>
-              {" "}· Original by{" "}
-              <a href={SITE.originalAuthorUrl} target="_blank" rel="noopener noreferrer" className="hover:text-[color:var(--text-secondary)] transition-colors">
+              </a>{" "}
+              · Original by{" "}
+              <a
+                href={SITE.originalAuthorUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="hover:text-[color:var(--text-secondary)] transition-colors"
+              >
                 JB · Desishub
               </a>
             </p>

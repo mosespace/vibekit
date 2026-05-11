@@ -51,12 +51,12 @@ export async function postPlanning(
   const prismaPath = path.join(dest, "prisma", "schema.prisma");
   if (fs.existsSync(prismaPath)) {
     log.info(
-      `Prisma schema detected — after Phase 1 completes, run:\n  ${pc.cyan("pnpm install && pnpm prisma generate")}`,
+      `Prisma schema detected  after Phase 1 completes, run:\n  ${pc.cyan("pnpm install && pnpm prisma generate")}`,
     );
   }
 
   const shouldBuild = await confirm({
-    message: `${pc.bold("Session 2 — Build")}  Start ${pc.bold(provider.name)} now to build Phase 1?`,
+    message: `${pc.bold("Session 2  Build")}  Start ${pc.bold(provider.name)} now to build Phase 1?`,
     initialValue: true,
   });
 
@@ -75,17 +75,17 @@ export async function postPlanning(
 
   const binary = await provider.findBinary();
   if (!binary) {
-    log.warn(`Cannot find ${provider.name} binary — launch it manually.`);
+    log.warn(`Cannot find ${provider.name} binary  launch it manually.`);
     return;
   }
 
   log.info(
-    `${pc.bold("Session 2 — Build")}  ${pc.dim(`${provider.name} will read ${buildPromptFile} and start Phase 1.`)}`,
+    `${pc.bold("Session 2  Build")}  ${pc.dim(`${provider.name} will read ${buildPromptFile} and start Phase 1.`)}`,
   );
 
   provider.launch(
     dest,
     binary,
-    `Read ${buildPromptFile} and begin building the project. Follow the instructions exactly: read master_prompt.md, design-style-guide.md, jb-components.md, project-description.md, and project-phases.md in order. Then start Phase 1 — Foundation.`,
+    `Read ${buildPromptFile} and begin building the project. Follow the instructions exactly: read master_prompt.md, design-style-guide.md, jb-components.md, project-description.md, and project-phases.md in order. Then start Phase 1  Foundation.`,
   );
 }

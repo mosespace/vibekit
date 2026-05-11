@@ -35,7 +35,7 @@ export async function handoffToAgent(
   if (!authed) {
     note(
       `Authenticate first:\n  ${pc.cyan(provider.authHint)}\n\nThen cd into the project and run ${pc.bold(path.basename(provider.binaries[0]))} manually.`,
-      pc.yellow("Launch skipped — not authenticated"),
+      pc.yellow("Launch skipped  not authenticated"),
     );
     return;
   }
@@ -50,7 +50,7 @@ export async function handoffToAgent(
   }
 
   log.info(
-    `${pc.bold("Session 1 — Planning")}  ${pc.dim(`${provider.name} will interview you and generate 4 project files.`)}`,
+    `${pc.bold("Session 1  Planning")}  ${pc.dim(`${provider.name} will interview you and generate 4 project files.`)}`,
   );
   log.info(
     pc.dim(
@@ -58,7 +58,7 @@ export async function handoffToAgent(
     ),
   );
 
-  // Launch session 1 — blocks until the user closes the provider
+  // Launch session 1  blocks until the user closes the provider
   provider.launch(
     dest,
     binary,

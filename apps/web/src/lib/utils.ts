@@ -11,7 +11,7 @@ export const SITE = {
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://vibekit.desishub.com",
   tagline: "One command. Any AI provider. Ship production apps.",
   description:
-    "create-vibekit-app scaffolds your project, collects your idea, detects your AI provider, and launches a structured planning + build session — from one terminal command.",
+    "create-vibekit-app scaffolds your project, collects your idea, detects your AI provider, and launches a structured planning + build session  from one terminal command.",
   twitter: "@mosespace",
   github: "https://github.com/mosespace/vibekit_pro",
   upstreamGithub: "https://github.com/MUKE-coder/vibekit",

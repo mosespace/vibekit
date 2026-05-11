@@ -26,7 +26,7 @@ export async function generateMetadata({
   const c = getComponentBySlug(slug);
   if (!c) return { title: "Component not found" };
 
-  const title = `${c.name} — VibeKit component`;
+  const title = `${c.name}  VibeKit component`;
   const description = c.tagline;
 
   return {
@@ -114,8 +114,14 @@ export default async function ComponentDetailPage({
           <Block title="What it does">
             <ul className="space-y-3">
               {c.features.map((f) => (
-                <li key={f} className="flex gap-3 text-[15px] leading-relaxed text-[color:var(--text-primary)]">
-                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--accent)]" aria-hidden />
+                <li
+                  key={f}
+                  className="flex gap-3 text-[15px] leading-relaxed text-[color:var(--text-primary)]"
+                >
+                  <Check
+                    className="mt-0.5 h-4 w-4 shrink-0 text-[color:var(--accent)]"
+                    aria-hidden
+                  />
                   <span>{f}</span>
                 </li>
               ))}
@@ -266,9 +272,24 @@ export default async function ComponentDetailPage({
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "Home", item: SITE.url },
-              { "@type": "ListItem", position: 2, name: "Components", item: `${SITE.url}/components` },
-              { "@type": "ListItem", position: 3, name: c.name, item: `${SITE.url}/components/${c.slug}` },
+              {
+                "@type": "ListItem",
+                position: 1,
+                name: "Home",
+                item: SITE.url,
+              },
+              {
+                "@type": "ListItem",
+                position: 2,
+                name: "Components",
+                item: `${SITE.url}/components`,
+              },
+              {
+                "@type": "ListItem",
+                position: 3,
+                name: c.name,
+                item: `${SITE.url}/components/${c.slug}`,
+              },
             ],
           }),
         }}
@@ -277,7 +298,13 @@ export default async function ComponentDetailPage({
   );
 }
 
-function Block({ title, children }: { title: string; children: React.ReactNode }) {
+function Block({
+  title,
+  children,
+}: {
+  title: string;
+  children: React.ReactNode;
+}) {
   return (
     <section className="mt-12">
       <h2 className="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-tertiary)]">

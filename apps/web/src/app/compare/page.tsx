@@ -7,7 +7,7 @@ import { Section } from "@/components/section";
 import { SITE } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Compare — VibeKit vs other approaches",
+  title: "Compare  VibeKit vs other approaches",
   description:
     "Side-by-side comparisons of VibeKit against popular AI coding agents and Next.js starters. See where each approach wins.",
   alternates: { canonical: "/compare" },
@@ -18,12 +18,14 @@ const comparisons = [
   {
     slug: "claude-code-vs-cursor-vs-cline",
     title: "Claude Code vs Cursor vs Cline",
-    blurb: "Three top AI coding agents — feature, cost, and workflow comparison. All three work with VibeKit.",
+    blurb:
+      "Three top AI coding agents  feature, cost, and workflow comparison. All three work with VibeKit.",
   },
   {
     slug: "vibekit-vs-create-next-app",
     title: "VibeKit vs create-next-app",
-    blurb: "Blank Next.js project vs a planned VibeKit project. When to use each.",
+    blurb:
+      "Blank Next.js project vs a planned VibeKit project. When to use each.",
   },
 ];
 
@@ -34,8 +36,13 @@ export default function CompareHub() {
       <main className="pt-28">
         <Section
           eyebrow="COMPARISONS"
-          title={<>Side-by-side, <em className="not-italic gradient-text">no marketing fluff</em>.</>}
-          description="Every approach has tradeoffs. These pages show them honestly — when VibeKit wins, when something else does."
+          title={
+            <>
+              Side-by-side,{" "}
+              <em className="not-italic gradient-text">no marketing fluff</em>.
+            </>
+          }
+          description="Every approach has tradeoffs. These pages show them honestly  when VibeKit wins, when something else does."
           containerClassName="max-w-4xl"
         >
           <div className="grid gap-3 sm:grid-cols-2">

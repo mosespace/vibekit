@@ -2,7 +2,7 @@
 
 ![VibeKit CLI](/assets/screenshots/vibekit-scafforld.png)
 
-> A CLI that automates the [VibeKit Framework](https://github.com/MUKE-coder/vibekit) workflow — plan your app with an AI agent, generate 4 project files, then build Phase 1 automatically.
+> A CLI that automates the [VibeKit Framework](https://github.com/MUKE-coder/vibekit) workflow plan your app with an AI agent, generate 4 project files, then build Phase 1 automatically.
 
 **Built on top of the VibeKit Framework by [JB (Muke Johnbaptist)](https://jb.desishub.com) · [Desishub Technologies](https://desishub.com)**
 
@@ -34,7 +34,7 @@ npx create-vibekit-app my-app
 npx create-vibekit-app my-app
 ```
 
-**Step 1 — CLI collects your idea**
+**Step 1 CLI collects your idea**
 
 ```
 ┌  create-vibekit-app
@@ -51,7 +51,7 @@ npx create-vibekit-app my-app
 │  students and parents can pay fees online.
 ```
 
-**Step 2 — Pick your provider**
+**Step 2 Pick your provider**
 
 ```
 ◇  Which AI provider should build your project?
@@ -61,7 +61,7 @@ npx create-vibekit-app my-app
 │  ○ OpenCode         not installed
 ```
 
-**Step 3 — Session 1: Planning**
+**Step 3 Session 1: Planning**
 
 Your app idea is injected into the full VibeKit planning prompt and written to `CLAUDE.md`. The provider launches and interviews you about your app:
 
@@ -73,21 +73,21 @@ Then it generates **4 project files** directly in your project:
 
 | File                     | Purpose                                                         |
 | ------------------------ | --------------------------------------------------------------- |
-| `project-description.md` | Complete app spec — features, data model, pages, integrations   |
+| `project-description.md` | Complete app spec features, data model, pages, integrations     |
 | `project-phases.md`      | Phase-by-phase build blueprint with checkboxes                  |
 | `design-style-guide.md`  | Fully customized design system (colors, typography, components) |
 | `prompt.md`              | The build prompt for Session 2                                  |
 
 Close the provider when planning is done.
 
-**Step 4 — Session 2: Build**
+**Step 4 Session 2: Build**
 
 The CLI detects the generated files and offers to start the build session:
 
 ```
 ◇  Planning files detected
 │
-◇  Session 2 — Build. Start Claude Code now?
+◇  Session 2  Build. Start Claude Code now?
 │  Yes
 │
 ●  Claude Code will read prompt.md and start Phase 1.
@@ -95,11 +95,11 @@ The CLI detects the generated files and offers to start the build session:
 
 The provider reads `prompt.md` which instructs it to:
 
-1. Read `.vibekit/master_prompt.md` — tech stack rules, Prisma v7 patterns, coding standards
-2. Read `design-style-guide.md` — the custom design system
-3. Read `.vibekit/jb-components.md` — JB component registry (use these before building from scratch)
-4. Read `project-description.md` + `project-phases.md` — the plan
-5. Start Phase 1 — Foundation and stop after each phase for confirmation
+1. Read `.vibekit/master_prompt.md` tech stack rules, Prisma v7 patterns, coding standards
+2. Read `design-style-guide.md` the custom design system
+3. Read `.vibekit/jb-components.md` JB component registry (use these before building from scratch)
+4. Read `project-description.md` + `project-phases.md` the plan
+5. Start Phase 1 Foundation and stop after each phase for confirmation
 
 ---
 
@@ -206,14 +206,14 @@ Quick ways to help:
 
 - **Found a bug?** [Open an issue](https://github.com/MUKE-coder/vibekit/issues/new?template=bug-report.md)
 - **Tested on an unsupported provider or OS?** Open an issue with your findings
-- **Fixed something?** Open a PR — no ceremony required for bug fixes
+- **Fixed something?** Open a PR no ceremony required for bug fixes
 - **New provider support?** Add a file to `packages/create-vibekit-app/src/providers/` and open a PR
 
 ---
 
 ## License
 
-MIT — use freely, build boldly.
+MIT use freely, build boldly.
 
 ---
 

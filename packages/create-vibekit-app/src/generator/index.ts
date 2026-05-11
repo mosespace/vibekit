@@ -1,7 +1,7 @@
 import fs from "fs";
 import path from "path";
 
-// Folders inside templates/ that are CLI-internal — never copied to the project
+// Folders inside templates/ that are CLI-internal  never copied to the project
 const SKIP_DIRS = new Set(["planning-prompts"]);
 
 // Files that stay at the project root (standard project conventions)
@@ -51,7 +51,7 @@ function writeGitignore(destRoot: string) {
     "# VibeKit framework files (local only)",
     `${VIBEKIT_DIR}/`,
     "",
-    "# Local env — never commit",
+    "# Local env  never commit",
     ".env.local",
     ".env*.local",
     "",

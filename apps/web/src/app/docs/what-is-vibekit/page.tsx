@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { SITE } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "What is VibeKit? — the Claude Code framework explained",
+  title: "What is VibeKit?  the Claude Code framework explained",
   description:
     "VibeKit is a structured framework for building production-grade Next.js apps with Claude Code. Learn what it is, what problem it solves, and why every vibe coder should use it.",
   alternates: { canonical: "/docs/what-is-vibekit" },
@@ -41,79 +41,158 @@ export default function WhatIsVibeKit() {
               What is VibeKit?
             </h1>
             <p className="mt-5 text-[18px] leading-relaxed text-[color:var(--text-secondary)]">
-              VibeKit is a structured framework for vibe coders building production-grade Next.js applications with Claude Code or any AI agent — without burning tokens, shipping broken auth, or getting stuck in fix loops.
+              VibeKit is a structured framework for vibe coders building
+              production-grade Next.js applications with Claude Code or any AI
+              agent without burning tokens, shipping broken auth, or getting
+              stuck in fix loops.
             </p>
           </header>
 
           <Prose>
             <h2>The short version</h2>
             <p>
-              VibeKit gives Claude Code an opinionated tech stack, a phase-by-phase build plan, a customized design style guide, a pre-deploy security audit, and a registry of production-ready components. It eliminates the unpredictability of AI-generated code by locking every important decision before a single line of code is written.
+              VibeKit gives Claude Code an opinionated tech stack, a
+              phase-by-phase build plan, a customized design style guide, a
+              pre-deploy security audit, and a registry of production-ready
+              components. It eliminates the unpredictability of AI-generated
+              code by locking every important decision before a single line of
+              code is written.
             </p>
 
             <h2>What problem does it solve?</h2>
             <p>
-              When you ask an AI to "build a SaaS", you get one of three outcomes — all bad:
+              When you ask an AI to "build a SaaS", you get one of three
+              outcomes all bad:
             </p>
             <ol>
-              <li><strong>Generic AI slop:</strong> purple gradients, default shadcn cards, every app looks identical.</li>
-              <li><strong>Token burn:</strong> $100–$200 per project because the AI rewrites auth, tables, and forms from scratch every session.</li>
-              <li><strong>Stuck builds:</strong> AI loops on the same broken fix for 30 minutes, context fills with junk, progress stalls.</li>
+              <li>
+                <strong>Generic AI slop:</strong> purple gradients, default
+                shadcn cards, every app looks identical.
+              </li>
+              <li>
+                <strong>Token burn:</strong> $100–$200 per project because the
+                AI rewrites auth, tables, and forms from scratch every session.
+              </li>
+              <li>
+                <strong>Stuck builds:</strong> AI loops on the same broken fix
+                for 30 minutes, context fills with junk, progress stalls.
+              </li>
             </ol>
             <p>
-              VibeKit removes all three failure modes by giving the agent everything it needs — locked stack, validated patterns, pre-built components — before the first prompt.
+              VibeKit removes all three failure modes by giving the agent
+              everything it needs locked stack, validated patterns, pre-built
+              components before the first prompt.
             </p>
 
             <h2>Who is it for?</h2>
             <ul>
-              <li><strong>Vibe coders</strong> who use Claude Code (or any AI agent) and want production-quality output, not prototypes.</li>
-              <li><strong>Solo founders</strong> shipping their first SaaS who can't afford to burn tokens debugging.</li>
-              <li><strong>Indie hackers</strong> launching multiple apps and tired of reinventing auth, payments, file uploads.</li>
-              <li><strong>Agencies</strong> using AI to deliver client work and needing consistent quality across projects.</li>
+              <li>
+                <strong>Vibe coders</strong> who use Claude Code (or any AI
+                agent) and want production-quality output, not prototypes.
+              </li>
+              <li>
+                <strong>Solo founders</strong> shipping their first SaaS who
+                can't afford to burn tokens debugging.
+              </li>
+              <li>
+                <strong>Indie hackers</strong> launching multiple apps and tired
+                of reinventing auth, payments, file uploads.
+              </li>
+              <li>
+                <strong>Agencies</strong> using AI to deliver client work and
+                needing consistent quality across projects.
+              </li>
             </ul>
 
             <h2>What's in the framework?</h2>
             <p>VibeKit is two things working together:</p>
             <ol>
               <li>
-                <strong>A planning prompt</strong> you paste into Claude (the chat web UI) along with your app idea. Claude interviews you and generates 4 files: <code>project-description.md</code>, <code>project-phases.md</code>, <code>design-style-guide.md</code>, and <code>prompt.md</code>.
+                <strong>A planning prompt</strong> you paste into Claude (the
+                chat web UI) along with your app idea. Claude interviews you and
+                generates 4 files: <code>project-description.md</code>,{" "}
+                <code>project-phases.md</code>,{" "}
+                <code>design-style-guide.md</code>, and <code>prompt.md</code>.
               </li>
               <li>
-                <strong>A coding constitution</strong> (<code>master_prompt.md</code>) that Claude Code follows during the build. It locks the stack — Next.js 16, Prisma v7, Better Auth, React Query, Tailwind v4, shadcn/ui — and enforces patterns like server-side pagination, Zod validation, and the JB component registry.
+                <strong>A coding constitution</strong> (
+                <code>master_prompt.md</code>) that Claude Code follows during
+                the build. It locks the stack Next.js 16, Prisma v7, Better
+                Auth, React Query, Tailwind v4, shadcn/ui and enforces patterns
+                like server-side pagination, Zod validation, and the JB
+                component registry.
               </li>
             </ol>
 
             <h2>How does it work in practice?</h2>
             <p>The end-to-end flow is seven steps:</p>
             <ol>
-              <li>Copy <code>CLAUDE_PROMPT.md</code> from the GitHub repo.</li>
-              <li>Open Claude (claude.ai), paste the prompt, append your app idea.</li>
-              <li>Answer 6–10 questions about features, data, integrations, and design.</li>
-              <li>Receive 4 generated files. Save them in your project root.</li>
-              <li>Copy <code>master_prompt.md</code>, <code>jb-components.md</code>, and <code>pre-deploy-review.md</code> from the repo.</li>
-              <li>Open Claude Code and paste <code>prompt.md</code>. Claude Code builds phase by phase, stopping for confirmation between phases.</li>
-              <li>Before deploying, run <code>pre-deploy-review.md</code> for a senior-level audit covering performance, security, and resource usage.</li>
+              <li>
+                Copy <code>CLAUDE_PROMPT.md</code> from the GitHub repo.
+              </li>
+              <li>
+                Open Claude (claude.ai), paste the prompt, append your app idea.
+              </li>
+              <li>
+                Answer 6–10 questions about features, data, integrations, and
+                design.
+              </li>
+              <li>
+                Receive 4 generated files. Save them in your project root.
+              </li>
+              <li>
+                Copy <code>master_prompt.md</code>,{" "}
+                <code>jb-components.md</code>, and{" "}
+                <code>pre-deploy-review.md</code> from the repo.
+              </li>
+              <li>
+                Open Claude Code and paste <code>prompt.md</code>. Claude Code
+                builds phase by phase, stopping for confirmation between phases.
+              </li>
+              <li>
+                Before deploying, run <code>pre-deploy-review.md</code> for a
+                senior-level audit covering performance, security, and resource
+                usage.
+              </li>
             </ol>
 
             <h2>Why this approach beats "just prompt better"</h2>
             <p>
-              Prompt engineering helps, but it doesn't solve the real problem: AI agents have no persistent memory between conversations and no opinion about <em>what good code looks like</em>. They default to whatever they saw most in training — which means generic, inconsistent, often insecure output.
+              Prompt engineering helps, but it doesn't solve the real problem:
+              AI agents have no persistent memory between conversations and no
+              opinion about <em>what good code looks like</em>. They default to
+              whatever they saw most in training which means generic,
+              inconsistent, often insecure output.
             </p>
             <p>
-              A framework is different. The rules persist across sessions. The component library means the AI never has to invent auth or file uploads from scratch. The pre-deploy review catches the security gaps that AI agents systematically miss (unauthenticated routes, missing webhook signature verification, mass assignment vulnerabilities).
+              A framework is different. The rules persist across sessions. The
+              component library means the AI never has to invent auth or file
+              uploads from scratch. The pre-deploy review catches the security
+              gaps that AI agents systematically miss (unauthenticated routes,
+              missing webhook signature verification, mass assignment
+              vulnerabilities).
             </p>
             <p>
-              You're not making the AI smarter. You're making it impossible for the AI to take the wrong shortcut.
+              You're not making the AI smarter. You're making it impossible for
+              the AI to take the wrong shortcut.
             </p>
 
             <h2>Is it free?</h2>
             <p>
-              Yes. MIT licensed, open source, and free to use. You'll pay for Claude Code itself (Anthropic's subscription) and for the cloud services your app uses (Neon, Vercel, Resend, Stripe — most have free tiers).
+              Yes. MIT licensed, open source, and free to use. You'll pay for
+              Claude Code itself (Anthropic's subscription) and for the cloud
+              services your app uses (Neon, Vercel, Resend, Stripe most have
+              free tiers).
             </p>
 
             <h2>Where do I start?</h2>
             <p>
-              Read the <Link href="/docs/quickstart">quickstart guide</Link>, then head to the <a href={SITE.github} target="_blank" rel="noopener noreferrer">GitHub repo</a> and copy <code>CLAUDE_PROMPT.md</code>.
+              Read the <Link href="/docs/quickstart">quickstart guide</Link>,
+              then head to the{" "}
+              <a href={SITE.github} target="_blank" rel="noopener noreferrer">
+                GitHub repo
+              </a>{" "}
+              and copy <code>CLAUDE_PROMPT.md</code>.
             </p>
           </Prose>
 
@@ -138,9 +217,18 @@ export default function WhatIsVibeKit() {
             "@context": "https://schema.org",
             "@type": "Article",
             headline: "What is VibeKit?",
-            description: "A structured framework for building production-grade Next.js apps with Claude Code or any AI agent.",
-            author: { "@type": "Person", name: "JB (Muke Johnbaptist)", url: SITE.authorUrl },
-            publisher: { "@type": "Organization", name: "Desishub Technologies", url: "https://desishub.com" },
+            description:
+              "A structured framework for building production-grade Next.js apps with Claude Code or any AI agent.",
+            author: {
+              "@type": "Person",
+              name: "JB (Muke Johnbaptist)",
+              url: SITE.authorUrl,
+            },
+            publisher: {
+              "@type": "Organization",
+              name: "Desishub Technologies",
+              url: "https://desishub.com",
+            },
             mainEntityOfPage: `${SITE.url}/docs/what-is-vibekit`,
           }),
         }}

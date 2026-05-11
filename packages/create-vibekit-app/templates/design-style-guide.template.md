@@ -1,4 +1,4 @@
-# Invoice Pro — Design Style Guide
+# Invoice Pro Design Style Guide
 
 > Single source of truth for all visual and interaction decisions in Invoice Pro. Reference this file before writing any UI code.
 >
@@ -9,13 +9,13 @@
 
 ## 1. Design Philosophy
 
-Invoice Pro is a premium B2B SaaS product for professionals who send invoices. The UI must feel **trustworthy, refined, and effortless** — the kind of tool you'd expect to pay for.
+Invoice Pro is a premium B2B SaaS product for professionals who send invoices. The UI must feel **trustworthy, refined, and effortless** the kind of tool you'd expect to pay for.
 
 **Three core principles:**
 
-1. **Premium minimalism** — Generous whitespace, sharp typography, subtle shadows. No decoration without purpose.
-2. **Indigo as the hero** — One bold primary color on a warm neutral canvas. The indigo signals action, brand, and identity. Everything else stays quiet.
-3. **Quiet confidence** — Refined borders, soft shadows, precise alignment. No gradients, no emoji in UI, no playful flourishes. It should feel like a tool, not a toy.
+1. **Premium minimalism** Generous whitespace, sharp typography, subtle shadows. No decoration without purpose.
+2. **Indigo as the hero** One bold primary color on a warm neutral canvas. The indigo signals action, brand, and identity. Everything else stays quiet.
+3. **Quiet confidence** Refined borders, soft shadows, precise alignment. No gradients, no emoji in UI, no playful flourishes. It should feel like a tool, not a toy.
 
 ---
 
@@ -43,23 +43,24 @@ Apply via `className={onest.variable}` on the root layout and reference it in Ta
 
 ### Type Scale
 
-| Style | Size | Weight | Line Height | Tracking | Usage |
-|-------|------|--------|-------------|----------|-------|
-| `display` | 48px | 600 | 1.1 | -0.02em | Landing hero, marketing |
-| `display-sm` | 36px | 600 | 1.15 | -0.02em | Section headers on landing |
-| `h1` | 30px | 600 | 1.2 | -0.015em | Page titles in dashboard |
-| `h2` | 24px | 600 | 1.25 | -0.01em | Section headings |
-| `h3` | 20px | 600 | 1.3 | -0.005em | Card titles, modal titles |
-| `h4` | 16px | 600 | 1.4 | 0 | List item titles, labels |
-| `body-lg` | 16px | 400 | 1.55 | 0 | Marketing body copy |
-| `body` | 14px | 400 | 1.5 | 0 | Default dashboard body text |
-| `body-sm` | 13px | 400 | 1.5 | 0 | Secondary info, table data |
-| `caption` | 12px | 500 | 1.4 | 0.01em | Meta, timestamps, badges |
-| `micro` | 11px | 600 | 1.3 | 0.04em | Uppercase labels, eyebrows (uppercase) |
-| `tabular` | 14px | 500 | 1.5 | 0 | Numbers, amounts — use `font-variant-numeric: tabular-nums` |
-| `invoice-total` | 28px | 700 | 1.1 | -0.02em | Invoice total amount |
+| Style           | Size | Weight | Line Height | Tracking | Usage                                                     |
+| --------------- | ---- | ------ | ----------- | -------- | --------------------------------------------------------- |
+| `display`       | 48px | 600    | 1.1         | -0.02em  | Landing hero, marketing                                   |
+| `display-sm`    | 36px | 600    | 1.15        | -0.02em  | Section headers on landing                                |
+| `h1`            | 30px | 600    | 1.2         | -0.015em | Page titles in dashboard                                  |
+| `h2`            | 24px | 600    | 1.25        | -0.01em  | Section headings                                          |
+| `h3`            | 20px | 600    | 1.3         | -0.005em | Card titles, modal titles                                 |
+| `h4`            | 16px | 600    | 1.4         | 0        | List item titles, labels                                  |
+| `body-lg`       | 16px | 400    | 1.55        | 0        | Marketing body copy                                       |
+| `body`          | 14px | 400    | 1.5         | 0        | Default dashboard body text                               |
+| `body-sm`       | 13px | 400    | 1.5         | 0        | Secondary info, table data                                |
+| `caption`       | 12px | 500    | 1.4         | 0.01em   | Meta, timestamps, badges                                  |
+| `micro`         | 11px | 600    | 1.3         | 0.04em   | Uppercase labels, eyebrows (uppercase)                    |
+| `tabular`       | 14px | 500    | 1.5         | 0        | Numbers, amounts use `font-variant-numeric: tabular-nums` |
+| `invoice-total` | 28px | 700    | 1.1         | -0.02em  | Invoice total amount                                      |
 
 **Rules:**
+
 - Headings use weight 600, never 700 or 800 in UI chrome (avoid aggressive).
 - Marketing display headlines may use 600.
 - **Always** use `tabular-nums` for money, quantities, and invoice numbers.
@@ -71,55 +72,56 @@ Apply via `className={onest.variable}` on the root layout and reference it in Ta
 
 ### Primary (Indigo)
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `primary-50` | `#EEF2FF` | Subtle backgrounds, focus rings, selected rows |
-| `primary-100` | `#E0E7FF` | Hover surfaces, avatar bg, soft highlights |
-| `primary-500` | `#6366F1` | Secondary action accents, links in body copy |
-| `primary-600` | `#4F46E5` | **Primary brand** — buttons, active states, logo, primary CTA |
-| `primary-700` | `#4338CA` | Button hover / pressed |
-| `primary-900` | `#312E81` | Deep shadow text (rarely) |
+| Token         | Hex       | Usage                                                       |
+| ------------- | --------- | ----------------------------------------------------------- |
+| `primary-50`  | `#EEF2FF` | Subtle backgrounds, focus rings, selected rows              |
+| `primary-100` | `#E0E7FF` | Hover surfaces, avatar bg, soft highlights                  |
+| `primary-500` | `#6366F1` | Secondary action accents, links in body copy                |
+| `primary-600` | `#4F46E5` | **Primary brand** buttons, active states, logo, primary CTA |
+| `primary-700` | `#4338CA` | Button hover / pressed                                      |
+| `primary-900` | `#312E81` | Deep shadow text (rarely)                                   |
 
 ### Neutrals (Warm Zinc)
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `neutral-50` | `#FAFAFA` | Page background |
+| Token         | Hex       | Usage                                       |
+| ------------- | --------- | ------------------------------------------- |
+| `neutral-50`  | `#FAFAFA` | Page background                             |
 | `neutral-100` | `#F4F4F5` | Card rails, table header bg, muted surfaces |
-| `neutral-200` | `#E4E4E7` | Borders, dividers, input outlines |
+| `neutral-200` | `#E4E4E7` | Borders, dividers, input outlines           |
 | `neutral-300` | `#D4D4D8` | Placeholder text on light, disabled borders |
-| `neutral-400` | `#A1A1AA` | Placeholder, meta text, secondary icons |
-| `neutral-500` | `#71717A` | Secondary text, captions |
-| `neutral-600` | `#52525B` | Body text secondary |
-| `neutral-700` | `#3F3F46` | Body text primary (on white) |
-| `neutral-900` | `#18181B` | Headings, primary text |
-| `white` | `#FFFFFF` | Cards, modals, sidebar, nav |
+| `neutral-400` | `#A1A1AA` | Placeholder, meta text, secondary icons     |
+| `neutral-500` | `#71717A` | Secondary text, captions                    |
+| `neutral-600` | `#52525B` | Body text secondary                         |
+| `neutral-700` | `#3F3F46` | Body text primary (on white)                |
+| `neutral-900` | `#18181B` | Headings, primary text                      |
+| `white`       | `#FFFFFF` | Cards, modals, sidebar, nav                 |
 
 ### Semantic
 
-| Token | Hex | Usage |
-|-------|-----|-------|
-| `success-50` | `#ECFDF5` | Paid badge bg, success toast bg |
+| Token         | Hex       | Usage                                             |
+| ------------- | --------- | ------------------------------------------------- |
+| `success-50`  | `#ECFDF5` | Paid badge bg, success toast bg                   |
 | `success-600` | `#059669` | Paid status, revenue-positive numbers, checkmarks |
-| `warning-50` | `#FFFBEB` | Pending badge bg, due-soon alerts |
-| `warning-600` | `#D97706` | Overdue warnings, quota warnings |
-| `error-50` | `#FEF2F2` | Error toast bg, destructive confirm |
-| `error-600` | `#DC2626` | Errors, destructive actions, quota exceeded |
-| `info-50` | `#EFF6FF` | Info banner bg |
-| `info-600` | `#2563EB` | Info text, neutral badges |
+| `warning-50`  | `#FFFBEB` | Pending badge bg, due-soon alerts                 |
+| `warning-600` | `#D97706` | Overdue warnings, quota warnings                  |
+| `error-50`    | `#FEF2F2` | Error toast bg, destructive confirm               |
+| `error-600`   | `#DC2626` | Errors, destructive actions, quota exceeded       |
+| `info-50`     | `#EFF6FF` | Info banner bg                                    |
+| `info-600`    | `#2563EB` | Info text, neutral badges                         |
 
 ### Invoice Status Colors
 
-| Status | Background | Text | Dot |
-|--------|-----------|------|-----|
-| Draft | `neutral-100` | `neutral-700` | `neutral-400` |
-| Sent | `primary-50` | `primary-700` | `primary-600` |
-| Viewed | `info-50` | `info-600` | `info-600` |
-| Paid | `success-50` | `success-600` | `success-600` |
-| Overdue | `error-50` | `error-600` | `error-600` |
+| Status    | Background    | Text          | Dot           |
+| --------- | ------------- | ------------- | ------------- |
+| Draft     | `neutral-100` | `neutral-700` | `neutral-400` |
+| Sent      | `primary-50`  | `primary-700` | `primary-600` |
+| Viewed    | `info-50`     | `info-600`    | `info-600`    |
+| Paid      | `success-50`  | `success-600` | `success-600` |
+| Overdue   | `error-50`    | `error-600`   | `error-600`   |
 | Cancelled | `neutral-100` | `neutral-500` | `neutral-400` |
 
 **No gradients in app UI chrome.** The only acceptable gradient use:
+
 - Marketing hero backgrounds (very subtle radial from `primary-50` → white)
 - The Pro plan billing card (subtle indigo gradient for premium feel)
 
@@ -129,43 +131,44 @@ Apply via `className={onest.variable}` on the root layout and reference it in Ta
 
 **8px base grid.** All spacing = multiple of 4.
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `space-0.5` | 2px | Icon internal spacing |
-| `space-1` | 4px | Tight gaps (badge padding) |
-| `space-2` | 8px | Between related inline elements |
-| `space-3` | 12px | Input internal padding, card gaps |
-| `space-4` | 16px | Standard gap between components |
-| `space-5` | 20px | Card internal padding (small cards) |
-| `space-6` | 24px | Card internal padding (default) |
-| `space-8` | 32px | Between sections within a page |
-| `space-10` | 40px | Section separators |
-| `space-12` | 48px | Large section breaks |
-| `space-16` | 64px | Marketing section padding |
-| `space-24` | 96px | Landing hero vertical padding |
+| Token       | Value | Usage                               |
+| ----------- | ----- | ----------------------------------- |
+| `space-0.5` | 2px   | Icon internal spacing               |
+| `space-1`   | 4px   | Tight gaps (badge padding)          |
+| `space-2`   | 8px   | Between related inline elements     |
+| `space-3`   | 12px  | Input internal padding, card gaps   |
+| `space-4`   | 16px  | Standard gap between components     |
+| `space-5`   | 20px  | Card internal padding (small cards) |
+| `space-6`   | 24px  | Card internal padding (default)     |
+| `space-8`   | 32px  | Between sections within a page      |
+| `space-10`  | 40px  | Section separators                  |
+| `space-12`  | 48px  | Large section breaks                |
+| `space-16`  | 64px  | Marketing section padding           |
+| `space-24`  | 96px  | Landing hero vertical padding       |
 
 **Page-level spacing:**
+
 - Dashboard content max-width: `1280px` with `px-8` on desktop, `px-4` on mobile
 - Sidebar width: `256px` (expanded), `72px` (collapsed)
 - Main content top padding: `24px` below header
 - Section-to-section gap: `32px`
 - Card internal padding: `24px` (default), `32px` (hero/primary cards)
 
-**Density: Comfortable** — rows are `48px` tall, not `32px`. Breathable.
+**Density: Comfortable** rows are `48px` tall, not `32px`. Breathable.
 
 ---
 
 ## 5. Border Radius
 
-| Token | Value | Usage |
-|-------|-------|-------|
-| `radius-sm` | 6px | Inputs, small chips, tag pills |
-| `radius` | 8px | **Default** — buttons, badges, small cards |
-| `radius-md` | 10px | Medium cards, modals content |
-| `radius-lg` | 12px | Main dashboard cards, table containers |
-| `radius-xl` | 16px | Modal outer shell, large feature cards |
-| `radius-2xl` | 20px | Hero marketing cards only |
-| `radius-full` | 9999px | Avatars, status dots, icon pills |
+| Token         | Value  | Usage                                    |
+| ------------- | ------ | ---------------------------------------- |
+| `radius-sm`   | 6px    | Inputs, small chips, tag pills           |
+| `radius`      | 8px    | **Default** buttons, badges, small cards |
+| `radius-md`   | 10px   | Medium cards, modals content             |
+| `radius-lg`   | 12px   | Main dashboard cards, table containers   |
+| `radius-xl`   | 16px   | Modal outer shell, large feature cards   |
+| `radius-2xl`  | 20px   | Hero marketing cards only                |
+| `radius-full` | 9999px | Avatars, status dots, icon pills         |
 
 **Rule**: Never mix radius values in the same container. A card with `radius-lg` should contain children with `radius` or smaller, never larger.
 
@@ -184,14 +187,15 @@ shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.15)  // Focus rings only
 ```
 
 **Usage:**
+
 - Cards on page: `shadow-xs` + `border border-neutral-200`
 - Hover on interactive cards: `shadow-sm`
 - Dropdowns & popovers: `shadow-md` + `border border-neutral-200`
 - Modals: `shadow-xl`
 - Focus rings: `shadow-focus` instead of outline
-- **Inputs have NO shadow** — use border only
+- **Inputs have NO shadow** use border only
 
-**Philosophy**: Borders do most of the work. Shadows are subtle — a hint of depth, not a cloud.
+**Philosophy**: Borders do most of the work. Shadows are subtle a hint of depth, not a cloud.
 
 ---
 
@@ -200,6 +204,7 @@ shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.15)  // Focus rings only
 ### 7.1 Buttons
 
 **Primary Button**
+
 - Background: `primary-600` (`#4F46E5`)
 - Text: White, `14px` weight 500
 - Height: `40px` (default), `36px` (sm), `44px` (lg)
@@ -212,28 +217,33 @@ shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.15)  // Focus rings only
 - Loading: spinner replaces icon, text stays
 
 **Secondary Button (Outline)**
+
 - Background: White
 - Border: `1px solid neutral-200`
 - Text: `neutral-900`, 14px weight 500
 - Hover: `neutral-50` bg, `neutral-300` border
 
 **Ghost Button**
+
 - Background: Transparent
 - Text: `neutral-700`, 14px weight 500
 - Hover: `neutral-100` bg
 
 **Destructive Button**
+
 - Background: `error-600`
 - Text: White
 - Hover: `#B91C1C`
 - Use only for delete/cancel actions
 
 **Text Link**
+
 - Color: `primary-600`
 - Hover: `primary-700`, underline
 - Inline: underlined, `underline-offset-4`, `decoration-neutral-300`
 
 **Icon Button**
+
 - Size: `36×36px` (default), `32×32px` (sm)
 - Background: Transparent (ghost) or White + border
 - Icon: `18px`, `neutral-600`
@@ -262,6 +272,7 @@ shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.15)  // Focus rings only
 **Select**: same as input + chevron icon right. On open, menu uses `shadow-md` + `border neutral-200`.
 
 **Search Input (global search)**
+
 - Background: `neutral-50`
 - Border: `1px solid neutral-200`
 - Icon: search, `neutral-400`, left `12px`
@@ -273,6 +284,7 @@ shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.15)  // Focus rings only
 ### 7.3 Cards
 
 **Default Card**
+
 - Background: White
 - Border: `1px solid neutral-200`
 - Radius: `radius-lg` (12px)
@@ -281,18 +293,21 @@ shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.15)  // Focus rings only
 - Hover (if interactive): `shadow-sm` + `border-neutral-300`
 
 **Metric Card (dashboard KPI)**
+
 - Label: `caption` uppercase `neutral-500` tracking-wider
 - Value: `28px` weight 600 `neutral-900`, `tabular-nums`
 - Delta: `13px` weight 500, `success-600` (up) or `error-600` (down)
 - Icon: top-right, `20px`, `neutral-400`
 
 **Feature Card (landing)**
+
 - Padding: `32px`
 - Icon: `40px`, `primary-600` in a `primary-50` square (`radius`)
 - Title: `h3`
 - Description: `body` `neutral-600`
 
 **Pricing Card**
+
 - Border: `1px solid neutral-200`
 - Radius: `radius-xl` (16px)
 - Padding: `32px`
@@ -313,7 +328,7 @@ shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.15)  // Focus rings only
 - Last column padding: `24px` right
 - Sort indicators: `neutral-400` chevron, `primary-600` when active
 - Sticky header when scrolling
-- Zebra striping: **off** — rely on dividers only (cleaner)
+- Zebra striping: **off** rely on dividers only (cleaner)
 
 **Row actions (kebab menu)**: icon button on hover reveal, dropdown right-aligned.
 
@@ -328,7 +343,8 @@ shadow-focus: 0 0 0 3px rgba(79, 70, 229, 0.15)  // Focus rings only
 - Dot: `6px` circle, `6px` right margin, flex-inline
 - Background + text: see §3 Invoice Status Colors
 
-**Example** — Paid:
+**Example** Paid:
+
 ```
 bg-success-50 text-success-600 border border-success-600/10
 ● Paid
@@ -389,6 +405,7 @@ bg-success-50 text-success-600 border border-success-600/10
 ### 7.9 Toasts / Notifications
 
 Using Sonner:
+
 - Bottom-right position
 - White bg, `shadow-lg`, `border border-neutral-200`
 - Radius: `radius` (8px)
@@ -424,6 +441,7 @@ Using Sonner:
 - Form footer: sticky bottom or inline, right-aligned Cancel (ghost) + Save (primary)
 
 **Validation (React Hook Form + Zod):**
+
 - Inline errors below field: `12px` weight 500 `error-600`
 - Border on invalid: `error-600`
 - Disable submit button during `isSubmitting`, show spinner inside button
@@ -435,6 +453,7 @@ Using Sonner:
 Use **[Lucide Icons](https://lucide.dev)** (`lucide-react`) as the primary icon library.
 
 **Sizing:**
+
 - Nav icons: `18px`
 - Inline with body text: `14px`
 - Icon buttons: `18px`
@@ -443,6 +462,7 @@ Use **[Lucide Icons](https://lucide.dev)** (`lucide-react`) as the primary icon 
 - Marketing feature icons: `28–40px`
 
 **Color rules:**
+
 - Default neutral icons: `neutral-500`
 - Active/selected icons: `primary-600`
 - Icon inside a primary CTA button: `white`
@@ -456,22 +476,24 @@ Use **[Lucide Icons](https://lucide.dev)** (`lucide-react`) as the primary icon 
 
 **Principles:** fast, subtle, never bouncy.
 
-| Transition | Duration | Easing |
-|-----------|----------|--------|
-| Button press | `100ms` | `ease-out` |
-| Hover state | `150ms` | `ease-out` |
-| Dropdown/popover | `150ms` | `ease-out` |
-| Modal enter | `200ms` | `ease-out` |
-| Modal exit | `150ms` | `ease-in` |
-| Page transition | `300ms` | `ease-out` |
-| Toast slide | `250ms` | `cubic-bezier(0.16, 1, 0.3, 1)` |
+| Transition       | Duration | Easing                          |
+| ---------------- | -------- | ------------------------------- |
+| Button press     | `100ms`  | `ease-out`                      |
+| Hover state      | `150ms`  | `ease-out`                      |
+| Dropdown/popover | `150ms`  | `ease-out`                      |
+| Modal enter      | `200ms`  | `ease-out`                      |
+| Modal exit       | `150ms`  | `ease-in`                       |
+| Page transition  | `300ms`  | `ease-out`                      |
+| Toast slide      | `250ms`  | `cubic-bezier(0.16, 1, 0.3, 1)` |
 
 **Do:**
+
 - `transition-colors` on all interactive elements
 - Fade + scale for modals (`scale(0.96) → scale(1)`)
 - Skeleton shimmer for loading cards
 
 **Don't:**
+
 - Spring animations
 - Rotation / flips
 - Anything > 400ms
@@ -508,6 +530,7 @@ Use **[Lucide Icons](https://lucide.dev)** (`lucide-react`) as the primary icon 
 PDFs use `@react-pdf/renderer` with its own `StyleSheet`. Keep PDF styling **closely aligned** with dashboard tokens but adapted for print:
 
 **PDF palette:**
+
 - Text primary: `#18181B`
 - Text secondary: `#52525B`
 - Muted: `#A1A1AA`
@@ -515,12 +538,14 @@ PDFs use `@react-pdf/renderer` with its own `StyleSheet`. Keep PDF styling **clo
 - Brand accent: user's custom `brandColor` from Brand settings (fallback `#4F46E5`)
 
 **PDF typography:**
+
 - Header/total: 24px weight 700
 - Section headings: 13px weight 700 uppercase, `letterSpacing: 0.5`
 - Body: 10px weight 400
 - Table: 10px, `tabular-nums`
 
 **PDF spacing:**
+
 - Page padding: `40px`
 - Section gap: `24px`
 - Header height: `80px`
@@ -536,7 +561,7 @@ PDFs use `@react-pdf/renderer` with its own `StyleSheet`. Keep PDF styling **clo
 - Card: white, `border: 1px solid #E4E4E7`, `radius: 12px`
 - Header: uses brand color if set, else `#4F46E5`
 - Body padding: `24px`
-- Typography: system font stack (Onest doesn't render in email clients) — `font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif` with fallbacks
+- Typography: system font stack (Onest doesn't render in email clients) `font-family: 'Onest', -apple-system, 'Segoe UI', Roboto, sans-serif` with fallbacks
 - Buttons: solid `primary-600`, white text, `12px 24px` padding, `radius: 8px`, `font-size: 14px`, `weight: 500`
 - Footer: `caption` size, `neutral-500` color, centered
 - **Currency**: always use the brand's currency symbol via `data.currency`, never hardcode `$`
@@ -562,7 +587,7 @@ theme: {
         700: "#4338CA",
         900: "#312E81",
       },
-      // zinc is already in Tailwind — alias as neutral if needed
+      // zinc is already in Tailwind  alias as neutral if needed
     },
     boxShadow: {
       xs: "0 1px 2px 0 rgba(24, 24, 27, 0.05)",
@@ -578,7 +603,7 @@ theme: {
 }
 ```
 
-For neutrals, use Tailwind's built-in `zinc` scale directly (`text-zinc-700`, `bg-zinc-50`) — it matches exactly.
+For neutrals, use Tailwind's built-in `zinc` scale directly (`text-zinc-700`, `bg-zinc-50`) it matches exactly.
 
 ---
 
@@ -589,7 +614,7 @@ For neutrals, use Tailwind's built-in `zinc` scale directly (`text-zinc-700`, `b
 - Focus rings: visible on all interactive elements (`shadow-focus`), never removed
 - Icons used alone: include `aria-label` or `sr-only` text
 - Form fields: always have a `<label>` linked via `htmlFor`
-- Status badges: don't rely on color alone — include text + dot
+- Status badges: don't rely on color alone include text + dot
 - Semantic HTML: use `<button>` for actions, `<a>` for navigation
 
 ---
@@ -597,6 +622,7 @@ For neutrals, use Tailwind's built-in `zinc` scale directly (`text-zinc-700`, `b
 ## 16. Do's & Don'ts
 
 **Do:**
+
 - Use `tabular-nums` for all money
 - Use the zinc scale for neutrals, indigo for action
 - Rely on borders + subtle shadows for hierarchy
@@ -605,11 +631,12 @@ For neutrals, use Tailwind's built-in `zinc` scale directly (`text-zinc-700`, `b
 - Reuse shadcn/ui components where possible and restyle via tokens
 
 **Don't:**
+
 - Use emoji in UI chrome
 - Use drop shadows heavier than `shadow-md` in-app
 - Use gradients outside of marketing hero / Pro pricing card
 - Mix border radius within a single container
 - Use bright/saturated colors outside the semantic tokens
-- Hardcode `$` — always reference brand currency
+- Hardcode `$` always reference brand currency
 - Use font weights above 600 in app chrome (700 reserved for invoice totals and marketing display)
 - Write custom CSS when a utility class exists

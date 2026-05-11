@@ -21,7 +21,7 @@ npx create-vibekit-app my-app
 # with pnpm
 pnpm dlx create-vibekit-app my-app
 
-# project name is optional — the CLI will prompt if omitted
+# project name is optional  the CLI will prompt if omitted
 npx create-vibekit-app
 ```
 
@@ -34,8 +34,8 @@ Requires **Node 18+**.
 1. Scaffolds a project folder with VibeKit framework files in `.vibekit/`
 2. Asks you to describe your app idea in 1-3 sentences
 3. Detects installed AI providers (Claude Code, Codex, Gemini CLI, OpenCode)
-4. **Session 1 — Planning:** launches your chosen provider with the full VibeKit planning prompt + your idea injected. The provider interviews you and writes 4 project files to disk.
-5. **Session 2 — Build:** after you close the planning session, the CLI detects the generated files and launches a second provider session that reads `prompt.md` and starts building Phase 1.
+4. **Session 1 Planning:** launches your chosen provider with the full VibeKit planning prompt + your idea injected. The provider interviews you and writes 4 project files to disk.
+5. **Session 2 Build:** after you close the planning session, the CLI detects the generated files and launches a second provider session that reads `prompt.md` and starts building Phase 1.
 
 ---
 
@@ -102,7 +102,7 @@ packages/create-vibekit-app/
 
 ```bash
 # from the monorepo root
-git clone https://github.com/MUKE-coder/vibekit.git
+git clone https://github.com/mosespace/vibekit_pro.git
 cd vibekit
 pnpm install
 ```
@@ -180,7 +180,7 @@ pnpm dev my-test-app
 The files in `templates/` are bundled copies of the root-level VibeKit framework docs. When the root docs change (e.g. `master_prompt.md` is updated), sync them into the templates before publishing:
 
 ```bash
-# from monorepo root — copy updated framework files into CLI templates
+# from monorepo root  copy updated framework files into CLI templates
 cp master_prompt.md packages/create-vibekit-app/templates/master_prompt.md
 cp jb-components.md packages/create-vibekit-app/templates/jb-components.md
 cp pre-deploy-review.md packages/create-vibekit-app/templates/pre-deploy-review.md
@@ -238,10 +238,10 @@ npm publish
 
 ## Known limitations
 
-- Tested on **Windows 11** only. macOS and Linux are untested — auth credential paths may differ.
+- Tested on **Windows 11** only. macOS and Linux are untested auth credential paths may differ.
 - **Claude Code** is the only provider with verified end-to-end testing.
 - Session 2 only starts if all 4 planning files are present. If the planning session is cut short, re-run the CLI.
-- No watch mode or incremental rebuild — run `pnpm build` manually before testing the compiled output.
+- No watch mode or incremental rebuild run `pnpm build` manually before testing the compiled output.
 
 ---
 

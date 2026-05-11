@@ -5,8 +5,9 @@
 ---
 
 ## Table of Contents
+
 1. [Why AI Design Looks the Same](#why-ai-design-looks-the-same)
-2. [The Design System Prompt — Your Most Important Tool](#design-system-prompt)
+2. [The Design System Prompt Your Most Important Tool](#design-system-prompt)
 3. [Choosing a Color Palette](#choosing-a-color-palette)
 4. [Typography](#typography)
 5. [Component Style Patterns](#component-style-patterns)
@@ -18,13 +19,13 @@
 
 ## Why AI Design Looks the Same
 
-Claude Code, V0, and every other AI coding tool was trained on millions of websites. The most common patterns in that training data — purple gradients, blue primary buttons, gray cards with subtle shadows, rounded corners everywhere — become the AI's default preferences.
+Claude Code, V0, and every other AI coding tool was trained on millions of websites. The most common patterns in that training data purple gradients, blue primary buttons, gray cards with subtle shadows, rounded corners everywhere become the AI's default preferences.
 
 When you ask Claude Code to "build a beautiful dashboard", it defaults to what it has seen most. The result: an app that looks like every other AI-built app.
 
 The fix is simple: **tell AI exactly what it should build before it makes any decisions.**
 
-A design system prompt locks every visual decision — colors, typography, spacing, component style — before AI writes a single line of CSS. Claude Code then applies those decisions consistently, producing a unique app that reflects your choices instead of its defaults.
+A design system prompt locks every visual decision colors, typography, spacing, component style before AI writes a single line of CSS. Claude Code then applies those decisions consistently, producing a unique app that reflects your choices instead of its defaults.
 
 ---
 
@@ -35,12 +36,12 @@ This is the most important prompt in your entire build. **Paste this at the star
 ### Template
 
 ```
-DESIGN SYSTEM — apply every rule below to every component you create or modify.
+DESIGN SYSTEM  apply every rule below to every component you create or modify.
 
 ═══════════════════════════════════════
 COLORS
 ═══════════════════════════════════════
-Primary:           [hex — e.g. #0F172A]
+Primary:           [hex  e.g. #0F172A]
 Primary foreground: white (#FFFFFF)
 Background:        #FFFFFF (light) / #0F172A (dark)
 Surface:           #F8FAFC (cards, inputs)
@@ -66,17 +67,17 @@ Label:     text-sm font-medium text-slate-700
 COMPONENTS
 ═══════════════════════════════════════
 Cards:    bg-white rounded-xl border border-slate-200 shadow-sm p-6
-Buttons:  
+Buttons:
   Primary:   bg-[primary] text-white rounded-lg px-4 py-2 text-sm font-medium hover:opacity-90
   Secondary: bg-white text-slate-700 border border-slate-200 rounded-lg px-4 py-2 text-sm hover:bg-slate-50
   Ghost:     text-slate-600 hover:bg-slate-100 rounded-lg px-3 py-2 text-sm
 Inputs:   border border-slate-300 rounded-lg px-3 py-2 text-sm focus:ring-2 focus:ring-[primary]/20 focus:border-[primary] outline-none
-Badges:   
+Badges:
   Default: bg-slate-100 text-slate-700 text-xs px-2 py-1 rounded-full font-medium
   Success: bg-green-50 text-green-700 text-xs px-2 py-1 rounded-full font-medium
   Warning: bg-amber-50 text-amber-700 text-xs px-2 py-1 rounded-full font-medium
   Error:   bg-red-50 text-red-700 text-xs px-2 py-1 rounded-full font-medium
-Tables:   
+Tables:
   Header: bg-slate-50 text-xs font-medium text-slate-500 uppercase tracking-wider
   Row: border-b border-slate-100 hover:bg-slate-50/50 transition-colors
   Cell: text-sm text-slate-700 px-4 py-3
@@ -92,11 +93,11 @@ Sidebar width:   w-64
 Content max-width: max-w-7xl mx-auto
 
 ═══════════════════════════════════════
-RULES — NEVER BREAK THESE
+RULES  NEVER BREAK THESE
 ═══════════════════════════════════════
 - NO purple gradients or purple as primary color
 - NO neon or very saturated colors
-- NO heavy box shadows (shadow-lg or larger) — use shadow-sm only
+- NO heavy box shadows (shadow-lg or larger)  use shadow-sm only
 - NO gradient backgrounds on hero sections (use solid colors)
 - Every page must work on mobile (responsive)
 - Sidebar collapses to a drawer on mobile
@@ -118,6 +119,7 @@ Not: a colorful consumer app or a landing page template.
 Your primary color choice defines your entire app's personality. Here are proven palettes for common app types:
 
 ### Professional / B2B (Dark Navy)
+
 ```
 Primary:    #1E3A5F  (deep navy)
 Accent:     #3B82F6  (blue)
@@ -128,6 +130,7 @@ Best for: dashboards, CRMs, financial apps
 ```
 
 ### Modern / Clean (Slate)
+
 ```
 Primary:    #0F172A  (near black)
 Accent:     #6366F1  (indigo)
@@ -138,6 +141,7 @@ Best for: productivity apps, dev tools
 ```
 
 ### Energetic / Startup (Orange)
+
 ```
 Primary:    #F97316  (orange)
 Accent:     #0EA5E9  (sky blue)
@@ -148,6 +152,7 @@ Best for: consumer SaaS, marketplaces
 ```
 
 ### Nature / Health (Green)
+
 ```
 Primary:    #16A34A  (green)
 Accent:     #0891B2  (teal)
@@ -158,6 +163,7 @@ Best for: health apps, education, sustainability
 ```
 
 ### Premium / Luxury (Deep)
+
 ```
 Primary:    #1C1917  (warm black)
 Accent:     #B45309  (amber)
@@ -176,10 +182,12 @@ Best for: high-end services, portfolio, agencies
 Every well-designed app uses two fonts: a **display font** (headings, brand moments) and a **body font** (all readable text). Using only one font is fine, but using two creates visual hierarchy.
 
 **Safe single-font choices for Claude Code (already available via Tailwind):**
-- `Inter` — clean, modern, highly readable. Best for dashboards and data-heavy apps
-- `system-ui` — uses the device's native font. Fastest to load, feels native
+
+- `Inter` clean, modern, highly readable. Best for dashboards and data-heavy apps
+- `system-ui` uses the device's native font. Fastest to load, feels native
 
 **Adding a custom font in Claude Code:**
+
 ```
 Add the Google Font [font name] to the project.
 Import it in the root layout.
@@ -237,7 +245,7 @@ Stats card style:
 - Card: bg-white rounded-xl border border-slate-200 p-6
 - Label: text-sm font-medium text-slate-500 mb-1
 - Value: text-2xl font-semibold text-slate-900
-- Change: text-sm — green if positive (text-green-600), red if negative (text-red-600)
+- Change: text-sm  green if positive (text-green-600), red if negative (text-red-600)
 - Icon: bg-[primary]/10 text-[primary] rounded-lg p-2 size-9
 ```
 
@@ -259,12 +267,12 @@ Empty state style:
 ### SaaS Dashboard App
 
 ```
-DESIGN SYSTEM — SaaS Dashboard
+DESIGN SYSTEM  SaaS Dashboard
 
 Primary: #1E3A5F | Accent: #3B82F6 | Background: #FFFFFF | Surface: #F8FAFC
 Font: Inter | Radius: rounded-xl (cards) rounded-lg (elements)
 
-This is a professional B2B SaaS dashboard — reference: Linear, Notion, Stripe.
+This is a professional B2B SaaS dashboard  reference: Linear, Notion, Stripe.
 NOT a consumer app. NOT colorful. NOT flashy.
 
 Sidebar: w-64 bg-white border-r border-slate-200, nav items with rounded-lg hover states
@@ -280,7 +288,7 @@ NO: purple, gradients, neon, heavy shadows, animations unless functional
 ### E-Commerce Store
 
 ```
-DESIGN SYSTEM — E-Commerce Store
+DESIGN SYSTEM  E-Commerce Store
 
 Primary: #0F172A | Accent: #F97316 | Background: #FFFFFF | Surface: #F9FAFB
 
@@ -300,9 +308,9 @@ NO: complex animations, pop-ups, auto-playing anything, cluttered layouts
 ### Landing / Marketing Page
 
 ```
-DESIGN SYSTEM — Marketing Landing Page
+DESIGN SYSTEM  Marketing Landing Page
 
-Primary: #7C3AED (purple is acceptable on landing pages — just not everywhere)
+Primary: #7C3AED (purple is acceptable on landing pages  just not everywhere)
 Background: #FFFFFF sections alternating with #F9FAFB
 
 Hero: min-h-screen flex items-center, centered content, max-w-4xl
@@ -334,8 +342,8 @@ V0 is better than Claude Code for visual iteration. Use it when you need to try 
 ```
 I designed this component in V0. Here is the code: [PASTE]
 
-Add this to the project at [path]. 
-Do NOT change any of the visual design — colors, spacing, typography, layout.
+Add this to the project at [path].
+Do NOT change any of the visual design  colors, spacing, typography, layout.
 Only add the real data: replace the placeholder text/numbers with actual data from [source].
 Wire up the onClick handlers to the appropriate actions.
 ```
@@ -364,7 +372,7 @@ Before shipping any page, check for these:
 - [ ] No more than 3 distinct colors on any single page
 - [ ] Text is always readable on its background (check contrast)
 - [ ] Mobile layout does not have text or buttons cut off
-- [ ] Consistent border radius throughout (pick rounded-lg OR rounded-xl — not both)
+- [ ] Consistent border radius throughout (pick rounded-lg OR rounded-xl not both)
 - [ ] All interactive elements have hover states
 - [ ] Empty states exist for lists that might have no data
 - [ ] Loading states exist for any data that is fetched asynchronously
@@ -373,4 +381,4 @@ Before shipping any page, check for these:
 
 ---
 
-*Part of the [VibeKit Framework](../README.md) — github.com/MUKE-coder/vibekit*
+_Part of the [VibeKit Framework](../README.md) github.com/MUKE-coder/vibekit_

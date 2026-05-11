@@ -3,16 +3,46 @@ import { Section } from "./section";
 import { Button } from "./ui/button";
 
 const components = [
-  { name: "Better Auth UI", desc: "Sign-in, sign-up, OAuth, password reset, OTP — full auth stack." },
-  { name: "Website UI", desc: "10 marketing pages, navbar, footer, dark mode, i18n, full SEO." },
-  { name: "Stripe UI", desc: "Embedded Payment Element, checkout flow, orders, webhooks." },
-  { name: "Data Table", desc: "Search, sort, pagination, column visibility, row selection." },
-  { name: "File Storage UI", desc: "S3/R2 drag-drop upload, preview, progress, file management." },
-  { name: "MDX Blog", desc: "File-based blog with syntax highlighting and full SEO metadata." },
-  { name: "DGateway Shop", desc: "Mobile Money + Stripe checkout for African markets." },
-  { name: "Zustand Cart", desc: "Client-side cart with localStorage persistence." },
-  { name: "Searchable Select", desc: "Filterable dropdown with search and clear." },
-  { name: "Scalar API Docs", desc: "Interactive API docs with OpenAPI 3.0 spec." },
+  {
+    name: "Better Auth UI",
+    desc: "Sign-in, sign-up, OAuth, password reset, OTP  full auth stack.",
+  },
+  {
+    name: "Website UI",
+    desc: "10 marketing pages, navbar, footer, dark mode, i18n, full SEO.",
+  },
+  {
+    name: "Stripe UI",
+    desc: "Embedded Payment Element, checkout flow, orders, webhooks.",
+  },
+  {
+    name: "Data Table",
+    desc: "Search, sort, pagination, column visibility, row selection.",
+  },
+  {
+    name: "File Storage UI",
+    desc: "S3/R2 drag-drop upload, preview, progress, file management.",
+  },
+  {
+    name: "MDX Blog",
+    desc: "File-based blog with syntax highlighting and full SEO metadata.",
+  },
+  {
+    name: "DGateway Shop",
+    desc: "Mobile Money + Stripe checkout for African markets.",
+  },
+  {
+    name: "Zustand Cart",
+    desc: "Client-side cart with localStorage persistence.",
+  },
+  {
+    name: "Searchable Select",
+    desc: "Filterable dropdown with search and clear.",
+  },
+  {
+    name: "Scalar API Docs",
+    desc: "Interactive API docs with OpenAPI 3.0 spec.",
+  },
 ];
 
 export function JBRegistry() {
@@ -20,8 +50,13 @@ export function JBRegistry() {
     <Section
       id="features"
       eyebrow="JB component registry"
-      title={<>Don't write what already exists. <em className="not-italic gradient-text">Install it.</em></>}
-      description="Production-ready shadcn components for every primitive — auth, tables, forms, file uploads, e-commerce. Claude Code checks the registry before writing from scratch, saving 60–80% of tokens."
+      title={
+        <>
+          Don't write what already exists.{" "}
+          <em className="not-italic gradient-text">Install it.</em>
+        </>
+      }
+      description="Production-ready shadcn components for every primitive  auth, tables, forms, file uploads, e-commerce. Claude Code checks the registry before writing from scratch, saving 60–80% of tokens."
     >
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {components.map((c) => (

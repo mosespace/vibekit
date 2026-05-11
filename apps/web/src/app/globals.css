@@ -41,7 +41,7 @@
   --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* ── Light theme — Claude warm cream ── */
+  /* ── Light theme  Claude warm cream ── */
   --bg: #faf8f4;
   --bg-subtle: #f2ede6;
   --bg-muted: #e8e0d5;
@@ -76,7 +76,7 @@
 }
 
 .dark {
-  /* ── Dark theme — Claude warm charcoal ── */
+  /* ── Dark theme  Claude warm charcoal ── */
   --bg: #0e0c09;
   --bg-subtle: #151210;
   --bg-muted: #1c1916;
@@ -89,7 +89,7 @@
   --border: #2a221a;
   --border-strong: #3d3228;
   --border-focus: #d97757;
-  /* Claude coral — brighter in dark */
+  /* Claude coral  brighter in dark */
   --accent: #d97757;
   --accent-fg: #0e0c09;
   --accent-soft: rgba(217, 119, 87, 0.12);
@@ -206,7 +206,7 @@ body {
   -webkit-backdrop-filter: blur(14px) saturate(180%);
 }
 
-/* Warm grid — radial mask fades edges */
+/* Warm grid  radial mask fades edges */
 .grid-pattern {
   background-image:
     linear-gradient(

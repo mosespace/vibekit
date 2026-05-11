@@ -91,10 +91,10 @@ export function Problems() {
       title={
         <>
           Every vibe coder hits the
-          <br className="hidden sm:block" /> same walls. We remove each one.
+          <br className="hidden sm:block" /> same walls. We remove each.
         </>
       }
-      description="Thirteen specific pains that derail AI-built apps — and how VibeKit makes each one disappear."
+      description="Thirteen specific pains that derail AI-built apps and how VibeKit makes each one disappear."
     >
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
         {problems.map((p) => (

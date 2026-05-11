@@ -10,7 +10,7 @@ import { postPlanning } from "./steps/06-post-planning";
 
 export async function run() {
   const argv = process.argv.slice(2);
-  const projectName = argv[0] || await prompt("Project name (folder): ");
+  const projectName = argv[0] || (await prompt("Project name (folder): "));
   const dest = path.resolve(process.cwd(), projectName.trim() || "vibekit-app");
 
   if (!fs.existsSync(dest)) {
@@ -26,10 +26,20 @@ export async function run() {
   await handoffToAgent(chosen, dest);
   await postPlanning(dest);
 
-  console.log("All done — check the generated project and follow any next steps printed above.");
+  console.log(
+    "All done — check the generated project and follow any next steps printed above.",
+  );
 }
 
 function prompt(query: string) {
-  const rl = readline.createInterface({ input: process.stdin, output: process.stdout });
-  return new Promise<string>((resolve) => rl.question(query, (ans) => { rl.close(); resolve(ans); }));
+  const rl = readline.createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
+  return new Promise<string>((resolve) =>
+    rl.question(query, (ans) => {
+      rl.close();
+      resolve(ans);
+    }),
+  );
 }

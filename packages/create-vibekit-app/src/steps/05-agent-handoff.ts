@@ -18,6 +18,8 @@ export async function handoffToAgent(provider: any, dest: string) {
   if (provider.launchCommand) {
     console.log(`Run the provider with: ${provider.launchCommand}`);
   } else {
-    console.log(`Open the prompt file and paste into ${provider.name} UI as instructed.`);
+    console.log(
+      `Open the prompt file and paste into ${provider.name} UI as instructed.`,
+    );
   }
 }

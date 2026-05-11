@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { SITE } from "@/lib/utils";
+import { LogoBadge } from "./graphics/logo-mark";
 
 const cols = [
   {
@@ -8,18 +9,39 @@ const cols = [
       { name: "Tutorial — TaskFlow course", href: "/tutorial" },
       { name: "Quickstart", href: "/docs/quickstart" },
       { name: "GitHub (fork)", href: SITE.github },
-      { name: "CLAUDE_PROMPT.md", href: `${SITE.github}/blob/main/CLAUDE_PROMPT.md` },
-      { name: "Pre-deploy review", href: `${SITE.github}/blob/main/pre-deploy-review.md` },
+      {
+        name: "CLAUDE_PROMPT.md",
+        href: `${SITE.github}/blob/main/CLAUDE_PROMPT.md`,
+      },
+      {
+        name: "Pre-deploy review",
+        href: `${SITE.github}/blob/main/pre-deploy-review.md`,
+      },
     ],
   },
   {
     label: "Reference",
     links: [
-      { name: "Database guide", href: `${SITE.upstreamGithub}/blob/main/database-guide.md` },
-      { name: "Deployment", href: `${SITE.upstreamGithub}/blob/main/deployment.md` },
-      { name: "Environment vars", href: `${SITE.upstreamGithub}/blob/main/environment-variables.md` },
-      { name: "Monetization", href: `${SITE.upstreamGithub}/blob/main/monetization-guide.md` },
-      { name: "Troubleshooting", href: `${SITE.upstreamGithub}/blob/main/troubleshooting.md` },
+      {
+        name: "Database guide",
+        href: `${SITE.upstreamGithub}/blob/main/database-guide.md`,
+      },
+      {
+        name: "Deployment",
+        href: `${SITE.upstreamGithub}/blob/main/deployment.md`,
+      },
+      {
+        name: "Environment vars",
+        href: `${SITE.upstreamGithub}/blob/main/environment-variables.md`,
+      },
+      {
+        name: "Monetization",
+        href: `${SITE.upstreamGithub}/blob/main/monetization-guide.md`,
+      },
+      {
+        name: "Troubleshooting",
+        href: `${SITE.upstreamGithub}/blob/main/troubleshooting.md`,
+      },
     ],
   },
   {
@@ -28,7 +50,10 @@ const cols = [
       { name: "Join WhatsApp community", href: SITE.community },
       { name: "GitHub Discussions", href: `${SITE.github}/discussions` },
       { name: "Contribute a component", href: "/contribute" },
-      { name: "JB Component Registry", href: "https://jb.desishub.com/blog/jb-component-registry-complete-reference" },
+      {
+        name: "JB Component Registry",
+        href: "https://jb.desishub.com/blog/jb-component-registry-complete-reference",
+      },
     ],
   },
   {
@@ -37,7 +62,10 @@ const cols = [
       { name: "Moses Kisakye (fork)", href: SITE.authorUrl },
       { name: "JB · Desishub (original)", href: SITE.originalAuthorUrl },
       { name: "Desishub Technologies", href: "https://desishub.com" },
-      { name: "JB on YouTube", href: "https://www.youtube.com/@JBWEBDEVELOPER" },
+      {
+        name: "JB on YouTube",
+        href: "https://www.youtube.com/@JBWEBDEVELOPER",
+      },
       { name: "Upstream repo", href: SITE.upstreamGithub },
     ],
   },
@@ -85,11 +113,10 @@ export function Footer() {
 
         <div className="mt-14 flex flex-col gap-4 border-t border-[color:var(--border)] pt-8 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <span className="grid h-7 w-7 place-items-center rounded-md bg-[color:var(--text-primary)] text-[color:var(--text-inverse)] font-mono text-[11px] font-bold">
-              VK
-            </span>
+            <LogoBadge />
+
             <span className="font-display text-[16px] tracking-tight text-[color:var(--text-primary)]">
-              VibeKit
+              VibeKit CLI
             </span>
           </div>
 
@@ -114,8 +141,8 @@ export function Footer() {
                 className="hover:text-[color:var(--text-secondary)] transition-colors"
               >
                 JB (Muke Johnbaptist)
-              </a>
-              {" "}· Desishub Technologies
+              </a>{" "}
+              · Desishub Technologies
             </p>
           </div>
         </div>

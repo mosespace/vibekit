@@ -50,7 +50,7 @@ export function Nav() {
       <header
         className={cn(
           "fixed top-0 inset-x-0 z-50 transition-all duration-300",
-          scrolled ? "py-2 sm:py-3" : "py-3 sm:py-5"
+          scrolled ? "py-2 sm:py-3" : "py-3 sm:py-5",
         )}
       >
         <div className="mx-auto max-w-6xl px-3 sm:px-6">
@@ -59,13 +59,16 @@ export function Nav() {
               "flex items-center justify-between gap-3 sm:gap-6 rounded-full px-2 sm:px-3 py-2 transition-all duration-300",
               scrolled
                 ? "glass border border-[color:var(--border)] shadow-[var(--shadow-sm)]"
-                : "border border-transparent"
+                : "border border-transparent",
             )}
           >
-            <Link href="/" className="flex items-center gap-2 pl-1 sm:pl-2 group min-w-0">
+            <Link
+              href="/"
+              className="flex items-center gap-2 pl-1 sm:pl-2 group min-w-0"
+            >
               <LogoBadge />
               <span className="font-mono text-[13px] sm:text-[14px] font-medium uppercase tracking-wider text-[color:var(--text-primary)] truncate">
-                VibeKit
+                VibeKit CLI
               </span>
             </Link>
 
@@ -93,7 +96,12 @@ export function Nav() {
                 <Github className="h-4 w-4" />
                 GitHub
               </Button>
-              <Button href="#get-started" variant="accent" size="sm" className="hidden sm:inline-flex">
+              <Button
+                href="#get-started"
+                variant="accent"
+                size="sm"
+                className="hidden sm:inline-flex"
+              >
                 Get started
               </Button>
 
@@ -105,7 +113,11 @@ export function Nav() {
                 onClick={() => setMenuOpen((v) => !v)}
                 className="md:hidden inline-flex h-9 w-9 items-center justify-center rounded-full border border-[color:var(--border)] bg-[color:var(--bg-elevated)] text-[color:var(--text-primary)]"
               >
-                {menuOpen ? <X className="h-[18px] w-[18px]" /> : <Menu className="h-[18px] w-[18px]" />}
+                {menuOpen ? (
+                  <X className="h-[18px] w-[18px]" />
+                ) : (
+                  <Menu className="h-[18px] w-[18px]" />
+                )}
               </button>
             </div>
           </nav>
@@ -116,7 +128,9 @@ export function Nav() {
       <div
         className={cn(
           "md:hidden fixed inset-0 z-40 transition-opacity duration-300",
-          menuOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
+          menuOpen
+            ? "opacity-100 pointer-events-auto"
+            : "opacity-0 pointer-events-none",
         )}
         aria-hidden={!menuOpen}
       >
@@ -133,7 +147,7 @@ export function Nav() {
         <div
           className={cn(
             "absolute top-0 inset-x-0 bg-[color:var(--bg-elevated)] border-b border-[color:var(--border)] shadow-[var(--shadow-xl)] transition-transform duration-300",
-            menuOpen ? "translate-y-0" : "-translate-y-full"
+            menuOpen ? "translate-y-0" : "-translate-y-full",
           )}
         >
           <div className="mx-auto max-w-6xl px-4 pt-20 pb-8">

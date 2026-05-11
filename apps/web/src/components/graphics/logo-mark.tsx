@@ -1,6 +1,12 @@
 import { cn } from "@/lib/utils";
 
-export function LogoMark({ className, size = 28 }: { className?: string; size?: number }) {
+export function LogoMark({
+  className,
+  size = 28,
+}: {
+  className?: string;
+  size?: number;
+}) {
   return (
     <svg
       viewBox="0 0 64 64"
@@ -27,11 +33,17 @@ export function LogoBadge({ className }: { className?: string }) {
   return (
     <span
       className={cn(
-        "grid h-7 w-7 place-items-center rounded-[6px] bg-[color:var(--text-primary)] text-[color:var(--text-inverse)]",
-        className
+        "grid h-8 w-8 place-items-center rounded-[6px] bg-[color:var(--text-primary)]d text-[color:var(--text-inverse)]",
+        className,
       )}
     >
-      <LogoMark size={16} className="text-[color:var(--text-inverse)]" />
+      <img
+        src="/icons/logo.svg"
+        alt="VibeKit Logo"
+        width={100}
+        height={100}
+        className="text-[color:var(--text-inverse)]"
+      />
     </span>
   );
 }

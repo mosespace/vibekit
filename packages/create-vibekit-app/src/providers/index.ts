@@ -71,11 +71,16 @@ export const providers: Provider[] = [
       return credPaths.some((p) => fs.existsSync(p));
     },
     launch(projectDir, binary) {
-      spawnSync(binary, [], {
-        cwd: projectDir,
-        stdio: "inherit",
-        shell: process.platform === "win32",
-      });
+      // Pass an initial message so Claude reads CLAUDE.md and starts planning immediately
+      spawnSync(
+        binary,
+        ["Read CLAUDE.md and begin building the project exactly as described in the planning prompt."],
+        {
+          cwd: projectDir,
+          stdio: "inherit",
+          shell: process.platform === "win32",
+        },
+      );
     },
   }),
 
@@ -90,11 +95,15 @@ export const providers: Provider[] = [
       return Boolean(process.env["OPENAI_API_KEY"]);
     },
     launch(projectDir, binary) {
-      spawnSync(binary, [], {
-        cwd: projectDir,
-        stdio: "inherit",
-        shell: process.platform === "win32",
-      });
+      spawnSync(
+        binary,
+        ["Read AGENTS.md and begin building the project exactly as described in the planning prompt."],
+        {
+          cwd: projectDir,
+          stdio: "inherit",
+          shell: process.platform === "win32",
+        },
+      );
     },
   }),
 
@@ -113,11 +122,15 @@ export const providers: Provider[] = [
       return fs.existsSync(credFile);
     },
     launch(projectDir, binary) {
-      spawnSync(binary, [], {
-        cwd: projectDir,
-        stdio: "inherit",
-        shell: process.platform === "win32",
-      });
+      spawnSync(
+        binary,
+        ["Read GEMINI.md and begin building the project exactly as described in the planning prompt."],
+        {
+          cwd: projectDir,
+          stdio: "inherit",
+          shell: process.platform === "win32",
+        },
+      );
     },
   }),
 
@@ -135,11 +148,15 @@ export const providers: Provider[] = [
       );
     },
     launch(projectDir, binary) {
-      spawnSync(binary, [], {
-        cwd: projectDir,
-        stdio: "inherit",
-        shell: process.platform === "win32",
-      });
+      spawnSync(
+        binary,
+        ["Read OPENCODE.md and begin building the project exactly as described in the planning prompt."],
+        {
+          cwd: projectDir,
+          stdio: "inherit",
+          shell: process.platform === "win32",
+        },
+      );
     },
   }),
 ];

@@ -4,7 +4,7 @@
 
 ---
 
-## Quick Diagnosis — Start Here
+## Quick Diagnosis Start Here
 
 **Answer these questions before scrolling:**
 
@@ -22,9 +22,10 @@
 ## AI Is Stuck in a Loop {#ai-stuck}
 
 ### Symptom
+
 Claude Code keeps trying the same fix over and over. The error changes slightly each time but the problem persists. You have been in the same conversation for 30+ minutes.
 
-### Fix — The Hard Reset Protocol
+### Fix The Hard Reset Protocol
 
 1. **Stop.** Do not send another message in the current conversation.
 2. Open a **brand new** Claude Code conversation.
@@ -55,13 +56,13 @@ Rules:
 
 ### Why This Works
 
-Each new conversation starts fresh — Claude Code does not carry over its failed assumptions from the previous session. You are giving it a clean slate with complete context instead of a confused history.
+Each new conversation starts fresh Claude Code does not carry over its failed assumptions from the previous session. You are giving it a clean slate with complete context instead of a confused history.
 
 ---
 
 ## Something I Changed Broke It {#something-broke}
 
-### Strategy — Isolate the Change
+### Strategy Isolate the Change
 
 1. Identify exactly which Claude Code prompt caused the breakage
 2. In your new prompt, say:
@@ -83,11 +84,13 @@ Before each new phase or significant change, download your project from Claude C
 ### Symptom: Login redirects correctly but session is not persisted
 
 **Check:**
+
 - `BETTER_AUTH_SECRET` is set in your environment variables
 - `BETTER_AUTH_URL` matches your exact app URL (no trailing slash, correct protocol)
 - The auth API route exists at `app/api/auth/[...all]/route.ts`
 
 **Rescue prompt:**
+
 ```
 Authentication is not persisting sessions. Login succeeds but the user is immediately shown as logged out on the next page load.
 
@@ -98,7 +101,7 @@ Check only these specific things:
 3. Is the session cookie being set correctly after login?
 4. Is the session being checked on the dashboard page?
 
-Show me the current content of: 
+Show me the current content of:
 - app/api/auth/[...all]/route.ts
 - The session check on the dashboard page
 ```
@@ -108,23 +111,25 @@ Show me the current content of:
 ### Symptom: Google OAuth returns an error
 
 **Check:**
+
 - In Google Cloud Console: is `http://localhost:3000/api/auth/callback/google` in Authorized Redirect URIs?
 - For production: is `https://yourdomain.com/api/auth/callback/google` also added?
 - Are `GOOGLE_CLIENT_ID` and `GOOGLE_CLIENT_SECRET` correctly set?
 
-**Common mistake:** Google OAuth redirect URIs must match exactly — including `http` vs `https` and with or without trailing slash.
+**Common mistake:** Google OAuth redirect URIs must match exactly including `http` vs `https` and with or without trailing slash.
 
 ---
 
 ### Symptom: User is logged in but protected pages still redirect to login
 
 **Rescue prompt:**
+
 ```
 Protected pages are redirecting to /login even when the user is authenticated.
 
 Check the middleware or session check on the page at [/path].
 Show me the current protection logic.
-The user IS logged in — the issue is how the session is being read on this page.
+The user IS logged in  the issue is how the session is being read on this page.
 Do not change authentication or any other pages.
 ```
 
@@ -136,12 +141,12 @@ Do not change authentication or any other pages.
 
 **Causes and fixes:**
 
-| Cause | Fix |
-|---|---|
-| `DATABASE_URL` not set | Add it to `.env.local` or Vercel environment variables |
-| Neon project is paused | Go to Neon dashboard and click "Resume" |
-| Wrong connection string format | Make sure string includes `?sslmode=require` at the end |
-| IP not whitelisted | In Neon settings, allow all IPs (`0.0.0.0/0`) or add Vercel's IP ranges |
+| Cause                          | Fix                                                                     |
+| ------------------------------ | ----------------------------------------------------------------------- |
+| `DATABASE_URL` not set         | Add it to `.env.local` or Vercel environment variables                  |
+| Neon project is paused         | Go to Neon dashboard and click "Resume"                                 |
+| Wrong connection string format | Make sure string includes `?sslmode=require` at the end                 |
+| IP not whitelisted             | In Neon settings, allow all IPs (`0.0.0.0/0`) or add Vercel's IP ranges |
 
 ---
 
@@ -150,6 +155,7 @@ Do not change authentication or any other pages.
 **Cause:** Schema change was not migrated to the database.
 
 **Fix:**
+
 ```
 Run: npx prisma migrate dev --name [describe-the-change]
 
@@ -164,6 +170,7 @@ This pushes the schema directly without creating migration files (use only for d
 **Cause:** Trying to create a record with a value that already exists in a `@unique` field.
 
 **Rescue prompt:**
+
 ```
 The POST /api/[endpoint] route is throwing a unique constraint error on the email field.
 Add error handling that:
@@ -181,6 +188,7 @@ Do not change anything else in this route.
 **Example:** Creating a task with `projectId: "abc"` but no project with that ID exists.
 
 **Fix:** In your API route, check the referenced record exists before creating:
+
 ```
 Before creating the [model], verify that the referenced [parentModel] with ID [id] exists.
 If it does not exist, return a 404 error: "[parentModel] not found".
@@ -216,7 +224,7 @@ If it does not exist, return a 404 error: "[parentModel] not found".
 
 1. In your Vercel project, go to **Deployments**
 2. Click on the failing deployment
-3. Click **"View Build Logs"** — scroll to the bottom to find the error
+3. Click **"View Build Logs"** scroll to the bottom to find the error
 4. Copy the exact error message and use it in a rescue prompt
 
 ---
@@ -224,8 +232,9 @@ If it does not exist, return a 404 error: "[parentModel] not found".
 ### Symptom: Custom domain is not working
 
 **Checklist:**
+
 - [ ] DNS records added in Cloudflare (A record for apex, CNAME for www)
-- [ ] Records set to **DNS only** (grey cloud) — NOT proxied (orange cloud)
+- [ ] Records set to **DNS only** (grey cloud) NOT proxied (orange cloud)
 - [ ] Waited 10+ minutes for DNS propagation
 - [ ] Domain added in Vercel → Settings → Domains with green checkmark
 - [ ] SSL certificate is provisioned (Vercel does this automatically after DNS verification)
@@ -242,7 +251,7 @@ If it does not exist, return a 404 error: "[parentModel] not found".
 
 1. In Resend dashboard, verify your domain has status **"Verified"** (not "Pending")
 2. Check all three DNS records are added in Cloudflare and propagated
-3. Make sure `RESEND_FROM` is set to an address at your verified domain (e.g. `noreply@yourdomain.com`) — NOT `onboarding@resend.dev`
+3. Make sure `RESEND_FROM` is set to an address at your verified domain (e.g. `noreply@yourdomain.com`) NOT `onboarding@resend.dev`
 4. Check your email content does not have spam trigger words
 
 ---
@@ -250,6 +259,7 @@ If it does not exist, return a 404 error: "[parentModel] not found".
 ### Symptom: Emails are not sending at all
 
 **Rescue prompt:**
+
 ```
 Emails are not being sent. No error is thrown but emails are not arriving.
 
@@ -271,6 +281,7 @@ Then check your Vercel function logs (Vercel → project → Logs) for the conso
 ### Symptom: Stripe checkout page loads but payment fails
 
 **Check:**
+
 - Are you using test card number `4242 4242 4242 4242`?
 - Is `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` the test key (starts with `pk_test_`)?
 - Is `STRIPE_SECRET_KEY` the test key (starts with `sk_test_`)?
@@ -289,6 +300,7 @@ Then check your Vercel function logs (Vercel → project → Logs) for the conso
 5. In Stripe → Webhooks → your endpoint: check the event delivery logs for errors
 
 **Rescue prompt:**
+
 ```
 The Stripe webhook is firing (I can see it in the Stripe dashboard) but the database is not being updated.
 
@@ -299,7 +311,7 @@ Add detailed console.log statements to log:
 3. Whether the database update was attempted
 4. Any errors caught
 
-Do not change the business logic — only add logging.
+Do not change the business logic  only add logging.
 ```
 
 ---
@@ -311,8 +323,9 @@ Do not change the business logic — only add logging.
 **Cause:** Tailwind CSS is not loading correctly.
 
 **Fix:**
+
 ```
-The page at [/path] is not styled — Tailwind classes are not being applied.
+The page at [/path] is not styled  Tailwind classes are not being applied.
 Check that:
 1. The page component is in the correct directory
 2. The Tailwind config includes this directory in the content paths
@@ -327,6 +340,7 @@ Do not change any other pages.
 **Cause:** Claude Code made "helpful" style changes while updating functionality.
 
 **Fix:**
+
 ```
 The last update changed the visual design of [page/component].
 Revert ONLY the style changes. Keep all the functional changes.
@@ -343,9 +357,10 @@ Show me what was changed.
 ### Symptom: App looks different on mobile
 
 **Rescue prompt:**
+
 ```
 The page at [/path] is not properly responsive on mobile (under 640px width).
-The specific problem is: [describe — text overflows, layout breaks, etc.]
+The specific problem is: [describe  text overflows, layout breaks, etc.]
 
 Fix the mobile layout for this page only.
 Do not change: desktop layout, any other pages, or any backend code.
@@ -354,20 +369,21 @@ Use Tailwind responsive prefixes: sm:, md:, lg:
 
 ---
 
-## Escalation — When Nothing Works
+## Escalation When Nothing Works
 
 If you have tried everything above and are still stuck:
 
 1. **Export your project** from Claude Code as a ZIP
 2. **Open a new Claude Code project** and import the ZIP (fresh start, same code)
 3. **Describe only the one specific problem** in your first message
-4. **Do not mention the history** of failed attempts — let Claude Code approach it fresh
+4. **Do not mention the history** of failed attempts let Claude Code approach it fresh
 
 If the problem is truly blocking:
+
 - Post in the Claude Code Discord community
 - Post in the VibeKit GitHub Discussions with your error and context
 - Tag `@jbwebdeveloper` on YouTube with your question
 
 ---
 
-*Part of the [VibeKit Framework](../README.md) — github.com/MUKE-coder/vibekit*
+_Part of the [VibeKit Framework](../README.md) github.com/MUKE-coder/vibekit_

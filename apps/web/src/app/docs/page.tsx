@@ -6,9 +6,9 @@ import { Nav } from "@/components/nav";
 import { SITE } from "@/lib/utils";
 
 export const metadata: Metadata = {
-  title: "Documentation — VibeKit & create-vibekit-app",
+  title: "Documentation  VibeKit & create-vibekit-app",
   description:
-    "Documentation for create-vibekit-app: install, run, pick your AI provider, plan your project, and ship — all from the terminal.",
+    "Documentation for create-vibekit-app: install, run, pick your AI provider, plan your project, and ship  all from the terminal.",
   alternates: { canonical: "/docs" },
   openGraph: { url: `${SITE.url}/docs`, images: ["/og.png"] },
 };
@@ -17,15 +17,17 @@ const guides = [
   {
     slug: "quickstart",
     badge: "Start here",
-    badgeColor: "text-[color:var(--accent)] border-[color:var(--accent)]/40 bg-[color:var(--accent)]/8",
+    badgeColor:
+      "text-[color:var(--accent)] border-[color:var(--accent)]/40 bg-[color:var(--accent)]/8",
     title: "CLI Quickstart",
     blurb:
-      "Run `npx create-vibekit-app my-app`, describe your idea, pick your AI provider, and watch it plan and build your Next.js app — step by step.",
+      "Run `npx create-vibekit-app my-app`, describe your idea, pick your AI provider, and watch it plan and build your Next.js app  step by step.",
   },
   {
     slug: "what-is-vibekit",
     badge: "Concepts",
-    badgeColor: "text-[color:var(--text-tertiary)] border-[color:var(--border)] bg-transparent",
+    badgeColor:
+      "text-[color:var(--text-tertiary)] border-[color:var(--border)] bg-transparent",
     title: "What is VibeKit?",
     blurb:
       "The problem the framework solves, how the CLI + agent handoff pattern works, and why phase-based building beats open-ended prompting.",
@@ -36,32 +38,38 @@ const cliReference = [
   {
     title: "create-vibekit-app",
     cmd: "npx create-vibekit-app <name>",
-    blurb: "Scaffold, idea collection, provider detection, auth check, Session 1 planning, Session 2 build — one command.",
+    blurb:
+      "Scaffold, idea collection, provider detection, auth check, Session 1 planning, Session 2 build  one command.",
   },
   {
     title: "Supported providers",
     cmd: "claude · codex · gemini · opencode",
-    blurb: "Auto-detected from PATH. Each gets its own context file (CLAUDE.md, AGENTS.md, GEMINI.md, OPENCODE.md).",
+    blurb:
+      "Auto-detected from PATH. Each gets its own context file (CLAUDE.md, AGENTS.md, GEMINI.md, OPENCODE.md).",
   },
   {
     title: ".vibekit/ directory",
     cmd: "ls my-app/.vibekit/",
-    blurb: "Framework files copied on scaffold: master_prompt.md, jb-components.md, design-system-guide.md, and more.",
+    blurb:
+      "Framework files copied on scaffold: master_prompt.md, jb-components.md, design-system-guide.md, and more.",
   },
   {
-    title: "Session 1 — Planning",
+    title: "Session 1  Planning",
     cmd: "Generates 4 project files",
-    blurb: "project-description.md, project-phases.md, design-style-guide.md, prompt.md — the blueprint for your build.",
+    blurb:
+      "project-description.md, project-phases.md, design-style-guide.md, prompt.md  the blueprint for your build.",
   },
   {
-    title: "Session 2 — Build",
+    title: "Session 2  Build",
     cmd: "Phase by phase build",
-    blurb: "Agent reads prompt.md + master_prompt.md, builds Phase 1, pauses for your sign-off, then continues.",
+    blurb:
+      "Agent reads prompt.md + master_prompt.md, builds Phase 1, pauses for your sign-off, then continues.",
   },
   {
     title: "Pre-deploy review",
     cmd: "Runs before Vercel push",
-    blurb: "Critical / High / Medium security and quality audit. Address every Critical before deploying.",
+    blurb:
+      "Critical / High / Medium security and quality audit. Address every Critical before deploying.",
   },
 ];
 
@@ -114,7 +122,6 @@ export default function DocsHub() {
       <Nav />
       <main className="pt-28 pb-24">
         <div className="mx-auto max-w-5xl px-4 sm:px-6">
-
           {/* Header */}
           <div className="border-b border-[color:var(--border)] pb-12">
             <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-secondary)]">
@@ -125,13 +132,17 @@ export default function DocsHub() {
               Everything you need to ship.
             </h1>
             <p className="mt-5 max-w-2xl text-[17px] leading-relaxed text-[color:var(--text-secondary)]">
-              Start with the CLI quickstart — one command scaffolds your project, collects your idea, detects your AI provider, and launches the planning session. The reference guides live on GitHub.
+              Start with the CLI quickstart one command scaffolds your project,
+              collects your idea, detects your AI provider, and launches the
+              planning session. The reference guides live on GitHub.
             </p>
 
             {/* Install command */}
             <div className="mt-8 flex items-center gap-3 rounded-md border border-[color:var(--accent)]/30 bg-[#0E0C09] px-5 py-3.5 font-mono text-[14px] w-fit">
               <span className="text-[#D97757]">$</span>
-              <code className="text-[#F5EFE6]">npx create-vibekit-app my-app</code>
+              <code className="text-[#F5EFE6]">
+                npx create-vibekit-app my-app
+              </code>
             </div>
           </div>
 
@@ -144,7 +155,9 @@ export default function DocsHub() {
                 className="group flex flex-col rounded-[var(--radius-lg)] border border-[color:var(--border)] bg-[color:var(--bg-elevated)] p-6 transition-all hover:-translate-y-0.5 hover:border-[color:var(--border-strong)] hover:shadow-[var(--shadow-md)]"
               >
                 <div className="flex items-center justify-between">
-                  <span className={`inline-flex items-center rounded-full border px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider ${g.badgeColor}`}>
+                  <span
+                    className={`inline-flex items-center rounded-full border px-2.5 py-0.5 font-mono text-[10px] uppercase tracking-wider ${g.badgeColor}`}
+                  >
                     {g.badge}
                   </span>
                   <ArrowUpRight className="h-4 w-4 text-[color:var(--text-tertiary)] transition-all group-hover:translate-x-0.5 group-hover:-translate-y-0.5 group-hover:text-[color:var(--accent)]" />
@@ -217,7 +230,6 @@ export default function DocsHub() {
               ))}
             </div>
           </div>
-
         </div>
       </main>
       <Footer />

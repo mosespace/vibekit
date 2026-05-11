@@ -1,18 +1,18 @@
-# VibeKit Web — Marketing Site
+# VibeKit Web Marketing Site
 
 > Landing site for VibeKit Framework. Domain: **vibekit.desishub.com**
 
-Built with the VibeKit stack — eating our own dog food.
+Built with the VibeKit stack eating our own dog food.
 
 ## Stack
 
 - **Next.js 16** (App Router) + **React 19**
 - **TypeScript 5.9**
 - **Tailwind CSS v4**
-- **next-themes** — dark + light mode
-- **react-three-fiber + three.js** — hero canvas
-- **GSAP + ScrollTrigger** — text reveals + scroll animations
-- **lucide-react** — icons
+- **next-themes** dark + light mode
+- **react-three-fiber + three.js** hero canvas
+- **GSAP + ScrollTrigger** text reveals + scroll animations
+- **lucide-react** icons
 - Fonts: **Instrument Serif** (display), **Inter** (body), **JetBrains Mono** (code)
 
 ## Local development

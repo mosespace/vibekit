@@ -6,14 +6,14 @@
 
 ## What Are Environment Variables?
 
-Environment variables are private configuration values that your app reads at runtime. They are never stored in your code — they live in a `.env` file locally and in your deployment platform (Vercel) in production.
+Environment variables are private configuration values that your app reads at runtime. They are never stored in your code they live in a `.env` file locally and in your deployment platform (Vercel) in production.
 
-Think of them as a secure keychain: your app asks "what's the database password?" and the environment provides it — without the password ever being written in the code where someone could see it.
+Think of them as a secure keychain: your app asks "what's the database password?" and the environment provides it without the password ever being written in the code where someone could see it.
 
 ### The Two Files You Need
 
-**`.env.local`** — local development secrets. Never commit this to GitHub.  
-**`.env.example`** — a template with all variable names and descriptions, but no real values. Commit this to GitHub so other developers know what variables they need.
+**`.env.local`** local development secrets. Never commit this to GitHub.  
+**`.env.example`** a template with all variable names and descriptions, but no real values. Commit this to GitHub so other developers know what variables they need.
 
 ---
 
@@ -61,9 +61,10 @@ NEXT_PUBLIC_APP_URL=http://localhost:3000
 
 ---
 
-## DATABASE_URL — Neon Postgres
+## DATABASE_URL Neon Postgres
 
 ### What It Is
+
 The connection string your app uses to connect to your Postgres database hosted on Neon.
 
 ### How to Get It
@@ -82,14 +83,16 @@ The connection string your app uses to connect to your Postgres database hosted 
 ### Development vs Production
 
 Create **two Neon branches**:
-- `main` — your production database
-- `dev` — your development database (use Neon's branch feature)
+
+- `main` your production database
+- `dev` your development database (use Neon's branch feature)
 
 **Never connect your local development to your production database.** In Neon, click **"Branches"** → **"Create Branch"** to create a `dev` branch with its own connection string.
 
 Use the `dev` connection string in your `.env.local` and the `main` connection string in Vercel production environment variables.
 
 ### In `.env.local`
+
 ```env
 DATABASE_URL=postgresql://username:password@ep-dev-12345.us-east-2.aws.neon.tech/dbname?sslmode=require
 ```
@@ -99,23 +102,26 @@ DATABASE_URL=postgresql://username:password@ep-dev-12345.us-east-2.aws.neon.tech
 ## BETTER_AUTH_SECRET
 
 ### What It Is
+
 A random secret string that Better Auth uses to sign and verify session tokens. Think of it as the master password for your auth system.
 
 ### How to Get It
 
 Generate a secure random string of at least 32 characters. Options:
 
-**Option 1 — Online generator:**
+**Option 1 Online generator:**
 Go to [randomkeygen.com](https://randomkeygen.com) and copy a "CodeIgniter Encryption Key" (64 characters)
 
-**Option 2 — Use any random string that is at least 32 characters long**
+**Option 2 Use any random string that is at least 32 characters long**
 
-Example (do not use this one — generate your own):
+Example (do not use this one generate your own):
+
 ```
 k9x2mP8vQnR4tY7wZ3aB6cD5eF1gH0iJ
 ```
 
 ### In `.env.local`
+
 ```env
 BETTER_AUTH_SECRET=your-generated-32-plus-character-string-here
 ```
@@ -127,22 +133,25 @@ BETTER_AUTH_SECRET=your-generated-32-plus-character-string-here
 ## BETTER_AUTH_URL
 
 ### What It Is
+
 The base URL of your app. Better Auth uses this to construct callback URLs for OAuth and email links.
 
 ### Values by Environment
 
-| Environment | Value |
-|---|---|
-| Local development | `http://localhost:3000` |
-| Vercel preview | Your preview URL (or leave as production URL) |
-| Production | `https://yourdomain.com` (no trailing slash) |
+| Environment       | Value                                         |
+| ----------------- | --------------------------------------------- |
+| Local development | `http://localhost:3000`                       |
+| Vercel preview    | Your preview URL (or leave as production URL) |
+| Production        | `https://yourdomain.com` (no trailing slash)  |
 
 ### In `.env.local`
+
 ```env
 BETTER_AUTH_URL=http://localhost:3000
 ```
 
 ### In Vercel (Production)
+
 ```env
 BETTER_AUTH_URL=https://yourdomain.com
 ```
@@ -152,22 +161,26 @@ BETTER_AUTH_URL=https://yourdomain.com
 ## GOOGLE_CLIENT_ID and GOOGLE_CLIENT_SECRET
 
 ### What They Are
+
 Credentials from Google Cloud Console that allow your app to offer "Sign in with Google".
 
 ### How to Get Them
 
-**Step 1 — Create a Google Cloud Project**
+**Step 1 Create a Google Cloud Project**
+
 1. Go to [console.cloud.google.com](https://console.cloud.google.com)
 2. Click the project dropdown at the top → **"New Project"**
 3. Give it a name (e.g. your app name)
 4. Click **"Create"**
 
-**Step 2 — Enable the Google+ API**
+**Step 2 Enable the Google+ API**
+
 1. In your new project, go to **"APIs & Services"** → **"Enable APIs and Services"**
 2. Search for **"Google+ API"** and enable it
 3. Also enable **"Google Identity"** if available
 
-**Step 3 — Configure the OAuth Consent Screen**
+**Step 3 Configure the OAuth Consent Screen**
+
 1. Go to **"APIs & Services"** → **"OAuth consent screen"**
 2. Choose **"External"** (for apps used by anyone) or **"Internal"** (for internal tools)
 3. Fill in:
@@ -176,7 +189,8 @@ Credentials from Google Cloud Console that allow your app to offer "Sign in with
    - Developer contact: your email
 4. Click **"Save and Continue"** through the remaining steps
 
-**Step 4 — Create OAuth Credentials**
+**Step 4 Create OAuth Credentials**
+
 1. Go to **"APIs & Services"** → **"Credentials"**
 2. Click **"Create Credentials"** → **"OAuth 2.0 Client ID"**
 3. Application type: **"Web application"**
@@ -193,6 +207,7 @@ Credentials from Google Cloud Console that allow your app to offer "Sign in with
 7. Copy the **Client ID** and **Client Secret**
 
 ### In `.env.local`
+
 ```env
 GOOGLE_CLIENT_ID=1234567890-abc123.apps.googleusercontent.com
 GOOGLE_CLIENT_SECRET=GOCSPX-abcdefghijklmnop
@@ -203,6 +218,7 @@ GOOGLE_CLIENT_SECRET=GOCSPX-abcdefghijklmnop
 ## GITHUB_CLIENT_ID and GITHUB_CLIENT_SECRET
 
 ### What They Are
+
 Credentials for "Sign in with GitHub" OAuth.
 
 ### How to Get Them
@@ -218,6 +234,7 @@ Credentials for "Sign in with GitHub" OAuth.
 6. Click **"Generate a new client secret"** and copy the secret
 
 ### In `.env.local`
+
 ```env
 GITHUB_CLIENT_ID=Ov23liABC123XYZ
 GITHUB_CLIENT_SECRET=abc123def456ghi789jkl012mno345pqr678stu
@@ -228,6 +245,7 @@ GITHUB_CLIENT_SECRET=abc123def456ghi789jkl012mno345pqr678stu
 ## RESEND_API_KEY
 
 ### What It Is
+
 The API key that allows your app to send emails through Resend.
 
 ### How to Get It
@@ -239,9 +257,10 @@ The API key that allows your app to send emails through Resend.
 5. Set permission to **"Full Access"**
 6. Set Domain to **"All Domains"** (or restrict to your domain)
 7. Click **"Add"**
-8. **Copy the key immediately** — it will only be shown once. It starts with `re_`
+8. **Copy the key immediately** it will only be shown once. It starts with `re_`
 
 ### In `.env.local`
+
 ```env
 RESEND_API_KEY=re_abcdefghijklmnopqrstuvwxyz123456
 RESEND_FROM=noreply@yourdomain.com
@@ -257,11 +276,11 @@ RESEND_FROM=noreply@yourdomain.com
 
 Three separate Stripe credentials:
 
-| Variable | Starts With | What It Is |
-|---|---|---|
-| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | `pk_` | Public key — safe to expose in browser |
-| `STRIPE_SECRET_KEY` | `sk_` | Secret key — never expose, server-side only |
-| `STRIPE_WEBHOOK_SECRET` | `whsec_` | Verifies webhook events are from Stripe |
+| Variable                             | Starts With | What It Is                                |
+| ------------------------------------ | ----------- | ----------------------------------------- |
+| `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY` | `pk_`       | Public key safe to expose in browser      |
+| `STRIPE_SECRET_KEY`                  | `sk_`       | Secret key never expose, server-side only |
+| `STRIPE_WEBHOOK_SECRET`              | `whsec_`    | Verifies webhook events are from Stripe   |
 
 ### How to Get the API Keys
 
@@ -270,7 +289,7 @@ Three separate Stripe credentials:
 3. Go to **"Developers"** → **"API Keys"**
 4. Copy:
    - **Publishable key** (starts with `pk_test_`)
-   - **Secret key** (click "Reveal" — starts with `sk_test_`)
+   - **Secret key** (click "Reveal" starts with `sk_test_`)
 
 ### How to Get the Webhook Secret
 
@@ -301,14 +320,15 @@ The webhook secret is generated when you create a webhook endpoint.
 
 Stripe has two sets of keys: **Test** (for development) and **Live** (for production with real money).
 
-| Key Set | Prefix | When to Use |
-|---|---|---|
-| Test | `pk_test_` / `sk_test_` | Always during development |
-| Live | `pk_live_` / `sk_live_` | Production only, real payments |
+| Key Set | Prefix                  | When to Use                    |
+| ------- | ----------------------- | ------------------------------ |
+| Test    | `pk_test_` / `sk_test_` | Always during development      |
+| Live    | `pk_live_` / `sk_live_` | Production only, real payments |
 
 In Vercel, set your **Production** environment to use **Live** keys and your **Preview/Development** environments to use **Test** keys.
 
 ### In `.env.local`
+
 ```env
 NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=pk_test_51...
 STRIPE_SECRET_KEY=sk_test_51...
@@ -320,28 +340,33 @@ STRIPE_WEBHOOK_SECRET=whsec_...
 ## Cloudflare R2 (File Storage)
 
 ### What It Is
+
 Cloudflare R2 is object storage (like Amazon S3) for storing uploaded files: images, documents, videos, attachments. R2 is free for the first 10GB of storage and has no egress (download) fees.
 
 ### How to Get the Credentials
 
-**Step 1 — Enable R2 on Your Cloudflare Account**
+**Step 1 Enable R2 on Your Cloudflare Account**
+
 1. Go to [cloudflare.com/r2](https://cloudflare.com/r2) and sign in
 2. In the left sidebar, click **"R2 Object Storage"**
 3. Click **"Get Started"** and add a payment method (required but free tier available)
 
-**Step 2 — Create a Bucket**
+**Step 2 Create a Bucket**
+
 1. Click **"Create bucket"**
 2. Give it a name (e.g. `myapp-uploads`)
 3. Choose a region or leave as default
 4. Click **"Create bucket"**
 
-**Step 3 — Make the Bucket Publicly Accessible (for image display)**
+**Step 3 Make the Bucket Publicly Accessible (for image display)**
+
 1. Click on your bucket
 2. Go to **"Settings"**
 3. Under **"Public access"**, click **"Allow Access"** and enable **"R2.dev subdomain"**
 4. Note the public URL (looks like `https://pub-abc123.r2.dev`)
 
-**Step 4 — Create API Tokens**
+**Step 4 Create API Tokens**
+
 1. In the R2 overview page, click **"Manage R2 API tokens"**
 2. Click **"Create API Token"**
 3. Give it a name (e.g. `myapp-token`)
@@ -354,6 +379,7 @@ Cloudflare R2 is object storage (like Amazon S3) for storing uploaded files: ima
    - **Account ID** (shown on the R2 overview page)
 
 ### In `.env.local`
+
 ```env
 R2_ACCOUNT_ID=abc123def456
 R2_ACCESS_KEY_ID=abc123
@@ -367,6 +393,7 @@ NEXT_PUBLIC_R2_PUBLIC_URL=https://pub-abc123.r2.dev
 ## NEXT_PUBLIC_APP_URL
 
 ### What It Is
+
 The full URL of your app. Used for constructing absolute URLs in emails, OG tags, and other places.
 
 ### Values by Environment
@@ -397,8 +424,8 @@ NEXT_PUBLIC_APP_URL=https://yourdomain.com
 
 ### Important Rules
 
-- No quotes around values — enter the raw value only
-- `NEXT_PUBLIC_` prefix means the variable is exposed to the browser — use only for non-secret values
+- No quotes around values enter the raw value only
+- `NEXT_PUBLIC_` prefix means the variable is exposed to the browser use only for non-secret values
 - After adding or changing any variable, you must redeploy for changes to take effect
 - The `BETTER_AUTH_URL` must match your exact production domain
 
@@ -412,37 +439,37 @@ Instead of adding one by one, you can bulk-import:
 
 ---
 
-## Security Rules — Never Break These
+## Security Rules Never Break These
 
-| Rule | Why |
-|---|---|
-| Never commit `.env.local` to GitHub | Exposes all your secrets publicly |
-| Never put secrets in `NEXT_PUBLIC_` variables | These are exposed in the browser source code |
-| Never hardcode API keys in your source code | Anyone who reads the code can steal them |
-| Never share your Stripe secret key | Anyone with it can charge your customers |
-| Never use the same secret across different apps | A breach in one app does not affect others |
-| Rotate secrets immediately if exposed | Assume they are already compromised |
+| Rule                                            | Why                                          |
+| ----------------------------------------------- | -------------------------------------------- |
+| Never commit `.env.local` to GitHub             | Exposes all your secrets publicly            |
+| Never put secrets in `NEXT_PUBLIC_` variables   | These are exposed in the browser source code |
+| Never hardcode API keys in your source code     | Anyone who reads the code can steal them     |
+| Never share your Stripe secret key              | Anyone with it can charge your customers     |
+| Never use the same secret across different apps | A breach in one app does not affect others   |
+| Rotate secrets immediately if exposed           | Assume they are already compromised          |
 
 ---
 
 ## Quick Reference Table
 
-| Variable | Where to Get It | Starts With |
-|---|---|---|
-| `DATABASE_URL` | Neon dashboard → project → connection string | `postgresql://` |
-| `BETTER_AUTH_SECRET` | [randomkeygen.com](https://randomkeygen.com) | any 32+ chars |
-| `BETTER_AUTH_URL` | Your app's domain | `http://` or `https://` |
-| `GOOGLE_CLIENT_ID` | Google Cloud Console → Credentials | numbers + `.apps.googleusercontent.com` |
-| `GOOGLE_CLIENT_SECRET` | Google Cloud Console → Credentials | `GOCSPX-` |
-| `GITHUB_CLIENT_ID` | GitHub → Settings → Developer settings | `Ov23li` |
-| `GITHUB_CLIENT_SECRET` | GitHub → Settings → Developer settings | long hash |
-| `RESEND_API_KEY` | Resend dashboard → API Keys | `re_` |
-| `STRIPE_PUBLISHABLE_KEY` | Stripe dashboard → API Keys | `pk_test_` or `pk_live_` |
-| `STRIPE_SECRET_KEY` | Stripe dashboard → API Keys | `sk_test_` or `sk_live_` |
-| `STRIPE_WEBHOOK_SECRET` | Stripe dashboard → Webhooks | `whsec_` |
-| `R2_ACCESS_KEY_ID` | Cloudflare → R2 → API Tokens | short string |
-| `R2_SECRET_ACCESS_KEY` | Cloudflare → R2 → API Tokens | long string |
+| Variable                 | Where to Get It                              | Starts With                             |
+| ------------------------ | -------------------------------------------- | --------------------------------------- |
+| `DATABASE_URL`           | Neon dashboard → project → connection string | `postgresql://`                         |
+| `BETTER_AUTH_SECRET`     | [randomkeygen.com](https://randomkeygen.com) | any 32+ chars                           |
+| `BETTER_AUTH_URL`        | Your app's domain                            | `http://` or `https://`                 |
+| `GOOGLE_CLIENT_ID`       | Google Cloud Console → Credentials           | numbers + `.apps.googleusercontent.com` |
+| `GOOGLE_CLIENT_SECRET`   | Google Cloud Console → Credentials           | `GOCSPX-`                               |
+| `GITHUB_CLIENT_ID`       | GitHub → Settings → Developer settings       | `Ov23li`                                |
+| `GITHUB_CLIENT_SECRET`   | GitHub → Settings → Developer settings       | long hash                               |
+| `RESEND_API_KEY`         | Resend dashboard → API Keys                  | `re_`                                   |
+| `STRIPE_PUBLISHABLE_KEY` | Stripe dashboard → API Keys                  | `pk_test_` or `pk_live_`                |
+| `STRIPE_SECRET_KEY`      | Stripe dashboard → API Keys                  | `sk_test_` or `sk_live_`                |
+| `STRIPE_WEBHOOK_SECRET`  | Stripe dashboard → Webhooks                  | `whsec_`                                |
+| `R2_ACCESS_KEY_ID`       | Cloudflare → R2 → API Tokens                 | short string                            |
+| `R2_SECRET_ACCESS_KEY`   | Cloudflare → R2 → API Tokens                 | long string                             |
 
 ---
 
-*Part of the [VibeKit Framework](../README.md) — github.com/MUKE-coder/vibekit*
+_Part of the [VibeKit Framework](../README.md) github.com/MUKE-coder/vibekit_

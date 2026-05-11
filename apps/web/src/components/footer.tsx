@@ -6,7 +6,7 @@ const cols = [
   {
     label: "Framework",
     links: [
-      { name: "Tutorial — TaskFlow course", href: "/tutorial" },
+      { name: "Tutorial  TaskFlow course", href: "/tutorial" },
       { name: "Quickstart", href: "/docs/quickstart" },
       { name: "GitHub (fork)", href: SITE.github },
       {

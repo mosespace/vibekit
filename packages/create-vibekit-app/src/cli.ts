@@ -21,7 +21,8 @@ export async function run() {
     const answer = await text({
       message: "What is your project name?",
       placeholder: "my-vibekit-app",
-      validate: (v) => (!v.trim() ? "Project name cannot be empty." : undefined),
+      validate: (v) =>
+        !v.trim() ? "Project name cannot be empty." : undefined,
     });
     if (isCancel(answer)) {
       cancel("Cancelled.");
@@ -42,10 +43,10 @@ export async function run() {
   const chosen = await selectProvider(detected);
   const authed = await ensureAuth(chosen);
 
-  // Session 1 — Planning: injects idea into context file, launches provider
+  // Session 1  Planning: injects idea into context file, launches provider
   await handoffToAgent(chosen, dest, authed, appIdea);
 
-  // Session 2 — Build: detects generated files, offers to launch the build session
+  // Session 2  Build: detects generated files, offers to launch the build session
   await postPlanning(dest, chosen);
 
   outro(pc.green("Done! Your project is ready."));

@@ -7,7 +7,7 @@ const tree = `vibekit/
 ├── master_prompt.md             ← Coding standards for Claude Code (copy to your project)
 ├── design-style-guide.md        ← Design style guide template
 ├── jb-components.md             ← JB component registry reference (copy to your project)
-├── pre-deploy-review.md         ← Paste into Claude Code before deploying — security/perf audit
+├── pre-deploy-review.md         ← Paste into Claude Code before deploying  security/perf audit
 │
 ├── prompt-engineering.md        ← Token economy, 5-part formula, rescue system
 ├── deployment.md                ← Vercel, Netlify, Cloudflare, SSL
@@ -18,9 +18,18 @@ const tree = `vibekit/
 └── monetization-guide.md        ← Stripe, webhooks, feature gating, billing`;
 
 const copyFiles = [
-  { file: "master_prompt.md", purpose: "Claude Code reads this first — tech stack + coding rules" },
-  { file: "jb-components.md", purpose: "Reference for when to install which JB component" },
-  { file: "pre-deploy-review.md", purpose: "Paste into Claude Code before deploying for an audit" },
+  {
+    file: "master_prompt.md",
+    purpose: "Claude Code reads this first  tech stack + coding rules",
+  },
+  {
+    file: "jb-components.md",
+    purpose: "Reference for when to install which JB component",
+  },
+  {
+    file: "pre-deploy-review.md",
+    purpose: "Paste into Claude Code before deploying for an audit",
+  },
 ];
 
 export function FrameworkFiles() {
@@ -28,8 +37,8 @@ export function FrameworkFiles() {
     <Section
       id="files-tree"
       eyebrow="The repo at a glance"
-      title="One repo. Everything you need."
-      description="Reference guides for every layer of the stack — database, deployment, design, monetization, troubleshooting — plus the core prompts Claude Code reads while building."
+      title="One repo. Everything you need to Ship Asap!"
+      description="Reference guides for every layer of the stack  database, deployment, design, monetization, troubleshooting  plus the core prompts Claude Code reads while building."
     >
       <div className="reveal overflow-hidden rounded-[var(--radius-lg)] border border-[color:var(--border)] bg-[color:var(--bg-elevated)]">
         <div className="flex items-center gap-2 border-b border-[color:var(--border)] bg-[color:var(--bg-subtle)] px-4 py-2.5">
@@ -51,7 +60,10 @@ export function FrameworkFiles() {
         </div>
         <ul className="mt-4 divide-y divide-[color:var(--border)]">
           {copyFiles.map((c) => (
-            <li key={c.file} className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6">
+            <li
+              key={c.file}
+              className="flex flex-col gap-1 py-3 sm:flex-row sm:items-center sm:justify-between sm:gap-6"
+            >
               <code className="font-mono text-[14px] text-[color:var(--text-primary)]">
                 {c.file}
               </code>
@@ -62,7 +74,12 @@ export function FrameworkFiles() {
           ))}
         </ul>
         <p className="mt-5 text-[13px] text-[color:var(--text-tertiary)]">
-          Claude generates <code className="font-mono">project-description.md</code>, <code className="font-mono">project-phases.md</code>, <code className="font-mono">design-style-guide.md</code>, and <code className="font-mono">prompt.md</code> for you in the planning step.
+          Claude generates{" "}
+          <code className="font-mono">project-description.md</code>,{" "}
+          <code className="font-mono">project-phases.md</code>,{" "}
+          <code className="font-mono">design-style-guide.md</code>, and{" "}
+          <code className="font-mono">prompt.md</code> for you in the planning
+          step.
         </p>
       </div>
     </Section>

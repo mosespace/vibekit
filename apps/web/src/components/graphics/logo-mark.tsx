@@ -20,7 +20,7 @@ export function LogoMark({
       className={cn("text-[color:var(--text-primary)]", className)}
       aria-hidden="true"
     >
-      {/* Geometric "VK" — two angled strokes forming a V, with a vertical bar like a K */}
+      {/* Geometric "VK"  two angled strokes forming a V, with a vertical bar like a K */}
       <path d="M 8 8 L 26 56 L 44 8" />
       <path d="M 50 8 L 50 56" />
       <path d="M 50 32 L 60 8" />

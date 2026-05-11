@@ -1,35 +1,35 @@
 # Prompt Engineering for Vibe Coder
 
-> The difference between a messy, broken build and a clean production app is not the complexity — it is the quality of your prompts.
+> The difference between a messy, broken build and a clean production app is not the complexity it is the quality of your prompts.
 
 ---
 
 ## Table of Contents
 
 1. [What Is Prompt Engineering?](#what-is-prompt-engineering)
-2. [The Token Economy — Why Your Wallet Depends on This](#the-token-economy)
+2. [The Token Economy Why Your Wallet Depends on This](#the-token-economy)
 3. [How Claude Code & V0 Actually Read Your Prompts](#how-lovable-reads-prompts)
 4. [The 5-Part Pro Prompt Formula](#the-5-part-pro-prompt-formula)
-5. [Context Loading — The Most Powerful Technique](#context-loading)
-6. [The PRD Method — Guide AI Through an Entire Project](#the-prd-method)
+5. [Context Loading The Most Powerful Technique](#context-loading)
+6. [The PRD Method Guide AI Through an Entire Project](#the-prd-method)
 7. [Prompt Templates by Situation](#prompt-templates-by-situation)
 8. [The Claude Code vs V0 Decision Framework](#lovable-vs-v0-decision-framework)
-9. [Anti-Patterns — What Never to Do](#anti-patterns)
+9. [Anti-Patterns What Never to Do](#anti-patterns)
 10. [Advanced Techniques](#advanced-techniques)
-11. [The Rescue System — When AI Gets Stuck](#the-rescue-system)
+11. [The Rescue System When AI Gets Stuck](#the-rescue-system)
 
 ---
 
 ## What Is Prompt Engineering?
 
-Prompt engineering is the practice of writing instructions for AI tools in a way that produces the result you actually want — efficiently, on the first try, without wasting tokens or triggering loops.
+Prompt engineering is the practice of writing instructions for AI tools in a way that produces the result you actually want efficiently, on the first try, without wasting tokens or triggering loops.
 
 For vibe coders using Claude Code, prompt engineering is the single most important skill. It determines:
 
-- **How much you spend** — bad prompts burn 3–5x more tokens than good ones
-- **How fast you build** — good prompts produce working code on the first attempt
-- **How stuck you get** — vague prompts create vague code that breaks in unpredictable ways
-- **How consistent your app looks** — unfocused prompts produce inconsistent UI
+- **How much you spend** bad prompts burn 3–5x more tokens than good ones
+- **How fast you build** good prompts produce working code on the first attempt
+- **How stuck you get** vague prompts create vague code that breaks in unpredictable ways
+- **How consistent your app looks** unfocused prompts produce inconsistent UI
 
 The mental model: **think of Claude Code as a very capable contractor who charges by the hour.** The clearer and more complete your brief, the less time it wastes rereading, clarifying, and redoing work.
 
@@ -47,12 +47,12 @@ A token is roughly 4 characters of text, or about ¾ of a word. When you write a
 
 ### Where Most Tokens Go (And Are Wasted)
 
-| Source                             | % of Token Usage | Controllable?                       |
-| ---------------------------------- | ---------------- | ----------------------------------- |
-| AI reading your existing codebase  | ~35%             | Partly — keep code clean            |
-| AI writing new code from scratch   | ~40%             | Yes — use pre-built components      |
-| AI re-reading context after errors | ~15%             | Yes — better prompts prevent errors |
-| Your prompt text                   | ~10%             | Yes — be concise and specific       |
+| Source                             | % of Token Usage | Controllable?                     |
+| ---------------------------------- | ---------------- | --------------------------------- |
+| AI reading your existing codebase  | ~35%             | Partly keep code clean            |
+| AI writing new code from scratch   | ~40%             | Yes use pre-built components      |
+| AI re-reading context after errors | ~15%             | Yes better prompts prevent errors |
+| Your prompt text                   | ~10%             | Yes be concise and specific       |
 
 ### The Pre-Built Component Advantage
 
@@ -76,7 +76,7 @@ When you install `Better Auth UI` first and then tell Claude Code to use it, Cla
 
 **Total: ~400 tokens. Saving: ~4,600 tokens. Per feature.**
 
-Multiply this across auth, data tables, forms, payments, and file uploads — and the difference between a $20 build and a $200 build becomes clear.
+Multiply this across auth, data tables, forms, payments, and file uploads and the difference between a $20 build and a $200 build becomes clear.
 
 ---
 
@@ -91,10 +91,10 @@ Claude Code processes your prompt in this order:
 
 This means:
 
-- **What comes first in your prompt matters most** — put the most important constraint at the top
-- **Claude Code will try to be helpful beyond what you asked** — be explicit about what NOT to do
-- **Long codebases = expensive reads** — the more existing code, the more tokens spent just reading
-- **Multiple small prompts beat one giant prompt** — each prompt is focused, cheaper, and easier to undo if wrong
+- **What comes first in your prompt matters most** put the most important constraint at the top
+- **Claude Code will try to be helpful beyond what you asked** be explicit about what NOT to do
+- **Long codebases = expensive reads** the more existing code, the more tokens spent just reading
+- **Multiple small prompts beat one giant prompt** each prompt is focused, cheaper, and easier to undo if wrong
 
 ### The Single Responsibility Rule for Prompts
 
@@ -120,13 +120,13 @@ Do not build any other pages yet.
 
 ## The 5-Part Pro Prompt Formula
 
-Every effective Claude Code prompt has five parts. You do not need to label them — but you need all five.
+Every effective Claude Code prompt has five parts. You do not need to label them but you need all five.
 
 ```
 [1. CONTEXT]   What project is this, what phase are we in, what already exists
 [2. GOAL]      The single specific thing this prompt must achieve
 [3. COMPONENT] The JB component to use (install command if new)
-[4. SPEC]      The exact details — pages, fields, schema, routes, style
+[4. SPEC]      The exact details  pages, fields, schema, routes, style
 [5. CONSTRAINT] What NOT to do, what NOT to touch
 ```
 
@@ -170,7 +170,7 @@ Do not touch any other pages.
 Match the existing design system: white cards, border-slate-200, rounded-xl.
 ```
 
-This prompt costs more tokens to write — but produces a working result on the first try, saving 3–5 failed attempts that each cost 500–800 tokens.
+This prompt costs more tokens to write but produces a working result on the first try, saving 3–5 failed attempts that each cost 500–800 tokens.
 
 ---
 
@@ -178,25 +178,25 @@ This prompt costs more tokens to write — but produces a working result on the 
 
 Context loading is the practice of **telling Claude Code everything it needs to know at the start of each session** before asking it to do anything.
 
-Because Claude Code has no memory between sessions, every new chat starts cold. If you jump straight to "add a payment page", Claude Code will guess what your app looks like, how your auth works, and what your database looks like — and it will guess wrong.
+Because Claude Code has no memory between sessions, every new chat starts cold. If you jump straight to "add a payment page", Claude Code will guess what your app looks like, how your auth works, and what your database looks like and it will guess wrong.
 
 ### The Context Loading Template
 
 Paste this at the start of every new Claude Code session:
 
 ```
-PROJECT CONTEXT — read this before doing anything.
+PROJECT CONTEXT  read this before doing anything.
 
 Project name: [Your App Name]
 What it does: [1–2 sentence description]
-Current build phase: Phase [X] — [phase name]
+Current build phase: Phase [X]  [phase name]
 
 Tech stack:
 - Framework: Next.js 16 (App Router)
 - Database: Neon Postgres + Prisma
 - Auth: Better Auth UI (already installed and working)
 - Data Fetching: React Query + Fetch API
-- API: API Routes (Route Handlers) — all data goes through API routes
+- API: API Routes (Route Handlers)  all data goes through API routes
 - Validation: Zod
 - PDF: @react-pdf/renderer (always)
 - Excel: xlsx (always)
@@ -212,7 +212,7 @@ What is already built:
 - [List what works: auth, dashboard, specific pages, API routes]
 
 What I need you to do in this session:
-- [Single specific task — do not list multiple]
+- [Single specific task  do not list multiple]
 
 Rules for this session:
 - Do not modify the authentication setup
@@ -234,7 +234,7 @@ Rules for this session:
 
 A PRD (Product Requirements Document) is a detailed written description of your entire app that you paste as your **very first message** in a new Claude Code project.
 
-Instead of building feature by feature with no plan, the PRD gives Claude Code a complete picture of what you are building, so every individual prompt later is just an execution step — not a new discovery.
+Instead of building feature by feature with no plan, the PRD gives Claude Code a complete picture of what you are building, so every individual prompt later is just an execution step not a new discovery.
 
 ### PRD Template
 
@@ -249,7 +249,7 @@ Primary user: [Describe the main user]
 Secondary user (if any): [Admin, client, guest, etc.]
 
 WHAT THE APP MUST DO (Core Features)
-1. [Feature 1 — be specific. Not "user management" but "users can sign up with email or Google,
+1. [Feature 1  be specific. Not "user management" but "users can sign up with email or Google,
    update their profile photo and name, and delete their account"]
 2. [Feature 2]
 3. [Feature 3]
@@ -265,10 +265,10 @@ DATA MODEL (what needs to be stored)
 - [Relationships: e.g. "A Project belongs to a User. A Task belongs to a Project."]
 
 PAGES TO BUILD
-1. / (Landing page) — [describe]
-2. /login — [describe]
-3. /dashboard — [describe]
-4. /dashboard/[page] — [describe]
+1. / (Landing page)  [describe]
+2. /login  [describe]
+3. /dashboard  [describe]
+4. /dashboard/[page]  [describe]
 [Continue for all pages]
 
 DESIGN DIRECTION
@@ -289,9 +289,9 @@ TECH STACK
 - PDF: @react-pdf/renderer (always use this for PDF generation)
 - Excel: xlsx (always use this for spreadsheet export)
 - Data Fetching: React Query + Fetch API (always)
-- API: API Routes (Next.js Route Handlers) — all data through API routes
+- API: API Routes (Next.js Route Handlers)  all data through API routes
 - Validation: Zod (always use for request/form validation)
-- File Storage: [Cloudflare R2 / UploadThing] — ask user preference
+- File Storage: [Cloudflare R2 / UploadThing]  ask user preference
 - Payments: [Stripe / None]
 - Deployment: Vercel
 ```
@@ -370,8 +370,8 @@ First install the Multi Step Form component (if this form has more than 4 fields
 pnpm dlx shadcn@latest add https://jb.desishub.com/r/multi-step-form.json
 
 The form should have these fields:
-- [Field name]: [type — text/number/select/date/file] — [required/optional]
-- [Field name]: [type] — [required/optional]
+- [Field name]: [type  text/number/select/date/file]  [required/optional]
+- [Field name]: [type]  [required/optional]
 
 On submit, it should call a POST /api/[model] route that:
 - Validates all required fields
@@ -492,7 +492,7 @@ file uploads, and deploy it to Vercel with a custom domain.
 Make the dashboard look better.
 ```
 
-**Why it fails:** "Better" means nothing. Claude Code will guess — and guess wrong.
+**Why it fails:** "Better" means nothing. Claude Code will guess and guess wrong.
 
 **Fix:**
 
@@ -510,7 +510,7 @@ Do not change anything else.
 Something is wrong with the login page. Can you rewrite it?
 ```
 
-**Why it fails:** "Rewrite" means Claude Code scraps working code and starts over — losing fixes you made and introducing new bugs.
+**Why it fails:** "Rewrite" means Claude Code scraps working code and starts over losing fixes you made and introducing new bugs.
 
 **Fix:**
 
@@ -561,7 +561,7 @@ For example, instead of building a complete user management system, first build:
 
 ### The Schema First Rule
 
-Before building any UI that involves data, tell Claude Code to update the Prisma schema and run the migration first — in a separate prompt, before any UI work.
+Before building any UI that involves data, tell Claude Code to update the Prisma schema and run the migration first in a separate prompt, before any UI work.
 
 ```
 Before we build any UI, update the Prisma schema to add these models:
@@ -592,7 +592,7 @@ Then use the component's existing patterns to build [your feature].
 
 When AI gets stuck, the worst thing you can do is keep prompting in the same conversation. Here are the three rescue techniques.
 
-### Technique 1 — The Hard Reset
+### Technique 1 The Hard Reset
 
 Close the current Claude Code conversation. Open a new one. Paste your Context Loading template with the specific error situation:
 
@@ -608,7 +608,7 @@ TASK: Fix only this error. Do not change any other files.
 Make the smallest possible change. Show me what you changed and why.
 ```
 
-### Technique 2 — The Decomposition
+### Technique 2 The Decomposition
 
 If a feature prompt is causing repeated failures, break it into pieces. If "add payment system" keeps breaking:
 
@@ -619,14 +619,14 @@ If a feature prompt is causing repeated failures, break it into pieces. If "add 
 
 Four small prompts will always beat one big prompt when the big prompt is failing.
 
-### Technique 3 — The V0 Bypass
+### Technique 3 The V0 Bypass
 
 If Claude Code cannot produce a correct UI component, design it in V0 and import the result:
 
 1. Build the visual component in V0 (design only, no logic)
 2. Copy the V0 output
 3. In a new Claude Code session, paste it with the V0 Handoff Prompt
-4. Ask Claude Code to wire the functionality — not redesign it
+4. Ask Claude Code to wire the functionality not redesign it
 
 This separates the visual problem (V0 solves it) from the logic problem (Claude Code solves it) and prevents the two from interfering with each other.
 
@@ -663,4 +663,4 @@ MONEY SAVING RULES
 
 ---
 
-_Part of the [VibeKit Framework](../README.md) — github.com/MUKE-coder/vibekit_
+_Part of the [VibeKit Framework](../README.md) github.com/MUKE-coder/vibekit_

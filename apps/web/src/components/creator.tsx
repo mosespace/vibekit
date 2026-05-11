@@ -3,7 +3,14 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import { ArrowUpRight, ExternalLink, Github, Linkedin, Youtube, GitFork } from "lucide-react";
+import {
+  ArrowUpRight,
+  ExternalLink,
+  Github,
+  Linkedin,
+  Youtube,
+  GitFork,
+} from "lucide-react";
 import Image from "next/image";
 import { useRef } from "react";
 import { Button } from "./ui/button";
@@ -15,7 +22,12 @@ if (typeof window !== "undefined") {
 
 function TikTokIcon({ className }: { className?: string }) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" className={className} aria-hidden>
+    <svg
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      className={className}
+      aria-hidden
+    >
       <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5.8 20.1a6.34 6.34 0 0 0 10.86-4.43V8.65a8.21 8.21 0 0 0 4.78 1.53V6.73a4.85 4.85 0 0 1-1.85-.04Z" />
     </svg>
   );
@@ -36,9 +48,21 @@ const mosesStats = [
 const jbLinks = [
   { label: "Website", href: "https://jb.desishub.com", Icon: ExternalLink },
   { label: "GitHub", href: "https://github.com/MUKE-coder", Icon: Github },
-  { label: "YouTube", href: "https://www.youtube.com/@JBWEBDEVELOPER", Icon: Youtube },
-  { label: "LinkedIn", href: "https://www.linkedin.com/in/muke-johnbaptist/", Icon: Linkedin },
-  { label: "TikTok", href: "https://www.tiktok.com/@jbdesishub", Icon: TikTokIcon },
+  {
+    label: "YouTube",
+    href: "https://www.youtube.com/@JBWEBDEVELOPER",
+    Icon: Youtube,
+  },
+  {
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/muke-johnbaptist/",
+    Icon: Linkedin,
+  },
+  {
+    label: "TikTok",
+    href: "https://www.tiktok.com/@jbdesishub",
+    Icon: TikTokIcon,
+  },
 ];
 
 function OrbitalPhoto({
@@ -50,7 +74,8 @@ function OrbitalPhoto({
   alt: string;
   size?: "sm" | "lg";
 }) {
-  const dim = size === "lg" ? "h-64 w-64 sm:h-72 sm:w-72" : "h-40 w-40 sm:h-48 sm:w-48";
+  const dim =
+    size === "lg" ? "h-64 w-64 sm:h-72 sm:w-72" : "h-40 w-40 sm:h-48 sm:w-48";
   return (
     <div className={`relative ${dim}`}>
       <svg
@@ -59,7 +84,16 @@ function OrbitalPhoto({
         aria-hidden
         style={{ animationDuration: "28s" }}
       >
-        <circle cx="50" cy="50" r="48" fill="none" stroke="var(--accent)" strokeWidth="0.4" strokeDasharray="2 4" opacity="0.5" />
+        <circle
+          cx="50"
+          cy="50"
+          r="48"
+          fill="none"
+          stroke="var(--accent)"
+          strokeWidth="0.4"
+          strokeDasharray="2 4"
+          opacity="0.5"
+        />
         <circle cx="50" cy="2" r="1.5" fill="var(--accent)" />
         <circle cx="98" cy="50" r="1" fill="var(--accent)" opacity="0.6" />
       </svg>
@@ -69,18 +103,32 @@ function OrbitalPhoto({
         aria-hidden
         style={{ animationDuration: "18s", animationDirection: "reverse" }}
       >
-        <circle cx="50" cy="50" r="48" fill="none" stroke="var(--border-strong)" strokeWidth="0.4" />
+        <circle
+          cx="50"
+          cy="50"
+          r="48"
+          fill="none"
+          stroke="var(--border-strong)"
+          strokeWidth="0.4"
+        />
       </svg>
       <div
         className="absolute inset-6 rounded-full"
         aria-hidden
         style={{
-          background: "radial-gradient(circle, color-mix(in srgb, var(--accent) 25%, transparent) 0%, transparent 70%)",
+          background:
+            "radial-gradient(circle, color-mix(in srgb, var(--accent) 25%, transparent) 0%, transparent 70%)",
           filter: "blur(16px)",
         }}
       />
       <div className="absolute inset-6 overflow-hidden rounded-full border border-[color:var(--border-strong)] bg-[color:var(--bg-elevated)] shadow-[var(--shadow-xl)]">
-        <Image src={src} alt={alt} fill sizes="288px" className="object-cover" />
+        <Image
+          src={src}
+          alt={alt}
+          fill
+          sizes="288px"
+          className="object-cover"
+        />
       </div>
     </div>
   );
@@ -92,20 +140,44 @@ export function Creator() {
   useGSAP(
     () => {
       const tl = gsap.timeline({
-        scrollTrigger: { trigger: root.current, start: "top 75%", toggleActions: "play none none none" },
+        scrollTrigger: {
+          trigger: root.current,
+          start: "top 75%",
+          toggleActions: "play none none none",
+        },
         defaults: { ease: "power3.out" },
       });
       tl.from(".creator-section-label", { y: 10, opacity: 0, duration: 0.4 })
-        .from(".creator-fork-card", { y: 24, opacity: 0, duration: 0.7 }, "-=0.2")
-        .from(".creator-origin-card", { y: 18, opacity: 0, duration: 0.6 }, "-=0.4")
-        .from(".creator-stat", { y: 10, opacity: 0, stagger: 0.07, duration: 0.35 }, "-=0.3")
-        .from(".creator-link", { y: 8, opacity: 0, stagger: 0.05, duration: 0.3 }, "-=0.2");
+        .from(
+          ".creator-fork-card",
+          { y: 24, opacity: 0, duration: 0.7 },
+          "-=0.2",
+        )
+        .from(
+          ".creator-origin-card",
+          { y: 18, opacity: 0, duration: 0.6 },
+          "-=0.4",
+        )
+        .from(
+          ".creator-stat",
+          { y: 10, opacity: 0, stagger: 0.07, duration: 0.35 },
+          "-=0.3",
+        )
+        .from(
+          ".creator-link",
+          { y: 8, opacity: 0, stagger: 0.05, duration: 0.3 },
+          "-=0.2",
+        );
     },
-    { scope: root }
+    { scope: root },
   );
 
   return (
-    <section ref={root} id="creator" className="relative py-24 sm:py-32 overflow-hidden">
+    <section
+      ref={root}
+      id="creator"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
       {/* Background ambient */}
       <div
         className="pointer-events-none absolute inset-0 -z-10"
@@ -133,7 +205,8 @@ export function Creator() {
             className="pointer-events-none absolute inset-0 -z-10 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500"
             aria-hidden
             style={{
-              background: "radial-gradient(ellipse 60% 50% at 30% 50%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 70%)",
+              background:
+                "radial-gradient(ellipse 60% 50% at 30% 50%, color-mix(in srgb, var(--accent) 6%, transparent), transparent 70%)",
             }}
           />
 
@@ -147,7 +220,11 @@ export function Creator() {
             {/* Photo */}
             <div className="mx-auto md:mx-0">
               <div className="relative">
-                <OrbitalPhoto src={SITE.authorAvatar} alt="Moses Kisakye" size="lg" />
+                <OrbitalPhoto
+                  src={SITE.authorAvatar}
+                  alt="Moses Kisakye"
+                  size="lg"
+                />
                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 inline-flex items-center gap-1.5 rounded-full border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-3 py-1 font-mono text-[10px] uppercase tracking-wider text-[color:var(--text-secondary)] shadow-[var(--shadow-md)] whitespace-nowrap">
                   <span className="h-1.5 w-1.5 rounded-full bg-emerald-500" />
                   Building
@@ -161,24 +238,40 @@ export function Creator() {
                 Maintained by
               </div>
               <h2 className="font-display mt-3 text-[clamp(2rem,4vw,3.2rem)] leading-[1.05] tracking-tight text-[color:var(--text-primary)]">
-                Hi, I'm{" "}
-                <em className="not-italic gradient-text">Moses</em>.
+                Hi, I'm <em className="not-italic gradient-text">Moses</em>.
                 <br />
-                <span className="text-[color:var(--text-secondary)]">I maintain this fork.</span>
+                <span className="text-[color:var(--text-secondary)]">
+                  I maintain this fork.
+                </span>
               </h2>
 
               <div className="mt-6 space-y-4 text-[15.5px] leading-relaxed text-[color:var(--text-secondary)]">
                 <p>
                   I'm{" "}
-                  <strong className="font-medium text-[color:var(--text-primary)]">Moses Kisakye</strong>, a full-stack engineer based in Uganda. I picked up VibeKit, fell in love with the workflow, and decided to actively maintain and extend it — adding{" "}
-                  <strong className="font-medium text-[color:var(--text-primary)]">create-vibekit-app</strong>, multi-provider support (Claude Code, Codex, Gemini, OpenCode), and a tighter monorepo setup.
+                  <strong className="font-medium text-[color:var(--text-primary)]">
+                    Moses Kisakye
+                  </strong>
+                  , a full-stack engineer based in Uganda. I picked up VibeKit,
+                  fell in love with the workflow, and decided to actively
+                  maintain and extend it adding{" "}
+                  <strong className="font-medium text-[color:var(--text-primary)]">
+                    create-vibekit-app
+                  </strong>
+                  , multi-provider support (Claude Code, Codex, Gemini,
+                  OpenCode), and a tighter monorepo setup.
                 </p>
                 <p>
                   This fork tracks upstream (
-                  <a href={SITE.upstreamGithub} target="_blank" rel="noopener noreferrer" className="text-[color:var(--accent)] underline underline-offset-4">
+                  <a
+                    href={SITE.upstreamGithub}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-[color:var(--accent)] underline underline-offset-4"
+                  >
                     MUKE-coder/vibekit
                   </a>
-                  ) while adding my own improvements. All credit for the original framework goes to JB — see below.
+                  ) while adding my own improvements. All credit for the
+                  original framework goes to JB see below.
                 </p>
               </div>
 
@@ -216,7 +309,11 @@ export function Creator() {
               </div>
 
               <div className="mt-8">
-                <Button href="https://github.com/mosespace" variant="accent" size="md">
+                <Button
+                  href="https://github.com/mosespace"
+                  variant="accent"
+                  size="md"
+                >
                   View github.com/mosespace
                   <ArrowUpRight className="h-4 w-4" />
                 </Button>
@@ -230,7 +327,11 @@ export function Creator() {
           <div className="flex flex-col gap-6 sm:flex-row sm:items-center sm:gap-8">
             {/* Small photo */}
             <div className="mx-auto shrink-0 sm:mx-0">
-              <OrbitalPhoto src={SITE.originalAuthorAvatar} alt="JB (Muke Johnbaptist)" size="sm" />
+              <OrbitalPhoto
+                src={SITE.originalAuthorAvatar}
+                alt="JB (Muke Johnbaptist)"
+                size="sm"
+              />
             </div>
 
             {/* Text */}
@@ -241,17 +342,35 @@ export function Creator() {
               </div>
 
               <h3 className="mt-4 font-display text-[clamp(1.5rem,3vw,2.2rem)] leading-tight tracking-tight text-[color:var(--text-primary)]">
-                Built by <em className="not-italic gradient-text">JB</em> — Muke Johnbaptist
+                Built by <em className="not-italic gradient-text">JB</em> Muke
+                Johnbaptist
               </h3>
 
               <p className="mt-3 text-[15px] leading-relaxed text-[color:var(--text-secondary)]">
                 VibeKit was created by{" "}
-                <strong className="font-medium text-[color:var(--text-primary)]">Muke Johnbaptist</strong>, founder of{" "}
-                <a href="https://desishub.com" target="_blank" rel="noopener noreferrer" className="text-[color:var(--accent)] underline underline-offset-4">
+                <strong className="font-medium text-[color:var(--text-primary)]">
+                  Muke Johnbaptist
+                </strong>
+                , founder of{" "}
+                <a
+                  href="https://desishub.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[color:var(--accent)] underline underline-offset-4"
+                >
                   Desishub Technologies
                 </a>{" "}
-                in Kampala, Uganda. He built VibeKit because he was tired of burning tokens and watching agents ship code with unauthenticated routes. All the battle-tested patterns in this framework came from his real client projects. He also created the{" "}
-                <a href="https://gritframework.dev/" target="_blank" rel="noopener noreferrer" className="text-[color:var(--accent)] underline underline-offset-4">
+                in Kampala, Uganda. He built VibeKit because he was tired of
+                burning tokens and watching agents ship code with
+                unauthenticated routes. All the battle-tested patterns in this
+                framework came from his real client projects. He also created
+                the{" "}
+                <a
+                  href="https://gritframework.dev/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="text-[color:var(--accent)] underline underline-offset-4"
+                >
                   Grit Framework
                 </a>{" "}
                 and the JB Component Registry.

@@ -1,23 +1,75 @@
 import { Section } from "./section";
 
 const rows = [
-  { layer: "Framework", tech: "Next.js 16 (App Router)", why: "Latest App Router with React 19" },
+  {
+    layer: "Framework",
+    tech: "Next.js 16 (App Router)",
+    why: "Latest App Router with React 19",
+  },
   { layer: "Language", tech: "TypeScript 5.9", why: "Type safety, better DX" },
-  { layer: "Database", tech: "Neon — Serverless Postgres", why: "Free tier, instant setup, serverless scale" },
+  {
+    layer: "Database",
+    tech: "Neon  Serverless Postgres",
+    why: "Free tier, instant setup, serverless scale",
+  },
   { layer: "ORM", tech: "Prisma v7", why: "Type-safe, AI reads schema easily" },
-  { layer: "Authentication", tech: "Better Auth", why: "Secure, extensible, Prisma-compatible" },
-  { layer: "Data Fetching", tech: "React Query + Fetch API", why: "Caching, refetching, loading states built-in" },
-  { layer: "API Layer", tech: "API Routes (Route Handlers)", why: "Server-side logic via Next.js App Router" },
-  { layer: "Validation", tech: "Zod + React Hook Form", why: "Type-safe validation on client and server" },
-  { layer: "PDF Generation", tech: "@react-pdf/renderer", why: "React components to PDF" },
+  {
+    layer: "Authentication",
+    tech: "Better Auth",
+    why: "Secure, extensible, Prisma-compatible",
+  },
+  {
+    layer: "Data Fetching",
+    tech: "React Query + Fetch API",
+    why: "Caching, refetching, loading states built-in",
+  },
+  {
+    layer: "API Layer",
+    tech: "API Routes (Route Handlers)",
+    why: "Server-side logic via Next.js App Router",
+  },
+  {
+    layer: "Validation",
+    tech: "Zod + React Hook Form",
+    why: "Type-safe validation on client and server",
+  },
+  {
+    layer: "PDF Generation",
+    tech: "@react-pdf/renderer",
+    why: "React components to PDF",
+  },
   { layer: "Excel Export", tech: "xlsx", why: "Read/write Excel, lightweight" },
-  { layer: "File Storage", tech: "Cloudflare R2 or UploadThing", why: "R2 for S3-compat, UploadThing for simple uploads" },
-  { layer: "Email", tech: "Resend + React Email", why: "Best DX, great deliverability" },
-  { layer: "Payments", tech: "Stripe", why: "Industry standard, webhook-driven" },
-  { layer: "Styling", tech: "Tailwind CSS v4 + shadcn/ui", why: "AI knows these patterns well" },
-  { layer: "Deployment", tech: "Vercel", why: "One-click, preview URLs, zero config" },
+  {
+    layer: "File Storage",
+    tech: "Cloudflare R2 or UploadThing",
+    why: "R2 for S3-compat, UploadThing for simple uploads",
+  },
+  {
+    layer: "Email",
+    tech: "Resend + React Email",
+    why: "Best DX, great deliverability",
+  },
+  {
+    layer: "Payments",
+    tech: "Stripe",
+    why: "Industry standard, webhook-driven",
+  },
+  {
+    layer: "Styling",
+    tech: "Tailwind CSS v4 + shadcn/ui",
+    why: "AI knows these patterns well",
+  },
+  {
+    layer: "Deployment",
+    tech: "Vercel",
+    why: "One-click, preview URLs, zero config",
+  },
   { layer: "Domain & DNS", tech: "Cloudflare", why: "Free SSL, fast DNS" },
-  { layer: "Components", tech: "JB Component Registry", why: "Production-ready shadcn components" },
+  {
+    layer: "Components",
+    tech: "JB Component Registry",
+    why: "Production-ready shadcn components",
+  },
 ];
 
 export function Stack() {
@@ -26,7 +78,7 @@ export function Stack() {
       id="stack"
       eyebrow="The standard stack"
       title="Locked stack. Zero decisions. Maximum velocity."
-      description="Every project ships with the same opinionated stack so AI never has to invent — and you never have to debug a dependency mismatch."
+      description="Every project ships with the same opinionated stack so AI never has to invent  and you never have to debug a dependency mismatch."
     >
       <div className="reveal overflow-hidden rounded-[var(--radius-lg)] border border-[color:var(--border)] bg-[color:var(--bg-elevated)]">
         <div className="overflow-x-auto">
@@ -42,7 +94,11 @@ export function Stack() {
               {rows.map((r, i) => (
                 <tr
                   key={r.layer}
-                  className={i !== rows.length - 1 ? "border-b border-[color:var(--border)]" : ""}
+                  className={
+                    i !== rows.length - 1
+                      ? "border-b border-[color:var(--border)]"
+                      : ""
+                  }
                 >
                   <td className="px-5 py-3.5 font-medium text-[color:var(--text-primary)]">
                     {r.layer}
@@ -60,7 +116,15 @@ export function Stack() {
         </div>
       </div>
       <p className="reveal mt-6 text-center text-[13px] text-[color:var(--text-tertiary)]">
-        File uploads — choose between <span className="font-mono text-[color:var(--text-secondary)]">Cloudflare R2</span> for full S3-compatible control, or <span className="font-mono text-[color:var(--text-secondary)]">UploadThing</span> for the simplest path to image uploads.
+        File uploads choose between{" "}
+        <span className="font-mono text-[color:var(--text-secondary)]">
+          Cloudflare R2
+        </span>{" "}
+        for full S3-compatible control, or{" "}
+        <span className="font-mono text-[color:var(--text-secondary)]">
+          UploadThing
+        </span>{" "}
+        for the simplest path to image uploads.
       </p>
     </Section>
   );

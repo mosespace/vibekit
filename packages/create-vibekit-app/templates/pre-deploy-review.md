@@ -1,4 +1,4 @@
-# VibeKit — Pre-Deploy Code Review Prompt
+# VibeKit Pre-Deploy Code Review Prompt
 
 > **When to use:** Run this prompt in Claude Code as the FINAL task before deploying to production. It performs a senior-level audit covering performance, security, background tasks, and resource usage.
 
@@ -6,7 +6,7 @@
 
 ---
 
-## The Prompt — copy everything below
+## The Prompt copy everything below
 
 ```
 I need you to perform a comprehensive senior-level code review of my codebase.
@@ -155,18 +155,18 @@ For each vulnerability:
 
 Structure your review as:
 
-1. **Executive Summary** — high-level findings count and severity
-2. **Critical Issues** — must fix before production
+1. **Executive Summary**  high-level findings count and severity
+2. **Critical Issues**  must fix before production
    - Issue description
    - Code location
    - Risk/Impact
    - Fix with code example
-3. **High Priority Issues** — significant impact (same format)
-4. **Medium Priority Issues** — should address soon (same format)
-5. **Recommendations** — best practices and optimizations
-6. **Refactored Code Examples** — show before/after for major changes
-7. **Performance Metrics** — expected improvements where measurable
-8. **Security Checklist** — compliance items to verify
+3. **High Priority Issues**  significant impact (same format)
+4. **Medium Priority Issues**  should address soon (same format)
+5. **Recommendations**  best practices and optimizations
+6. **Refactored Code Examples**  show before/after for major changes
+7. **Performance Metrics**  expected improvements where measurable
+8. **Security Checklist**  compliance items to verify
 
 ## CONTEXT
 
@@ -192,4 +192,4 @@ After the review, write the findings to `pre-deploy-review-report.md` at the pro
 
 ---
 
-*Part of the VibeKit Framework — github.com/MUKE-coder/vibekit*
+_Part of the VibeKit Framework github.com/MUKE-coder/vibekit_

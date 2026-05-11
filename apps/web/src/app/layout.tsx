@@ -35,7 +35,7 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE.url),
   title: {
-    default: `${SITE.name} — ${SITE.tagline}`,
+    default: `${SITE.name}  ${SITE.tagline}`,
     template: `%s · ${SITE.name}`,
   },
   description: SITE.description,
@@ -61,7 +61,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     url: SITE.url,
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: `${SITE.name}  ${SITE.tagline}`,
     description: SITE.description,
     siteName: SITE.name,
     images: [{ url: "/og.png", width: 1200, height: 630, alt: SITE.name }],
@@ -69,16 +69,24 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: `${SITE.name} — ${SITE.tagline}`,
+    title: `${SITE.name}  ${SITE.tagline}`,
     description: SITE.description,
     images: ["/og.png"],
     creator: SITE.twitter,
   },
-  robots: { index: true, follow: true, googleBot: { index: true, follow: true } },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true },
+  },
   icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
 };
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <html
       lang="en"
@@ -98,8 +106,16 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               url: SITE.url,
               description: SITE.description,
               author: [
-                { "@type": "Person", name: "Moses Kisakye", url: SITE.authorUrl },
-                { "@type": "Person", name: "JB (Muke Johnbaptist)", url: SITE.originalAuthorUrl },
+                {
+                  "@type": "Person",
+                  name: "Moses Kisakye",
+                  url: SITE.authorUrl,
+                },
+                {
+                  "@type": "Person",
+                  name: "JB (Muke Johnbaptist)",
+                  url: SITE.originalAuthorUrl,
+                },
               ],
               publisher: {
                 "@type": "Organization",
@@ -122,7 +138,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
               description: SITE.description,
               url: SITE.url,
-              author: { "@type": "Person", name: "Moses Kisakye", url: SITE.authorUrl },
+              author: {
+                "@type": "Person",
+                name: "Moses Kisakye",
+                url: SITE.authorUrl,
+              },
             }),
           }}
         />

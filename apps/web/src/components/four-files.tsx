@@ -1,4 +1,9 @@
-import { FileStack, PhaseLines, CodeBrackets, CubeStack } from "./graphics/icons";
+import {
+  FileStack,
+  PhaseLines,
+  CodeBrackets,
+  CubeStack,
+} from "./graphics/icons";
 import { CpuArchitecture } from "./ui/cpu-architecture";
 import { Section } from "./section";
 
@@ -6,7 +11,7 @@ const files = [
   {
     Icon: FileStack,
     name: "project-description.md",
-    body: "Complete description of your app — features, data model, pages, integrations.",
+    body: "Complete description of your app  features, data model, pages, integrations.",
   },
   {
     Icon: PhaseLines,
@@ -16,7 +21,7 @@ const files = [
   {
     Icon: CubeStack,
     name: "design-style-guide.md",
-    body: "Fully customized visual design system — colors, typography, spacing, component specs.",
+    body: "Fully customized visual design system  colors, typography, spacing, component specs.",
   },
   {
     Icon: CodeBrackets,
@@ -30,8 +35,14 @@ export function FourFiles() {
     <Section
       id="files"
       eyebrow="THE 4-FILE OUTPUT · AGENT-AGNOSTIC"
-      title={<>Four files. One coherent <em className="not-italic gradient-text">build plan</em>.</>}
-      description="The planning step generates everything any coding agent needs — Claude Code, Cursor, Kiro, Antigravity, Windsurf, Cline, Aider — anything that reads files. No vague briefs. No guessing. Each file has a single job."
+      title={
+        <>
+          Four files. One coherent{" "}
+          <em className="not-italic gradient-text">build plan</em>. Trsut Me
+          Bro!!!
+        </>
+      }
+      description="The planning step generates everything any coding agent needs  Claude Code, Cursor, Kiro, Antigravity, Windsurf, Cline, Aider  anything that reads files. No vague briefs. No guessing. Each file has a single job."
     >
       <div className="grid gap-4 sm:grid-cols-2">
         {files.map(({ Icon, name, body }) => (

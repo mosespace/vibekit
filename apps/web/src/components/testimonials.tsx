@@ -27,7 +27,7 @@ const testimonials: Testimonial[] = [
     location: "Kampala",
     initial: "BB",
     quote:
-      "Shipped my client portal in 4 days vs my usual 3 weeks. The phase-by-phase build means I never get lost mid-project — I just know what's next.",
+      "Shipped my client portal in 4 days vs my usual 3 weeks. The phase-by-phase build means I never get lost mid-project  I just know what's next.",
     highlight: "4 days vs 3 weeks",
   },
   {
@@ -44,7 +44,7 @@ const testimonials: Testimonial[] = [
     role: "Senior Engineer",
     initial: "KM",
     quote:
-      "I've used Cursor for 8 months. VibeKit's master_prompt.md turned it into a different tool — finally consistent code across every project.",
+      "I've used Cursor for 8 months. VibeKit's master_prompt.md turned it into a different tool  finally consistent code across every project.",
   },
   {
     name: "Wasswa Collin",
@@ -60,7 +60,7 @@ const testimonials: Testimonial[] = [
     role: "Product Engineer",
     initial: "KJ",
     quote:
-      "The 4 generated files are the magic. project-phases.md is basically a real PRD — clients trust it more than my own scoping docs.",
+      "The 4 generated files are the magic. project-phases.md is basically a real PRD  clients trust it more than my own scoping docs.",
   },
   {
     name: "Waturo Richard",
@@ -126,14 +126,18 @@ export function Testimonials() {
             start: "top 80%",
             toggleActions: "play none none none",
           },
-        }
+        },
       );
     },
-    { scope: root }
+    { scope: root },
   );
 
   return (
-    <section ref={root} id="testimonials" className="relative py-24 sm:py-32 overflow-hidden">
+    <section
+      ref={root}
+      id="testimonials"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
       {/* Edge fade overlays so cards bleed off screen */}
       <div
         className="pointer-events-none absolute left-0 top-0 z-10 h-full w-32 sm:w-48"
@@ -155,24 +159,29 @@ export function Testimonials() {
       <div className="mx-auto max-w-3xl px-4 sm:px-6 text-center">
         <div className="testimonials-header">
           <div className="inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-secondary)]">
-            <Star className="h-3 w-3 text-[color:var(--accent)]" fill="currentColor" />
+            <Star
+              className="h-3 w-3 text-[color:var(--accent)]"
+              fill="currentColor"
+            />
             From the people shipping with it
           </div>
           <h2 className="font-display mt-6 text-[clamp(2rem,5vw,3.5rem)] leading-[1.05] tracking-tight text-[color:var(--text-primary)]">
-            Real builders. <em className="not-italic gradient-text">Real shipping.</em>
+            Real builders.{" "}
+            <em className="not-italic gradient-text">Real shipping.</em>
           </h2>
           <p className="mt-5 text-[16px] leading-relaxed text-[color:var(--text-secondary)]">
-            VibeKit is used by indie hackers, founders, and agencies across East Africa and beyond — anyone who'd rather ship than configure.
+            VibeKit is used by indie hackers, founders, and agencies across East
+            Africa and beyond anyone who'd rather ship than configure.
           </p>
         </div>
       </div>
 
-      {/* Row 1 — left to right */}
+      {/* Row 1  left to right */}
       <div className="mt-14 [--marquee-duration:55s]">
         <Marquee items={row1} direction="left" />
       </div>
 
-      {/* Row 2 — right to left, slower */}
+      {/* Row 2  right to left, slower */}
       <div className="mt-5 [--marquee-duration:70s]">
         <Marquee items={row2} direction="right" />
       </div>
@@ -195,7 +204,7 @@ function Marquee({
       <div
         className={cn(
           "flex shrink-0 items-stretch gap-4 sm:gap-5 px-2",
-          direction === "left" ? "marquee-left" : "marquee-right"
+          direction === "left" ? "marquee-left" : "marquee-right",
         )}
       >
         {doubled.map((t, idx) => (
@@ -237,11 +246,12 @@ function Marquee({
 
 function TestimonialCard({ t }: { t: Testimonial }) {
   return (
-    <article
-      className="relative flex w-[340px] sm:w-[400px] shrink-0 flex-col gap-4 rounded-md border border-[color:var(--border)] bg-[color:var(--bg-elevated)] p-6 transition-colors hover:border-[color:var(--border-strong)]"
-    >
+    <article className="relative flex w-[340px] sm:w-[400px] shrink-0 flex-col gap-4 rounded-md border border-[color:var(--border)] bg-[color:var(--bg-elevated)] p-6 transition-colors hover:border-[color:var(--border-strong)]">
       {/* Quote icon */}
-      <Quote className="absolute right-5 top-5 h-5 w-5 text-[color:var(--text-tertiary)]/50" aria-hidden />
+      <Quote
+        className="absolute right-5 top-5 h-5 w-5 text-[color:var(--text-tertiary)]/50"
+        aria-hidden
+      />
 
       {/* Stars */}
       <div className="flex gap-0.5" aria-label="5 out of 5 stars">

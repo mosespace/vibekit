@@ -65,7 +65,7 @@ const SESSION_LINES: Line[] = [
     id: "idea-answer",
     prefix: "│",
     prefixColor: "#705D4A",
-    text: "A school management system — teachers, students, fees, grades",
+    text: "A school management system  teachers, students, fees, grades",
     textColor: "#A89880",
     indent: true,
   },
@@ -113,7 +113,7 @@ const SESSION_LINES: Line[] = [
     id: "s1-label",
     prefix: "◆",
     prefixColor: "#D97757",
-    text: "Session 1 — Planning",
+    text: "Session 1  Planning",
     textColor: "#F5EFE6",
     bold: true,
   },
@@ -168,7 +168,7 @@ const SESSION_LINES: Line[] = [
     id: "s2-prompt",
     prefix: "◆",
     prefixColor: "#D97757",
-    text: "Session 2 — Build  Start Claude Code now to build Phase 1?",
+    text: "Session 2  Build  Start Claude Code now to build Phase 1?",
     textColor: "#F5EFE6",
     bold: true,
   },
@@ -204,8 +204,17 @@ export function LaptopMockup() {
         },
       });
 
-      tl.from(".term-header", { y: 20, opacity: 0, duration: 0.6, ease: "power3.out" })
-        .from(".term-window", { y: 28, opacity: 0, duration: 0.8, ease: "expo.out" }, "-=0.3")
+      tl.from(".term-header", {
+        y: 20,
+        opacity: 0,
+        duration: 0.6,
+        ease: "power3.out",
+      })
+        .from(
+          ".term-window",
+          { y: 28, opacity: 0, duration: 0.8, ease: "expo.out" },
+          "-=0.3",
+        )
         .from(
           ".term-line",
           {
@@ -215,7 +224,7 @@ export function LaptopMockup() {
             duration: 0.3,
             ease: "power2.out",
           },
-          "-=0.4"
+          "-=0.4",
         )
         .from(".term-cursor", { opacity: 0, duration: 0.3 }, "-=0.2");
 
@@ -227,11 +236,15 @@ export function LaptopMockup() {
         ease: "steps(1)",
       });
     },
-    { scope: root }
+    { scope: root },
   );
 
   return (
-    <section ref={root} id="see-it" className="relative py-24 sm:py-32 overflow-hidden">
+    <section
+      ref={root}
+      id="see-it"
+      className="relative py-24 sm:py-32 overflow-hidden"
+    >
       {/* Glow */}
       <div
         className="pointer-events-none absolute inset-0 -z-10"
@@ -254,24 +267,25 @@ export function LaptopMockup() {
           </div>
           <h2 className="font-display mt-6 text-[clamp(2rem,5vw,3.5rem)] leading-[1.05] tracking-tight text-[color:var(--text-primary)]">
             Your terminal becomes{" "}
-            <em className="not-italic gradient-text">the build tool.</em>
+            <em className="not-italic gradient-text">the build tool.</em>{" "}
+            Everyday
           </h2>
           <p className="mt-5 text-[16px] leading-relaxed text-[color:var(--text-secondary)]">
-            Every step from blank directory to agent handoff happens in one terminal session — scaffold, interview, provider detection, auth, planning, and build.
+            Every step from blank directory to agent handoff happens in one
+            terminal session scaffold, interview, provider detection, auth,
+            planning, and build.
           </p>
         </div>
 
         {/* Terminal window */}
-        <div
-          className="term-window relative mx-auto max-w-3xl rounded-xl border border-[#2A221A] bg-[#0E0C09] shadow-[0_32px_80px_rgba(217,119,87,0.15),0_0_0_1px_rgba(217,119,87,0.08)]"
-        >
+        <div className="term-window relative mx-auto max-w-3xl rounded-xl border border-[#2A221A] bg-[#0E0C09] shadow-[0_32px_80px_rgba(217,119,87,0.15),0_0_0_1px_rgba(217,119,87,0.08)]">
           {/* Window bar */}
           <div className="flex items-center gap-2 rounded-t-xl border-b border-[#1C1916] bg-[#111009] px-4 py-3">
             <span className="h-2.5 w-2.5 rounded-full bg-[#FF5F56]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#FFBD2E]" />
             <span className="h-2.5 w-2.5 rounded-full bg-[#27C93F]" />
             <span className="ml-4 font-mono text-[11px] text-[#705D4A] tracking-wide">
-              Terminal — my-app
+              Terminal my-app
             </span>
             <div className="ml-auto font-mono text-[10px] text-[#3D3228]">
               node 22 · npx
@@ -287,9 +301,13 @@ export function LaptopMockup() {
               if (line.id === "auth") {
                 return (
                   <div key={line.id} className="term-line flex items-center">
-                    <span style={{ color: "#27C93F", minWidth: "1.5ch" }}>✔</span>
+                    <span style={{ color: "#27C93F", minWidth: "1.5ch" }}>
+                      ✔
+                    </span>
                     <span style={{ color: "#A89880" }}>Claude Code</span>
-                    <span style={{ color: "#27C93F" }}>&nbsp;authenticated ✓</span>
+                    <span style={{ color: "#27C93F" }}>
+                      &nbsp;authenticated ✓
+                    </span>
                   </div>
                 );
               }
@@ -338,7 +356,7 @@ export function LaptopMockup() {
           <code className="rounded border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-1.5 py-0.5 text-[color:var(--accent)]">
             npx create-vibekit-app my-app
           </code>{" "}
-          — this is your actual terminal output
+          this is your actual terminal output
         </p>
       </div>
     </section>

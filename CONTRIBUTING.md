@@ -1,6 +1,6 @@
 # Contributing to create-vibekit-app
 
-Thanks for wanting to help. This is early software — there are untested providers, untested operating systems, edge cases in the CLI flow, and plenty of room to improve. **All contributions are welcome.**
+Thanks for wanting to help. This is early software there are untested providers, untested operating systems, edge cases in the CLI flow, and plenty of room to improve. **All contributions are welcome.**
 
 This guide covers the main ways you can contribute.
 
@@ -31,7 +31,7 @@ If something breaks, open an [issue](https://github.com/MUKE-coder/vibekit/issue
 - What you expected vs what happened
 - Any error output
 
-Since this is early and tested on a small number of configurations, **any reproducible bug report is genuinely useful** — don't worry about whether the issue is "worth reporting."
+Since this is early and tested on a small number of configurations, **any reproducible bug report is genuinely useful** don't worry about whether the issue is "worth reporting."
 
 ---
 
@@ -63,7 +63,7 @@ npx tsc --noEmit
 1. Fork the repo and create a branch: `git checkout -b fix/your-description`
 2. Make your change
 3. Run `npx tsc --noEmit` to confirm no type errors
-4. Open a PR — describe what you changed and why
+4. Open a PR describe what you changed and why
 
 No tests exist yet. Manual testing against a real provider is sufficient for now.
 
@@ -85,15 +85,15 @@ Each provider is a single file in `packages/create-vibekit-app/src/providers/`. 
 
 ### 1. Create the provider file
 
-Add `packages/create-vibekit-app/src/providers/<name>.ts` — or just add a `makeProvider({...})` call to `src/providers/index.ts` directly. The provider needs:
+Add `packages/create-vibekit-app/src/providers/<name>.ts` or just add a `makeProvider({...})` call to `src/providers/index.ts` directly. The provider needs:
 
-- `id` — lowercase string identifier
-- `name` — display name shown in the CLI
-- `binaries` — array of binary names to search for (e.g. `["claude"]`)
-- `promptFile` — path inside `templates/planning-prompts/` for this provider
-- `contextFile` — file the agent auto-reads (e.g. `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`)
-- `authHint` — message shown to user if auth check fails
-- `checkAuth()` — returns `Promise<boolean>`, checks env vars or credential files
+- `id` lowercase string identifier
+- `name` display name shown in the CLI
+- `binaries` array of binary names to search for (e.g. `["claude"]`)
+- `promptFile` path inside `templates/planning-prompts/` for this provider
+- `contextFile` file the agent auto-reads (e.g. `CLAUDE.md`, `AGENTS.md`, `GEMINI.md`)
+- `authHint` message shown to user if auth check fails
+- `checkAuth()` returns `Promise<boolean>`, checks env vars or credential files
 
 ### 2. Add a planning prompt template
 
@@ -115,7 +115,7 @@ The planning prompts live in `packages/create-vibekit-app/templates/planning-pro
 
 If you find that the AI skips the interview, generates incomplete files, misses a tech stack detail, or produces a poor `prompt.md`, the fix is usually in the prompt template.
 
-Changes to the prompts are welcome. Keep the original structure intact — the 4-file output, the interview process, the confirmation step before writing — and note in your PR what specific behavior you were trying to fix or improve.
+Changes to the prompts are welcome. Keep the original structure intact the 4-file output, the interview process, the confirmation step before writing and note in your PR what specific behavior you were trying to fix or improve.
 
 The `base.md` file in that folder is the raw, unchanged `CLAUDE_PROMPT.md` from the original framework. Keep it as the source of truth; the provider-specific variants are the ones the CLI actually uses.
 
@@ -130,6 +130,7 @@ A VibeKit component is **production-ready, self-contained, and reusable** across
 ### Contribution workflow
 
 1. **Build and host the component** at a public shadcn-compatible registry URL:
+
    ```bash
    # Verify it works on a fresh project
    pnpm dlx shadcn@latest add https://your-registry.com/r/your-component.json
@@ -142,7 +143,7 @@ A VibeKit component is **production-ready, self-contained, and reusable** across
    {
      slug: "my-component",
      name: "My Component",
-     tagline: "One sentence — what it does and who it's for.",
+     tagline: "One sentence  what it does and who it's for.",
      category: "data", // auth | marketing | data | commerce | files | content | api | forms
      categoryLabel: "Data",
      install: "pnpm dlx shadcn@latest add https://your-registry.com/r/my-component.json",
@@ -167,7 +168,7 @@ A VibeKit component is **production-ready, self-contained, and reusable** across
 ### Component checklist
 
 - [ ] Works end-to-end on a fresh Next.js 16 project
-- [ ] Schema entry is complete — no empty fields
+- [ ] Schema entry is complete no empty fields
 - [ ] `filesAdded` lists every file and route the install creates
 - [ ] Doc page exists and is publicly accessible
 - [ ] Does not duplicate an existing JB component
@@ -178,7 +179,7 @@ A VibeKit component is **production-ready, self-contained, and reusable** across
 
 Be direct, be honest, be helpful. No spam. No vague "would be nice if" issues without context. No marketing copy in PR descriptions.
 
-This is a small project. We're not optimizing for a large contributor count — we're optimizing for things that actually work and help people ship.
+This is a small project. We're not optimizing for a large contributor count we're optimizing for things that actually work and help people ship.
 
 ---
 

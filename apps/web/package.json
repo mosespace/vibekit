@@ -2,7 +2,7 @@
   "name": "vibekit-web",
   "version": "0.1.0",
   "private": true,
-  "description": "VibeKit Framework landing site — vibekit.desishub.com",
+  "description": "VibeKit Framework landing site  vibekit.desishub.com",
   "scripts": {
     "check-types": "tsc --noEmit",
     "predev": "node scripts/sync-prompts.mjs",

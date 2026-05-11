@@ -1,10 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  /* Fonts (resolved by next/font in layout.tsx) */
+  /* Fonts */
   --font-sans: var(--font-geist), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-geist), system-ui, sans-serif;
-  --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono), "JetBrains Mono", ui-monospace, monospace;
+  --font-mono:
+    var(--font-jetbrains-mono), var(--font-geist-mono), "JetBrains Mono",
+    ui-monospace, monospace;
 
   /* Type scale */
   --text-xs: 0.75rem;
@@ -19,7 +21,7 @@
   --text-6xl: 4.5rem;
   --text-7xl: 6rem;
 
-  /* Spacing scale (8pt grid) */
+  /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -30,38 +32,42 @@
   --space-16: 4rem;
   --space-24: 6rem;
 
-  /* Radius — V0/Skills aesthetic uses smaller radii */
+  /* Radius */
   --radius-sm: 0.25rem;
   --radius: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
-  --radius-2xl: 1.25rem;
+  --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Light theme — minimal warm cream */
-  --bg: #FAFAF7;
-  --bg-subtle: #F2F1EC;
-  --bg-muted: #E8E6DF;
-  --bg-elevated: #FFFFFF;
-  --text-primary: #0A0A09;
-  --text-secondary: #4A4A45;
-  --text-tertiary: #8A8A85;
-  --text-disabled: #C4C0B7;
-  --text-inverse: #FAFAF7;
-  --border: #E2DFD7;
-  --border-strong: #C4C0B7;
-  --border-focus: #0A0A09;
-  --accent: #4F46E5;
-  --accent-fg: #FFFFFF;
-  --accent-soft: #EEF0FF;
-  --accent-glow: rgba(79, 70, 229, 0.18);
+  /* ── Light theme — Claude warm cream ── */
+  --bg: #faf8f4;
+  --bg-subtle: #f2ede6;
+  --bg-muted: #e8e0d5;
+  --bg-elevated: #ffffff;
+  --text-primary: #1a1410;
+  --text-secondary: #4a3f35;
+  --text-tertiary: #9a8a7a;
+  --text-disabled: #c8b8a8;
+  --text-inverse: #faf8f4;
+  --border: #e0d5c8;
+  --border-strong: #c4b5a5;
+  --border-focus: #d97757;
+  /* Claude coral */
+  --accent: #c96442;
+  --accent-fg: #ffffff;
+  --accent-soft: rgba(201, 100, 66, 0.1);
+  --accent-glow: rgba(201, 100, 66, 0.22);
 
   --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.04);
   --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
-  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
-  --shadow-lg: 0 12px 24px -8px rgb(0 0 0 / 0.12), 0 4px 8px -4px rgb(0 0 0 / 0.06);
-  --shadow-xl: 0 24px 48px -12px rgb(0 0 0 / 0.18), 0 8px 16px -8px rgb(0 0 0 / 0.08);
+  --shadow-md:
+    0 4px 6px -1px rgb(0 0 0 / 0.08), 0 2px 4px -2px rgb(0 0 0 / 0.04);
+  --shadow-lg:
+    0 12px 24px -8px rgb(0 0 0 / 0.12), 0 4px 8px -4px rgb(0 0 0 / 0.06);
+  --shadow-xl:
+    0 24px 48px -12px rgb(0 0 0 / 0.18), 0 8px 16px -8px rgb(0 0 0 / 0.08);
   --shadow-glow: 0 0 60px var(--accent-glow);
 
   --transition-fast: 120ms cubic-bezier(0.4, 0, 0.2, 1);
@@ -70,23 +76,24 @@
 }
 
 .dark {
-  /* Pure-black V0/Skills aesthetic */
-  --bg: #050505;
-  --bg-subtle: #0B0B0B;
-  --bg-muted: #131313;
-  --bg-elevated: #0E0E0E;
-  --text-primary: #FAFAFA;
-  --text-secondary: #A0A0A0;
-  --text-tertiary: #6B6B6B;
-  --text-disabled: #3A3A3A;
-  --text-inverse: #050505;
-  --border: #1E1E1E;
-  --border-strong: #2D2D2D;
-  --border-focus: #FAFAFA;
-  --accent: #818CF8;
-  --accent-fg: #050505;
-  --accent-soft: rgba(129, 140, 248, 0.10);
-  --accent-glow: rgba(129, 140, 248, 0.32);
+  /* ── Dark theme — Claude warm charcoal ── */
+  --bg: #0e0c09;
+  --bg-subtle: #151210;
+  --bg-muted: #1c1916;
+  --bg-elevated: #181410;
+  --text-primary: #f5efe6;
+  --text-secondary: #a89880;
+  --text-tertiary: #705d4a;
+  --text-disabled: #3d3228;
+  --text-inverse: #0e0c09;
+  --border: #2a221a;
+  --border-strong: #3d3228;
+  --border-focus: #d97757;
+  /* Claude coral — brighter in dark */
+  --accent: #d97757;
+  --accent-fg: #0e0c09;
+  --accent-soft: rgba(217, 119, 87, 0.12);
+  --accent-glow: rgba(217, 119, 87, 0.35);
 }
 
 @theme inline {
@@ -106,9 +113,17 @@
   --font-mono: var(--font-mono);
 }
 
-* { box-sizing: border-box; }
-html { font-size: 16px; -webkit-text-size-adjust: 100%; scroll-behavior: smooth; }
-html, body {
+* {
+  box-sizing: border-box;
+}
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  scroll-behavior: smooth;
+  data-scroll-behavior: smooth;
+}
+html,
+body {
   margin: 0;
   padding: 0;
   background: var(--bg);
@@ -118,17 +133,34 @@ html, body {
   line-height: 1.55;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  transition: background var(--transition-base), color var(--transition-base);
+  transition:
+    background var(--transition-base),
+    color var(--transition-base);
 }
 
-body { overflow-x: hidden; }
+body {
+  overflow-x: hidden;
+}
 
-::selection { background: var(--accent); color: var(--accent-fg); }
+::selection {
+  background: var(--accent);
+  color: var(--accent-fg);
+}
 
-::-webkit-scrollbar { width: 8px; height: 8px; }
-::-webkit-scrollbar-track { background: transparent; }
-::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
-::-webkit-scrollbar-thumb:hover { background: var(--text-tertiary); }
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border-strong);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-tertiary);
+}
 
 :focus-visible {
   outline: 2px solid var(--accent);
@@ -137,7 +169,9 @@ body { overflow-x: hidden; }
 }
 
 @media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
+  *,
+  *::before,
+  *::after {
     animation-duration: 0.01ms !important;
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
@@ -146,11 +180,21 @@ body { overflow-x: hidden; }
 }
 
 /* Utility classes */
-.font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
-.font-mono { font-family: var(--font-mono); }
+.font-display {
+  font-family: var(--font-display);
+  letter-spacing: -0.02em;
+}
+.font-mono {
+  font-family: var(--font-mono);
+}
 
+/* Claude coral gradient */
 .gradient-text {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+  background: linear-gradient(
+    135deg,
+    var(--accent) 0%,
+    color-mix(in srgb, var(--accent) 60%, #e8a87c) 100%
+  );
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -162,23 +206,55 @@ body { overflow-x: hidden; }
   -webkit-backdrop-filter: blur(14px) saturate(180%);
 }
 
-/* V0/Skills.dev fading grid — radial mask fades edges */
+/* Warm grid — radial mask fades edges */
 .grid-pattern {
   background-image:
-    linear-gradient(to right, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--border) 70%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--border) 70%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 56px 56px;
-  mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 30%, transparent 80%);
-  -webkit-mask-image: radial-gradient(ellipse 70% 50% at 50% 30%, black 30%, transparent 80%);
+  mask-image: radial-gradient(
+    ellipse 70% 50% at 50% 30%,
+    black 30%,
+    transparent 80%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 70% 50% at 50% 30%,
+    black 30%,
+    transparent 80%
+  );
 }
 
 .grid-pattern-fine {
   background-image:
-    linear-gradient(to right, color-mix(in srgb, var(--border) 60%, transparent) 1px, transparent 1px),
-    linear-gradient(to bottom, color-mix(in srgb, var(--border) 60%, transparent) 1px, transparent 1px);
+    linear-gradient(
+      to right,
+      color-mix(in srgb, var(--border) 60%, transparent) 1px,
+      transparent 1px
+    ),
+    linear-gradient(
+      to bottom,
+      color-mix(in srgb, var(--border) 60%, transparent) 1px,
+      transparent 1px
+    );
   background-size: 32px 32px;
-  mask-image: radial-gradient(ellipse 60% 40% at 50% 0%, black, transparent 70%);
-  -webkit-mask-image: radial-gradient(ellipse 60% 40% at 50% 0%, black, transparent 70%);
+  mask-image: radial-gradient(
+    ellipse 60% 40% at 50% 0%,
+    black,
+    transparent 70%
+  );
+  -webkit-mask-image: radial-gradient(
+    ellipse 60% 40% at 50% 0%,
+    black,
+    transparent 70%
+  );
 }
 
 /* Subtle scan line for techy feel */
@@ -204,36 +280,80 @@ body { overflow-x: hidden; }
 
 /* SVG animations */
 @keyframes spin-slow {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 @keyframes float-slow {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-6px); }
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-6px);
+  }
 }
 
 @keyframes pulse-glow {
-  0%, 100% { opacity: 0.5; }
-  50% { opacity: 1; }
+  0%,
+  100% {
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 1;
+  }
 }
 
 @keyframes shimmer {
-  0% { transform: translateX(-100%); }
-  100% { transform: translateX(100%); }
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
 }
 
 @keyframes orbit {
-  from { transform: rotate(0deg) translateX(var(--orbit-r, 36px)) rotate(0deg); }
-  to { transform: rotate(360deg) translateX(var(--orbit-r, 36px)) rotate(-360deg); }
+  from {
+    transform: rotate(0deg) translateX(var(--orbit-r, 36px)) rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg) translateX(var(--orbit-r, 36px)) rotate(-360deg);
+  }
 }
 
-.animate-spin-slow { animation: spin-slow 16s linear infinite; }
-.animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
-.animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
-.animate-orbit { animation: orbit 8s linear infinite; }
+/* Terminal cursor blink */
+@keyframes blink {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0;
+  }
+}
 
-/* Hero block-letter outline effect */
+.animate-spin-slow {
+  animation: spin-slow 16s linear infinite;
+}
+.animate-float-slow {
+  animation: float-slow 4s ease-in-out infinite;
+}
+.animate-pulse-glow {
+  animation: pulse-glow 3s ease-in-out infinite;
+}
+.animate-orbit {
+  animation: orbit 8s linear infinite;
+}
+.animate-blink {
+  animation: blink 1.2s step-end infinite;
+}
+
+/* Block-letter outline */
 .text-stroke {
   -webkit-text-stroke: 1px var(--text-primary);
   color: transparent;
@@ -265,6 +385,32 @@ body { overflow-x: hidden; }
   overflow-x: auto;
 }
 
+/* Terminal window */
+.terminal {
+  background: #0e0c09;
+  border: 1px solid #2a221a;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: #f5efe6;
+  overflow: hidden;
+}
+
+.terminal-bar {
+  background: #1c1916;
+  border-bottom: 1px solid #2a221a;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
 /* CPU Architecture animated traveling lights */
 .cpu-architecture {
   offset-anchor: 10px 0px;
@@ -293,7 +439,9 @@ body { overflow-x: hidden; }
   animation-duration: 3s;
 }
 .cpu-line-5 {
-  offset-path: path("M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -35");
+  offset-path: path(
+    "M 135 65 h 15 q 5 0 5 5 v 10 q 0 5 -5 5 h -39.8 q -5 0 -5 -5 v -35"
+  );
   animation-delay: 9s;
   animation-duration: 4s;
 }
@@ -303,7 +451,9 @@ body { overflow-x: hidden; }
   animation-duration: 7s;
 }
 .cpu-line-7 {
-  offset-path: path("M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 28");
+  offset-path: path(
+    "M 88 88 v -15 q 0 -5 -5 -5 h -10 q -5 0 -5 -5 v -5 q 0 -5 5 -5 h 28"
+  );
   animation-delay: 4s;
   animation-duration: 4s;
 }
@@ -313,6 +463,10 @@ body { overflow-x: hidden; }
   animation-duration: 3s;
 }
 @keyframes animation-path {
-  0% { offset-distance: 0%; }
-  100% { offset-distance: 100%; }
+  0% {
+    offset-distance: 0%;
+  }
+  100% {
+    offset-distance: 100%;
+  }
 }

@@ -9,9 +9,9 @@ export const SITE = {
   name: "VibeKit",
   fullName: "VibeKit Framework",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://vibekit.desishub.com",
-  tagline: "Ship production apps with Claude Code",
+  tagline: "One command. Any AI provider. Ship production apps.",
   description:
-    "VibeKit is a structured framework for vibe coders building production-grade Next.js apps with Claude Code or any agent — without burning tokens, shipping broken auth, or getting stuck.",
+    "create-vibekit-app scaffolds your project, collects your idea, detects your AI provider, and launches a structured planning + build session — from one terminal command.",
   twitter: "@mosespace",
   github: "https://github.com/mosespace/vibekit_pro",
   upstreamGithub: "https://github.com/MUKE-coder/vibekit",
@@ -19,7 +19,8 @@ export const SITE = {
   // Fork maintainer
   author: "Moses Kisakye",
   authorUrl: "https://github.com/mosespace",
-  authorAvatar: "https://github.com/mosespace.png",
+  authorAvatar:
+    "https://media.licdn.com/dms/image/v2/D5603AQHCxzu2HIx-4g/profile-displayphoto-shrink_200_200/profile-displayphoto-shrink_200_200/0/1718217272899?e=2147483647&v=beta&t=hIqPNWFHlJtHf45YH1ejnQ2tlMQNZDWt6FLBT9y1pxE",
   // Original creator
   originalAuthor: "JB (Muke Johnbaptist) · Desishub Technologies",
   originalAuthorUrl: "https://jb.desishub.com",

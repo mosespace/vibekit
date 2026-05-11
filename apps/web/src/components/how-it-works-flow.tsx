@@ -3,69 +3,91 @@
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
-import {
-  ArrowRight,
-  FileText,
-  ListTodo,
-  Palette,
-  PenLine,
-  Rocket,
-  ShieldCheck,
-  Sparkles,
-} from "lucide-react";
+import { ArrowRight, BrainCircuit, Rocket, Terminal } from "lucide-react";
 import { useRef } from "react";
 
 if (typeof window !== "undefined") {
   gsap.registerPlugin(ScrollTrigger);
 }
 
-type Step = {
-  n: string;
-  eyebrow: string;
-  title: string;
-  body: string;
-  icons: { Icon: React.ComponentType<{ className?: string }>; label: string }[];
-  caption: string;
-};
-
-const steps: Step[] = [
+const steps = [
   {
     n: "01",
-    eyebrow: "PLAN",
-    title: "Tell Claude your idea.",
-    body: "Paste the planning prompt into Claude.ai with one paragraph about your app. Claude either interviews you or jumps straight to a structured summary if your brief is detailed — then asks for your consent before generating.",
-    icons: [
-      { Icon: FileText, label: "project-description" },
-      { Icon: ListTodo, label: "project-phases" },
-      { Icon: Palette, label: "design-style-guide" },
-      { Icon: Sparkles, label: "prompt" },
+    eyebrow: "INSTALL",
+    Icon: Terminal,
+    title: "Run one command.",
+    body: "Run `npx create-vibekit-app my-app`. The CLI creates your project directory, copies the full VibeKit framework into `.vibekit/`, and drops a `.env.example` — zero config.",
+    terminal: [
+      { prompt: true, text: "npx create-vibekit-app my-app" },
+      { ok: true, text: "Project scaffolded → my-app/" },
+      { info: true, text: "◆ Describe your app idea:" },
     ],
-    caption: "Output: 4 downloadable files",
+    caption: "< 30 seconds to scaffold",
   },
   {
     n: "02",
-    eyebrow: "BUILD",
-    title: "Drop them into your agent.",
-    body: "Add the 4 files plus the master prompt and component registry to your project. Open Claude Code, Cursor, Cline, Windsurf — any agent that reads files. It reads everything, plans Phase 1, and starts building. Stops between phases for your sign-off.",
-    icons: [
-      { Icon: PenLine, label: "Phase 1 · Auth" },
-      { Icon: PenLine, label: "Phase 2 · CRUD" },
-      { Icon: PenLine, label: "Phase 3 · Polish" },
+    eyebrow: "PLAN",
+    Icon: BrainCircuit,
+    title: "Describe it. AI plans it.",
+    body: "Type your idea in 1–3 sentences. The CLI detects your installed AI providers (Claude Code, Codex, Gemini, OpenCode), checks auth, and launches Session 1 — the planning interview. Claude generates 4 project files.",
+    terminal: [
+      { ok: true, text: "Claude Code → authenticated ✓" },
+      { info: true, text: "Session 1 — Planning" },
+      { dim: true, text: "Generating 4 project files..." },
+      { ok: true, text: "project-description.md written" },
+      { ok: true, text: "project-phases.md written" },
+      { ok: true, text: "design-style-guide.md written" },
+      { ok: true, text: "prompt.md written" },
     ],
-    caption: "Phase by phase, with your control",
+    caption: "4 files · agent-agnostic",
   },
   {
     n: "03",
-    eyebrow: "SHIP",
-    title: "Audit, then deploy.",
-    body: "Before going live, paste the pre-deploy review prompt. Your agent runs a senior-level audit covering security, performance, and resource usage. Fix every Critical. Push to Vercel. Point a domain. Done.",
-    icons: [
-      { Icon: ShieldCheck, label: "Critical / High / Medium" },
-      { Icon: Rocket, label: "Vercel + Cloudflare" },
+    eyebrow: "BUILD",
+    Icon: Rocket,
+    title: "Agent builds. You ship.",
+    body: "After planning, the CLI offers Session 2 — Build. Your agent reads the 4 files plus the VibeKit framework, executes Phase 1, and pauses for your sign-off between phases. Pre-deploy review runs before Vercel push.",
+    terminal: [
+      { info: true, text: "Session 2 — Build" },
+      { dim: true, text: "Reading prompt.md..." },
+      { ok: true, text: "Phase 1: Foundation — done" },
+      { ok: true, text: "Phase 2: CRUD — done" },
+      { ok: true, text: "Pre-deploy audit passed" },
+      { accent: true, text: "▶ Deploying to Vercel..." },
     ],
-    caption: "Production-ready in hours, not weeks",
+    caption: "Phase by phase · production-ready",
   },
 ];
+
+type Line = { prompt?: boolean; ok?: boolean; info?: boolean; dim?: boolean; accent?: boolean; text: string };
+
+function TerminalLines({ lines }: { lines: Line[] }) {
+  return (
+    <div className="rounded-md border border-[#2A221A] bg-[#0E0C09] p-4 font-mono text-[11.5px] leading-[1.9] space-y-0.5">
+      {lines.map((l, i) => (
+        <div key={i} className="flex items-center gap-2">
+          {l.prompt && <span className="text-[#D97757]">$</span>}
+          {l.ok && <span className="text-[#27C93F]">✔</span>}
+          {l.info && <span className="text-[#D97757]">◆</span>}
+          {l.dim && <span className="text-[#3D3228]">·</span>}
+          {l.accent && <span className="text-[#D97757]">▶</span>}
+          <span
+            className={
+              l.prompt ? "text-[#F5EFE6]"
+              : l.ok ? "text-[#A89880]"
+              : l.info ? "text-[#F5EFE6]"
+              : l.dim ? "text-[#3D3228]"
+              : l.accent ? "text-[#D97757] font-medium"
+              : "text-[#A89880]"
+            }
+          >
+            {l.text}
+          </span>
+        </div>
+      ))}
+    </div>
+  );
+}
 
 export function HowItWorksFlow() {
   const root = useRef<HTMLElement>(null);
@@ -84,38 +106,23 @@ export function HowItWorksFlow() {
       tl.from(".flow-eyebrow", { y: 14, opacity: 0, duration: 0.5 })
         .from(".flow-headline", { y: 18, opacity: 0, duration: 0.6 }, "-=0.3")
         .from(".flow-sub", { y: 12, opacity: 0, duration: 0.5 }, "-=0.3")
-        .from(".flow-step", {
-          y: 24,
-          opacity: 0,
-          stagger: 0.18,
-          duration: 0.7,
-          ease: "power3.out",
-        }, "-=0.2")
-        .from(".flow-arrow", {
-          opacity: 0,
-          x: -8,
-          stagger: 0.18,
-          duration: 0.4,
-        }, "-=0.9");
+        .from(".flow-step", { y: 28, opacity: 0, stagger: 0.18, duration: 0.7 }, "-=0.2")
+        .from(".flow-arrow", { opacity: 0, x: -8, stagger: 0.18, duration: 0.4 }, "-=0.9");
     },
     { scope: root }
   );
 
   return (
-    <section
-      ref={root}
-      id="how-it-works"
-      className="relative py-24 sm:py-32 overflow-hidden"
-    >
-      {/* Faded grid background */}
+    <section ref={root} id="how-it-works" className="relative py-24 sm:py-32 overflow-hidden">
+      {/* Warm grid */}
       <div className="pointer-events-none absolute inset-0 grid-pattern opacity-50" aria-hidden />
-      {/* Soft accent bloom */}
+      {/* Claude coral bloom */}
       <div
         className="pointer-events-none absolute inset-0"
         aria-hidden
         style={{
           background:
-            "radial-gradient(ellipse 50% 60% at 50% 30%, color-mix(in srgb, var(--accent) 8%, transparent), transparent 70%)",
+            "radial-gradient(ellipse 50% 60% at 50% 30%, color-mix(in srgb, #D97757 7%, transparent), transparent 70%)",
         }}
       />
 
@@ -124,81 +131,86 @@ export function HowItWorksFlow() {
         <div className="mx-auto max-w-2xl text-center">
           <div className="flow-eyebrow inline-flex items-center gap-2 rounded-full border border-[color:var(--border)] bg-[color:var(--bg-elevated)] px-3 py-1.5 font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-secondary)]">
             <span className="h-1.5 w-1.5 rounded-full bg-[color:var(--accent)]" />
-            How it works
+            How create-vibekit-app works
           </div>
           <h2 className="flow-headline font-display mt-6 text-[clamp(2rem,4.5vw,3.25rem)] leading-[1.05] tracking-tight text-[color:var(--text-primary)]">
-            Three steps from idea to <em className="not-italic gradient-text">production</em>.
+            One command does <em className="not-italic gradient-text">everything</em>.
           </h2>
           <p className="flow-sub mt-5 text-[16px] leading-relaxed text-[color:var(--text-secondary)]">
-            Plan with Claude. Build with any agent. Audit and ship. The whole flow takes an afternoon — and the patterns repeat for every project after.
+            The CLI handles scaffold, idea collection, provider detection, auth check, and agent handoff — all in the same terminal session.
           </p>
         </div>
 
         {/* 3-step flow */}
-        <div className="mt-14 sm:mt-20 grid gap-6 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-stretch">
+        <div className="mt-16 sm:mt-20 grid gap-4 lg:grid-cols-[1fr_auto_1fr_auto_1fr] lg:items-stretch">
           {steps.map((s, i) => (
-            <FlowFragment key={s.n} step={s} isLast={i === steps.length - 1} />
+            <FlowCard key={s.n} step={s} isLast={i === steps.length - 1} />
           ))}
         </div>
 
-        {/* Footnote */}
-        <p className="mt-12 text-center font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-tertiary)]">
-          See the laptop demo below for what step 1 looks like in real time
+        <p className="mt-10 text-center font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-tertiary)]">
+          Ctrl+C between sessions returns you to the CLI for the next step
         </p>
       </div>
     </section>
   );
 }
 
-function FlowFragment({ step, isLast }: { step: Step; isLast: boolean }) {
+function FlowCard({
+  step,
+  isLast,
+}: {
+  step: (typeof steps)[number];
+  isLast: boolean;
+}) {
   return (
     <>
-      {/* Step card */}
-      <article className="flow-step relative flex flex-col rounded-md border border-[color:var(--border)] bg-[color:var(--bg-elevated)] p-6 sm:p-7 transition-colors hover:border-[color:var(--border-strong)]">
-        {/* Step number + eyebrow */}
-        <div className="flex items-baseline justify-between gap-3">
-          <span className="font-mono text-[36px] sm:text-[48px] font-light leading-none text-[color:var(--accent)] tabular-nums">
+      <article className="flow-step group relative flex flex-col rounded-[var(--radius-xl)] border border-[color:var(--border)] bg-[color:var(--bg-elevated)] p-6 sm:p-7 transition-all hover:border-[color:var(--border-strong)] hover:shadow-[var(--shadow-md)]">
+        {/* Subtle hover glow */}
+        <div
+          className="pointer-events-none absolute inset-0 rounded-[var(--radius-xl)] opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+          aria-hidden
+          style={{
+            background:
+              "radial-gradient(ellipse 80% 60% at 50% 0%, color-mix(in srgb, var(--accent) 5%, transparent), transparent 70%)",
+          }}
+        />
+
+        {/* Step number + icon */}
+        <div className="relative flex items-baseline justify-between gap-3">
+          <span className="font-mono text-[40px] sm:text-[52px] font-light leading-none text-[color:var(--accent)] tabular-nums">
             {step.n}
           </span>
-          <span className="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-tertiary)]">
-            {step.eyebrow}
-          </span>
+          <div className="flex items-center gap-2">
+            <span className="font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-tertiary)]">
+              {step.eyebrow}
+            </span>
+            <step.Icon className="h-4 w-4 text-[color:var(--text-tertiary)]" />
+          </div>
         </div>
 
-        <h3 className="font-display mt-6 text-[22px] sm:text-[26px] leading-tight tracking-tight text-[color:var(--text-primary)]">
+        <h3 className="relative font-display mt-5 text-[22px] sm:text-[24px] leading-tight tracking-tight text-[color:var(--text-primary)]">
           {step.title}
         </h3>
 
-        <p className="mt-3 flex-1 text-[14.5px] leading-relaxed text-[color:var(--text-secondary)]">
+        <p className="relative mt-3 flex-1 text-[14px] leading-relaxed text-[color:var(--text-secondary)]">
           {step.body}
         </p>
 
-        {/* Icon row */}
-        <div className="mt-6 flex flex-wrap items-center gap-2">
-          {step.icons.map(({ Icon, label }) => (
-            <span
-              key={label}
-              className="inline-flex items-center gap-1.5 rounded-md border border-[color:var(--border)] bg-[color:var(--bg-subtle)] px-2 py-1 font-mono text-[10px] uppercase tracking-wider text-[color:var(--text-secondary)]"
-            >
-              <Icon className="h-3 w-3 text-[color:var(--accent)]" />
-              {label}
-            </span>
-          ))}
+        {/* Terminal preview */}
+        <div className="relative mt-5">
+          <TerminalLines lines={step.terminal} />
         </div>
 
-        <div className="mt-5 border-t border-[color:var(--border)] pt-4 font-mono text-[11px] uppercase tracking-wider text-[color:var(--text-tertiary)]">
+        <div className="relative mt-4 border-t border-[color:var(--border)] pt-3 font-mono text-[10px] uppercase tracking-wider text-[color:var(--text-tertiary)]">
           {step.caption}
         </div>
       </article>
 
-      {/* Arrow between cards (desktop horizontal, mobile vertical) */}
       {!isLast ? (
-        <div
-          className="flow-arrow flex items-center justify-center text-[color:var(--text-tertiary)] lg:px-2"
-          aria-hidden
-        >
-          <ArrowRight className="hidden h-5 w-5 lg:inline" />
-          <ArrowRight className="inline h-4 w-4 rotate-90 lg:hidden" />
+        <div className="flow-arrow flex items-center justify-center text-[color:var(--text-tertiary)] lg:px-1" aria-hidden>
+          <ArrowRight className="hidden h-5 w-5 text-[color:var(--accent)] opacity-60 lg:inline" />
+          <ArrowRight className="inline h-4 w-4 rotate-90 text-[color:var(--accent)] opacity-60 lg:hidden" />
         </div>
       ) : null}
     </>

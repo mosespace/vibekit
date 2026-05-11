@@ -9,9 +9,9 @@ export const SITE = {
   name: "VibeKit",
   fullName: "VibeKit Framework",
   url: process.env.NEXT_PUBLIC_SITE_URL || "https://vibekit.desishub.com",
-  tagline: "Ship production apps with Claude Code",
+  tagline: "One command. Any AI provider. Ship production apps.",
   description:
-    "VibeKit is a structured framework for vibe coders building production-grade Next.js apps with Claude Code or any agent — without burning tokens, shipping broken auth, or getting stuck.",
+    "create-vibekit-app scaffolds your project, collects your idea, detects your AI provider, and launches a structured planning + build session — from one terminal command.",
   twitter: "@mosespace",
   github: "https://github.com/mosespace/vibekit_pro",
   upstreamGithub: "https://github.com/MUKE-coder/vibekit",

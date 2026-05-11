@@ -18,24 +18,58 @@ const guides = [
   {
     slug: "what-is-vibekit",
     title: "What is VibeKit?",
-    blurb: "An overview of the framework: what problem it solves, how it works, and who it's for.",
+    blurb:
+      "An overview of the framework: what problem it solves, how it works, and who it's for.",
   },
   {
     slug: "quickstart",
     title: "Quickstart",
-    blurb: "From a blank Claude conversation to a deployed Next.js app — step by step.",
+    blurb:
+      "From a blank Claude conversation to a deployed Next.js app — step by step.",
   },
 ];
 
 const externalGuides = [
-  { name: "Master prompt", href: `${SITE.github}/blob/main/master_prompt.md`, blurb: "The coding constitution Claude Code follows on every build." },
-  { name: "Database guide", href: `${SITE.github}/blob/main/database-guide.md`, blurb: "Neon + Prisma v7: schema, migrations, query patterns." },
-  { name: "Deployment", href: `${SITE.github}/blob/main/deployment.md`, blurb: "Vercel + Cloudflare DNS + SSL + email domain verification." },
-  { name: "Environment variables", href: `${SITE.github}/blob/main/environment-variables.md`, blurb: "Step-by-step setup for every secret per integration." },
-  { name: "Monetization", href: `${SITE.github}/blob/main/monetization-guide.md`, blurb: "Stripe, webhooks, feature gating, billing pages." },
-  { name: "Pre-deploy review", href: `${SITE.github}/blob/main/pre-deploy-review.md`, blurb: "Senior-level audit prompt to run before going live." },
-  { name: "Prompt engineering", href: `${SITE.github}/blob/main/prompt-engineering.md`, blurb: "5-part formula, token economy, rescue system." },
-  { name: "Troubleshooting", href: `${SITE.github}/blob/main/troubleshooting.md`, blurb: "Symptoms → fixes when AI gets stuck." },
+  {
+    name: "Master prompt",
+    href: `${SITE.github}/blob/main/packages/create-vibekit-app/templates/master_prompt.md`,
+    blurb: "The coding constitution Claude Code follows on every build.",
+  },
+  {
+    name: "Database guide",
+    href: `${SITE.github}/blob/main/packages/create-vibekit-app/templates/database-guide.md`,
+    blurb: "Neon + Prisma v7: schema, migrations, query patterns.",
+  },
+  {
+    name: "Deployment",
+    href: `${SITE.github}/blob/main/packages/create-vibekit-app/templates/deployment.md`,
+    blurb: "Vercel + Cloudflare DNS + SSL + email domain verification.",
+  },
+  {
+    name: "Environment variables",
+    href: `${SITE.github}/blob/main/packages/create-vibekit-app/templates/environment-variables.md`,
+    blurb: "Step-by-step setup for every secret per integration.",
+  },
+  {
+    name: "Monetization",
+    href: `${SITE.github}/blob/main/packages/create-vibekit-app/templates/monetization-guide.md`,
+    blurb: "Stripe, webhooks, feature gating, billing pages.",
+  },
+  {
+    name: "Pre-deploy review",
+    href: `${SITE.github}/blob/main/packages/create-vibekit-app/templates/pre-deploy-review.md`,
+    blurb: "Senior-level audit prompt to run before going live.",
+  },
+  {
+    name: "Prompt engineering",
+    href: `${SITE.github}/blob/main/packages/create-vibekit-app/templates/prompt-engineering.md`,
+    blurb: "5-part formula, token economy, rescue system.",
+  },
+  {
+    name: "Troubleshooting",
+    href: `${SITE.github}/blob/main/packages/create-vibekit-app/templates/troubleshooting.md`,
+    blurb: "Symptoms → fixes when AI gets stuck.",
+  },
 ];
 
 export default function DocsHub() {

@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  /* Fonts (resolved by next/font in layout.tsx) */
+  /* Fonts */
   --font-sans: var(--font-geist), system-ui, -apple-system, sans-serif;
   --font-display: var(--font-geist), system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), var(--font-geist-mono), "JetBrains Mono", ui-monospace, monospace;
@@ -19,7 +19,7 @@
   --text-6xl: 4.5rem;
   --text-7xl: 6rem;
 
-  /* Spacing scale (8pt grid) */
+  /* Spacing */
   --space-1: 0.25rem;
   --space-2: 0.5rem;
   --space-3: 0.75rem;
@@ -30,32 +30,33 @@
   --space-16: 4rem;
   --space-24: 6rem;
 
-  /* Radius — V0/Skills aesthetic uses smaller radii */
+  /* Radius */
   --radius-sm: 0.25rem;
   --radius: 0.375rem;
   --radius-md: 0.5rem;
   --radius-lg: 0.75rem;
   --radius-xl: 1rem;
-  --radius-2xl: 1.25rem;
+  --radius-2xl: 1.5rem;
   --radius-full: 9999px;
 
-  /* Light theme — minimal warm cream */
-  --bg: #FAFAF7;
-  --bg-subtle: #F2F1EC;
-  --bg-muted: #E8E6DF;
+  /* ── Light theme — Claude warm cream ── */
+  --bg: #FAF8F4;
+  --bg-subtle: #F2EDE6;
+  --bg-muted: #E8E0D5;
   --bg-elevated: #FFFFFF;
-  --text-primary: #0A0A09;
-  --text-secondary: #4A4A45;
-  --text-tertiary: #8A8A85;
-  --text-disabled: #C4C0B7;
-  --text-inverse: #FAFAF7;
-  --border: #E2DFD7;
-  --border-strong: #C4C0B7;
-  --border-focus: #0A0A09;
-  --accent: #4F46E5;
+  --text-primary: #1A1410;
+  --text-secondary: #4A3F35;
+  --text-tertiary: #9A8A7A;
+  --text-disabled: #C8B8A8;
+  --text-inverse: #FAF8F4;
+  --border: #E0D5C8;
+  --border-strong: #C4B5A5;
+  --border-focus: #D97757;
+  /* Claude coral */
+  --accent: #C96442;
   --accent-fg: #FFFFFF;
-  --accent-soft: #EEF0FF;
-  --accent-glow: rgba(79, 70, 229, 0.18);
+  --accent-soft: rgba(201, 100, 66, 0.10);
+  --accent-glow: rgba(201, 100, 66, 0.22);
 
   --shadow-xs: 0 1px 2px 0 rgb(0 0 0 / 0.04);
   --shadow-sm: 0 1px 3px 0 rgb(0 0 0 / 0.06), 0 1px 2px -1px rgb(0 0 0 / 0.04);
@@ -70,23 +71,24 @@
 }
 
 .dark {
-  /* Pure-black V0/Skills aesthetic */
-  --bg: #050505;
-  --bg-subtle: #0B0B0B;
-  --bg-muted: #131313;
-  --bg-elevated: #0E0E0E;
-  --text-primary: #FAFAFA;
-  --text-secondary: #A0A0A0;
-  --text-tertiary: #6B6B6B;
-  --text-disabled: #3A3A3A;
-  --text-inverse: #050505;
-  --border: #1E1E1E;
-  --border-strong: #2D2D2D;
-  --border-focus: #FAFAFA;
-  --accent: #818CF8;
-  --accent-fg: #050505;
-  --accent-soft: rgba(129, 140, 248, 0.10);
-  --accent-glow: rgba(129, 140, 248, 0.32);
+  /* ── Dark theme — Claude warm charcoal ── */
+  --bg: #0E0C09;
+  --bg-subtle: #151210;
+  --bg-muted: #1C1916;
+  --bg-elevated: #181410;
+  --text-primary: #F5EFE6;
+  --text-secondary: #A89880;
+  --text-tertiary: #705D4A;
+  --text-disabled: #3D3228;
+  --text-inverse: #0E0C09;
+  --border: #2A221A;
+  --border-strong: #3D3228;
+  --border-focus: #D97757;
+  /* Claude coral — brighter in dark */
+  --accent: #D97757;
+  --accent-fg: #0E0C09;
+  --accent-soft: rgba(217, 119, 87, 0.12);
+  --accent-glow: rgba(217, 119, 87, 0.35);
 }
 
 @theme inline {
@@ -149,8 +151,9 @@ body { overflow-x: hidden; }
 .font-display { font-family: var(--font-display); letter-spacing: -0.02em; }
 .font-mono { font-family: var(--font-mono); }
 
+/* Claude coral gradient */
 .gradient-text {
-  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent) 100%);
+  background: linear-gradient(135deg, var(--accent) 0%, color-mix(in srgb, var(--accent) 60%, #E8A87C) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
@@ -162,7 +165,7 @@ body { overflow-x: hidden; }
   -webkit-backdrop-filter: blur(14px) saturate(180%);
 }
 
-/* V0/Skills.dev fading grid — radial mask fades edges */
+/* Warm grid — radial mask fades edges */
 .grid-pattern {
   background-image:
     linear-gradient(to right, color-mix(in srgb, var(--border) 70%, transparent) 1px, transparent 1px),
@@ -228,12 +231,19 @@ body { overflow-x: hidden; }
   to { transform: rotate(360deg) translateX(var(--orbit-r, 36px)) rotate(-360deg); }
 }
 
+/* Terminal cursor blink */
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
 .animate-spin-slow { animation: spin-slow 16s linear infinite; }
 .animate-float-slow { animation: float-slow 4s ease-in-out infinite; }
 .animate-pulse-glow { animation: pulse-glow 3s ease-in-out infinite; }
 .animate-orbit { animation: orbit 8s linear infinite; }
+.animate-blink { animation: blink 1.2s step-end infinite; }
 
-/* Hero block-letter outline effect */
+/* Block-letter outline */
 .text-stroke {
   -webkit-text-stroke: 1px var(--text-primary);
   color: transparent;
@@ -263,6 +273,32 @@ body { overflow-x: hidden; }
   border-radius: var(--radius-md);
   padding: var(--space-4);
   overflow-x: auto;
+}
+
+/* Terminal window */
+.terminal {
+  background: #0E0C09;
+  border: 1px solid #2A221A;
+  border-radius: var(--radius-lg);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: #F5EFE6;
+  overflow: hidden;
+}
+
+.terminal-bar {
+  background: #1C1916;
+  border-bottom: 1px solid #2A221A;
+  padding: 10px 14px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.terminal-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
 }
 
 /* CPU Architecture animated traveling lights */

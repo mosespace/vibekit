@@ -1,6 +1,7 @@
 import { ExternalLink } from "lucide-react";
 import { Section } from "./section";
 import { Button } from "./ui/button";
+import Link from "next/link";
 
 const components = [
   {
@@ -74,17 +75,12 @@ export function JBRegistry() {
             </div>
           </div>
         ))}
-      </div>
-
-      <div className="reveal mt-10 flex justify-center">
-        <Button
+        <Link
           href="https://jb.desishub.com/blog/jb-component-registry-complete-reference"
-          variant="outline"
-          size="md"
+          className="reveal sm:col-span-2 lg:col-span-2 inline-flex gap-2 justify-center items-center rounded-[var(--radius-lg)] border border-[color:var(--border)] p-5 text-white"
         >
-          Browse the full registry
-          <ExternalLink className="h-4 w-4" />
-        </Button>
+          Browse the full registry <ExternalLink className="h-4 w-4" />
+        </Link>
       </div>
     </Section>
   );

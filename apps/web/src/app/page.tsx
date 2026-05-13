@@ -12,6 +12,7 @@ import { HowItWorksFlow } from "@/components/how-it-works-flow";
 import { JBRegistry } from "@/components/jb-registry";
 import { LaptopMockup } from "@/components/laptop-mockup";
 import { Nav } from "@/components/nav";
+import { Platforms } from "@/components/platforms";
 import { PreDeploy } from "@/components/pre-deploy";
 import { Problems } from "@/components/problems";
 import { Stack } from "@/components/stack";
@@ -23,6 +24,7 @@ export default function HomePage() {
       <Nav />
       <main>
         <Hero />
+        <Platforms />
         <AgentsStrip />
         <HowItWorksFlow />
         <LaptopMockup />

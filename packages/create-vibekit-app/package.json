@@ -1,6 +1,6 @@
 {
   "name": "create-vibekit-app",
-  "version": "0.1.1",
+  "version": "0.2.0",
   "description": "Scaffold a production Next.js app with AI agents using the VibeKit framework",
   "keywords": [
     "vibekit",

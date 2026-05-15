@@ -1,6 +1,6 @@
 import { select, isCancel, cancel, note } from "@clack/prompts";
 import pc from "picocolors";
-import type { DetectedProvider } from "./02-provider-detect";
+import type { DetectedProvider } from "./03-provider-detect";
 import type { Provider } from "../providers";
 
 export async function selectProvider(

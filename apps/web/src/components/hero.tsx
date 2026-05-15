@@ -189,17 +189,20 @@ export function Hero() {
             {/* Headline */}
             <h1 className="hero-headline mt-8 font-display text-[clamp(2.6rem,6vw,4.75rem)] leading-[1.02] tracking-tight text-[color:var(--text-primary)]">
               <span className="block">One command.</span>
-              <span className="block gradient-text">Your full-stack</span>
-              <span className="block">app starts here.</span>
+              <span className="block gradient-text">
+                Web, Mobile, or Both (Turbo)
+              </span>
+              <span className="block">starts here.</span>
             </h1>
 
             <p className="hero-sub mt-6 max-w-lg text-[16px] sm:text-[17px] leading-relaxed text-[color:var(--text-secondary)]">
               <code className="font-mono text-[color:var(--accent)] text-[15px]">
                 create-vibekit-app
               </code>{" "}
-              scaffolds your project, collects your idea, auto-detects your AI
-              provider, and hands off to Claude Code, Codex, Gemini, or OpenCode
-              all from one terminal command.
+              scaffolds web apps (Next.js), mobile apps (Expo), or full-stack
+              projects. Choose your platform, describe your idea, auto-detect
+              your AI provider, and hand off to Claude Code all from one
+              command.
             </p>
 
             <div className="hero-cta mt-9 flex flex-wrap items-center gap-3">
